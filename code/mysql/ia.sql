@@ -26,13 +26,6 @@ VALUES
  'Morceaux d’agneau marinés et grillés au tandoor.',
 3, 3, 2),
 
-('Naan Nature', 2.50, 'naan_nature.jpg',
- 'Pain traditionnel cuit au tandoor.',
- 11, 1, 1),
-
-('Cheese Naan', 3.50, 'cheese_naan.jpg',
- 'Naan fondant fourré au fromage.',
- 11, 1, 1),
 
  ("Soupe de lentille",6.00,NULL,NULL,7,1,1),
 
@@ -151,10 +144,41 @@ VALUES
 
  ('Aloo jeera',9.00,NULL, "Pomme de terre sauté au cumin",6,1,1),
 
- ('Mix vegetable',9.00,NULL, "Mélange de légumes frais aux épices",6,1,1)
+ ('Mix vegetable',9.00,NULL, "Mélange de légumes frais aux épices",6,1,1),
 
+ ('Zeera bhat', 4.50,NULL,"Riz basmati au cumin",6,1,NULL),
 
+ ('Riz nature', 3.00,NULL,"Riz basmati au cumin",6,1,NULL),
 
+ ('Mattar pulau', 4.50,NULL,"Riz basmati mijoté au petits pois tendre au curry",6,1,NULL),
+
+ ('Kashmiri pulau', 4.50,NULL,"Riz basmati avec des fruits secs et cajou",6,1,NULL),
+
+ ('Naan Nature', 2.50, 'naan_nature.jpg','Pain traditionnel cuit au tandoor.',
+ 11, 1, 1),
+
+ ('Cheese Naan', 3.50, 'cheese_naan.jpg','Naan fondant fourré au fromage.',
+ 11, 1, 1),
+
+ ('Tandoori roti chapati', 2.00, NULL,'Tandoori roti chapati',
+ 11, 1, 1),
+
+ ('Cheese naan épice', 4.50, NULL,'Galette de farine de blé au levain fourée au fromage avec du piment vert gingembre oignions et coriandre',
+ 11, 1, 1),
+
+ ('Kashmiri naan',4.00,NULL, "Galette de blé farcie de fruit sec et aux amandes",11,1,1),
+
+ ('Keema naan',4.50,NULL, "Naan farcie de gigots hachés aux herbes et oignions",11,1,1),
+
+ ('Paratha',3.50,NULL, "Galette de blé complet feuilleté au beurre",11,1,1),
+
+ ('Mashala kulcha',3.50,NULL, "Naan farcie de pomme de terre écrasé avec des petits pois aux épices",11,1,1),
+
+ ("Naan à l'ail",3.50,NULL, "Galettes de farine de blé au levain à l'ail",11,1,1),
+
+  ("Naan aux oignons",3.50,NULL, "Galettes de farine de blé au levain aux oignions",11,1,1),
+
+  ("Cheese naan à l'ail",4.50,NULL, "Galettes de farine de blé au levain au fromage et ail",11,1,NULL)
 
 
  ;
