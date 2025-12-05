@@ -6,7 +6,7 @@ class HomepageController {
 		//renvoyer une réponse avec un code de status HTTP et au format JSON
 		res.status(200).json({
 			status: 200,
-			message: "Foodtruck API",
+			message: "Le chemin d'himalaya API",
 		});
 	};
 }

@@ -1,69 +1,130 @@
-INSERT INTO foodtruck_dev.dish
+-- INSERT INTO lechemin_dev.orderable
+-- (name, price, image, description, category_id, orderable_type_id, orderable_spice_id)
+-- VALUES
+-- -- Entrées
+-- ('Pakora Mix', 6.50, 'pakora_mix.jpg',
+--  'Assortiment de beignets de légumes croustillants.',
+--  1, 1, 1),
+
+-- ('Samossa Viande', 6.90, 'samossa_viande.jpg',
+--  'Feuilletés farcis au bœuf haché et épices.',
+--  1, 3, 1),
+
+-- -- Plats
+-- ('Poulet Curry Maison', 12.90, 'poulet_curry.jpg',
+--  'Poulet mijoté dans une sauce curry douce.',
+--  2, 2, 2),
+
+-- ('Agneau Madras', 14.50, 'agneau_madras.jpg',
+--  'Agneau mijoté dans une sauce Madras légèrement relevée.',
+--  2, 3, 3),
+
+-- ('Crevettes Masala', 15.50, 'crevettes_masala.jpg',
+--  'Crevettes sautées dans une sauce masala parfumée.',
+--  2, 5, 2),
+
+-- ('Poisson Korma', 13.90, 'poisson_korma.jpg',
+--  'Poisson cuit dans une sauce crémeuse aux noix de cajou.',
+--  2, 4, 1),
+
+-- -- Grillades / Tandoori
+-- ('Poulet Tandoori', 11.50, 'poulet_tandoori.jpg',
+--  'Poulet mariné au yaourt et épices, grillé au tandoor.',
+--  3, 2, 3),
+
+-- ('Agneau Tikka', 13.90, 'agneau_tikka.jpg',
+--  'Morceaux d’agneau marinés et grillés au tandoor.',
+--  3, 3, 2),
+
+-- -- Naans
+-- ('Naan Nature', 2.50, 'naan_nature.jpg',
+--  'Pain traditionnel cuit au tandoor.',
+--  2, 6, NULL),
+
+-- ('Cheese Naan', 3.50, 'cheese_naan.jpg',
+--  'Pain fourré au fromage.',
+--  2, 6, NULL),
+
+-- -- Dessert
+-- ('Gulab Jamun', 4.90, 'gulab_jamun.jpg',
+--  'Boules de lait sucrées servies dans un sirop parfumé.',
+--  4, NULL, NULL),
+
+-- ('Kheer', 4.50, 'kheer.jpg',
+--  'Riz au lait parfumé à la cardamome.',
+--  4, NULL, NULL);
+
+INSERT INTO lechemin_dev.orderable
+(name, price, image, description, category_id, orderable_type_id, orderable_spice_id)
 VALUES
-    (NULL, 'Tzatziki', 4.50, 'tzatziki.jpg', 'Yaourt grec, concombre, ail et aneth, servi avec du pain pita.', 1, 2),
-    (NULL, 'Fattoush', 5.00, 'fattoush.jpg', 'Salade libanaise avec concombre, tomate, oignon, menthe et croûtons grillés.', 1, 3),
-    (NULL, 'Bruschetta', 4.00, 'bruschetta.jpg', 'Pain grillé garni de tomates, basilic et huile d''olive.', 1, 1),
-    (NULL, 'Dolmades', 5.50, 'dolmades.jpg', 'Feuilles de vigne farcies au riz et aux herbes.', 1, 2),
-    (NULL, 'Hoummous', 4.20, 'hoummous.jpg', 'Purée de pois chiches, tahini, citron et huile d''olive.', 1, 3),
+('Pakora Mix', 6.50, 'pakora_mix.jpg',
+ 'Assortiment de beignets de légumes croustillants.', 
+ 1, 1, 1),
+
+('Samossa Viande', 6.90, 'samossa_viande.jpg',
+ 'Feuilleté farci au bœuf haché et épices.',
+ 1, 3, 1),
+
+('Poulet Curry Maison', 12.90, 'poulet_curry.jpg',
+ 'Poulet mijoté dans une sauce curry douce.',
+ 2, 2, 2),
+
+('Agneau Madras', 14.50, 'agneau_madras.jpg',
+ 'Agneau mijoté dans une sauce Madras légèrement relevée.',
+ 2, 3, 3),
+
+('Crevettes Masala', 15.50, 'crevettes_masala.jpg',
+ 'Crevettes sautées dans une sauce masala parfumée.',
+ 2, 5, 2),
+
+('Poulet Tandoori Traditionnel', 11.50, 'poulet_tandoori.jpg',
+ 'Poulet mariné au yaourt et épices, grillé au tandoor.',
+ 3, 2, 3),
+
+('Agneau Tikka', 13.90, 'agneau_tikka.jpg',
+ 'Morceaux d’agneau marinés et grillés au tandoor.',
+ 3, 3, 2),
+
+('Naan Nature', 2.50, 'naan_nature.jpg',
+ 'Pain traditionnel cuit au tandoor.',
+ 2, 1, NULL),
+
+('Cheese Naan', 3.50, 'cheese_naan.jpg',
+ 'Naan fondant fourré au fromage.',
+ 2, 1, NULL),
 
 
-    (NULL, 'Moussaka', 9.50, 'moussaka.jpg', 'Gratin d''aubergines, viande hachée et béchamel.', 2, 2),
-    (NULL, 'Kafta', 8.00, 'kafta.jpg', 'Brochettes de viande hachée épicée, grillées.', 2, 3),
-    (NULL, 'Bœuf bourguignon', 10.00, 'boeuf_bourguignon.jpg', 'Ragoût de bœuf mijoté au vin rouge, lardons et champignons.', 2, 1),
-    (NULL, 'Falafels', 7.50, 'falafels.jpg', 'Boulettes de pois chiches frites, servies avec sauce tahini.', 2, 3),
-    (NULL, 'Souvlaki', 8.50, 'souvlaki.jpg', 'Brochettes de porc ou poulet marinées, grillées.', 2, 2),
+('Gulab Jamun', 4.90, 'gulab_jamun.jpg',
+ 'Boules de lait sucrées servies dans un sirop parfumé.',
+ 4, NULL, NULL)
+ ;
 
-
-    (NULL, 'Baklava', 5.00, 'baklava.jpg', 'Feuilleté aux noix et miel, nappé de sirop.', 3, 3),
-    (NULL, 'Tarte Tatin', 6.00, 'tarte_tatin.jpg', 'Tarte renversée aux pommes caramélisées.', 3, 1),
-    (NULL, 'Loukoum', 3.50, 'loukoum.jpg', 'Confiserie turque à base de gelée de sucre et d''amandes.', 3, 2),
-    (NULL, 'Muhallabia', 4.50, 'muhallabia.jpg', 'Crème de lait, eau de rose et pistaches.', 3, 3),
-    (NULL, 'Yaourt au miel', 4.00, 'yaourt_miel.jpg', 'Yaourt grec crémeux, nappé de miel et noix.', 3, 2),
-
-
-    (NULL, 'Ouzo', 4.50, 'ouzo.jpg', 'Alcool grec anisé, à déguster avec de l''eau.', 4, 2),
-    (NULL, 'Jus de grenade', 3.50, 'jus_grenade.jpg', 'Jus de grenade frais, riche en antioxydants.', 4, 3),
-    (NULL, 'Vin rouge', 5.00, 'vin_rouge.jpg', 'Verre de vin rouge français, corsé et fruité.', 4, 1),
-    (NULL, 'Ayran', 2.50, 'ayran.jpg', 'Boisson rafraîchissante à base de yaourt, eau et sel.', 4, 2),
-    (NULL, 'Limonade maison', 3.00, 'limonade.jpg', 'Limonade artisanale, citron pressé et menthe.', 4, 1)
-;
-
-
-INSERT INTO foodtruck_dev.menu
+ INSERT INTO lechemin_dev.menu (name, price)
 VALUES
-    (NULL, 'Menu Découverte Méditerranéenne', 25.00),
-    (NULL, 'Menu Libanais Gourmand', 28.00),
-    (NULL, 'Menu Grec Traditionnel', 26.00),
-    (NULL, 'Menu Français Classique', 27.00),
-    (NULL, 'Menu Végétarien', 24.00)
-;
+('Menu Classique', 19.90),
+('Menu Royal', 25.90);
 
-INSERT INTO foodtruck_dev.dish_menu
+-- Menu Classique
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
 VALUES
-    (1, 1),  -- Entrée : Tzatziki
-    (6, 1),  -- Plat : Moussaka
-    (11, 1), -- Dessert : Baklava
-    (16, 1), -- Boisson : Ouzo
+(1, 1),  
+(3, 1),  
+(8, 1);  
 
-    (2, 2),  -- Entrée : Fattoush
-    (7, 2),  -- Plat : Kafta
-    (12, 2), -- Dessert : Tarte Tatin
-    (17, 2), -- Boisson : Jus de grenade
-
-
-    (4, 3),  -- Entrée : Dolmades
-    (9, 3),  -- Plat : Souvlaki
-    (13, 3), -- Dessert : Loukoum
-    (18, 3), -- Boisson : Ayran
+-- Menu Royal
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
+VALUES
+(2, 2),  
+(6, 2),
+(4, 2),
+(9, 2),
+(10, 2);
 
 
-    (3, 4),  -- Entrée : Bruschetta
-    (8, 4),  -- Plat : Bœuf bourguignon
-    (14, 4), -- Dessert : Muhallabia
-    (19, 4), -- Boisson : Vin rouge
+INSERT INTO lechemin_dev.drink (name, price, drink_type_id)
+VALUES
+('Lassi Mangue', 4.50, 2),
+('Thé Masala', 3.00, 3),
+('Coca-Cola 33cl', 2.50, 4);
 
-    (5, 5),  -- Entrée : Hoummous
-    (10, 5), -- Plat : Falafels
-    (15, 5), -- Dessert : Yaourt au miel
-    (20, 5) -- Boisson : Limonade maison
-;
+

@@ -28,6 +28,35 @@ class MenuRepository {
 			return error;
 		}
 	};
+
+	// sélectionner un les enregistrements
+	// data représente une partie des proriétés du type
+	public selectOne = async (
+		data:Partial<Menu>,
+	): Promise<Menu| unknown> => {
+		// connexion au serveur MYSQL
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		// WHERE category.id = ...
+		//variable de réqête: précédée d'un: , suivi du nom de la variable
+		// requêtes préparées : sécurité, le requêtes: la requête est exécutées si elle ne rpésente pas de risque de sécurité
+		const sql = `
+        SELECT ${this.table}.*
+        FROM ${process.env.MYSQL_DATABASE}.${this.table};
+		WHERE ${this.table}.id = :id
+        `;
+		//try / catch : récupérer les resultats de la requête ou un erreur
+
+		try {
+			// exécution de la requête
+			const [query] = await connection.execute(sql,data);
+
+			return query;
+		} catch (error) {
+			return error;
+		}
+	};
 }
 
 export default MenuRepository;
