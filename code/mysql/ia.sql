@@ -1,81 +1,22 @@
--- INSERT INTO lechemin_dev.orderable
--- (name, price, image, description, category_id, orderable_type_id, orderable_spice_id)
--- VALUES
--- -- Entrées
--- ('Pakora Mix', 6.50, 'pakora_mix.jpg',
---  'Assortiment de beignets de légumes croustillants.',
---  1, 1, 1),
 
--- ('Samossa Viande', 6.90, 'samossa_viande.jpg',
---  'Feuilletés farcis au bœuf haché et épices.',
---  1, 3, 1),
-
--- -- Plats
--- ('Poulet Curry Maison', 12.90, 'poulet_curry.jpg',
---  'Poulet mijoté dans une sauce curry douce.',
---  2, 2, 2),
-
--- ('Agneau Madras', 14.50, 'agneau_madras.jpg',
---  'Agneau mijoté dans une sauce Madras légèrement relevée.',
---  2, 3, 3),
-
--- ('Crevettes Masala', 15.50, 'crevettes_masala.jpg',
---  'Crevettes sautées dans une sauce masala parfumée.',
---  2, 5, 2),
-
--- ('Poisson Korma', 13.90, 'poisson_korma.jpg',
---  'Poisson cuit dans une sauce crémeuse aux noix de cajou.',
---  2, 4, 1),
-
--- -- Grillades / Tandoori
--- ('Poulet Tandoori', 11.50, 'poulet_tandoori.jpg',
---  'Poulet mariné au yaourt et épices, grillé au tandoor.',
---  3, 2, 3),
-
--- ('Agneau Tikka', 13.90, 'agneau_tikka.jpg',
---  'Morceaux d’agneau marinés et grillés au tandoor.',
---  3, 3, 2),
-
--- -- Naans
--- ('Naan Nature', 2.50, 'naan_nature.jpg',
---  'Pain traditionnel cuit au tandoor.',
---  2, 6, NULL),
-
--- ('Cheese Naan', 3.50, 'cheese_naan.jpg',
---  'Pain fourré au fromage.',
---  2, 6, NULL),
-
--- -- Dessert
--- ('Gulab Jamun', 4.90, 'gulab_jamun.jpg',
---  'Boules de lait sucrées servies dans un sirop parfumé.',
---  4, NULL, NULL),
-
--- ('Kheer', 4.50, 'kheer.jpg',
---  'Riz au lait parfumé à la cardamome.',
---  4, NULL, NULL);
 
 INSERT INTO lechemin_dev.orderable
-(name, price, image, description, category_id, orderable_type_id, orderable_spice_id)
+(name, price, image, description,category_id, orderable_type_id, orderable_spice_id)
 VALUES
-('Pakora Mix', 6.50, 'pakora_mix.jpg',
- 'Assortiment de beignets de légumes croustillants.', 
- 1, 1, 1),
+('Mix Pakora ', 6.50, 'pakora_mix.jpg',
+ 'Assortiment de beignets de légumes croustillants.',1, 1, 1),
 
 ('Samossa Viande', 6.90, 'samossa_viande.jpg',
- 'Feuilleté farci au bœuf haché et épices.',
- 1, 3, 1),
+ 'Feuilleté farci au bœuf haché et épices.',1, 3, 1),
 
 ('Poulet Curry Maison', 12.90, 'poulet_curry.jpg',
- 'Poulet mijoté dans une sauce curry douce.',
- 2, 2, 2),
+ 'Poulet mijoté dans une sauce curry douce.',2, 2, 2),
 
 ('Agneau Madras', 14.50, 'agneau_madras.jpg',
- 'Agneau mijoté dans une sauce Madras légèrement relevée.',
- 2, 3, 3),
+ 'Agneau mijoté dans une sauce Madras légèrement relevée.',2, 3, 3),
 
 ('Crevettes Masala', 15.50, 'crevettes_masala.jpg',
- 'Crevettes sautées dans une sauce masala parfumée.',
- 2, 5, 2),
+ 'Crevettes sautées dans une sauce masala parfumée.',2, 4, 2),
 
 ('Poulet Tandoori Traditionnel', 11.50, 'poulet_tandoori.jpg',
  'Poulet mariné au yaourt et épices, grillé au tandoor.',
@@ -83,20 +24,139 @@ VALUES
 
 ('Agneau Tikka', 13.90, 'agneau_tikka.jpg',
  'Morceaux d’agneau marinés et grillés au tandoor.',
- 3, 3, 2),
+3, 3, 2),
 
 ('Naan Nature', 2.50, 'naan_nature.jpg',
  'Pain traditionnel cuit au tandoor.',
- 2, 1, NULL),
+ 11, 1, 1),
 
 ('Cheese Naan', 3.50, 'cheese_naan.jpg',
  'Naan fondant fourré au fromage.',
- 2, 1, NULL),
+ 11, 1, 1),
+
+ ("Soupe de lentille",6.00,NULL,NULL,7,1,1),
+
+ ("Velouté de poulet à la crème d'amande",7.00,NULL,NULL,7,2,NULL),
+
+ ('Raita', 6.00,NULL,'Crudités émincée au yaourt aux épices',10,1,NULL),
+
+ ('Green Plate',5.00,NULL, 'Assortiment d everdure aux herbes et citron',8,1,NULL),
+
+ ('Jhinga salade', 7.00, NULL,'Assortiment d everdure aux herbes et citron',8,4,NULL),
+
+ ('Bharta mashala',7.00,NULL, "Caviar d'aubergine aux épices froides",8,1,NULL),
+
+ ('Samosa légume', 6.00,NULL, "Feuilleté de pomme de terre farcie au petit poids, carotte, noix de cajou aux épices",1,1,NULL),
+
+ ('Oignon bhajias',6.00,NULL,"Beignet d'oignions à la farine de pois chiches",1,1,NULL),
+
+ ('Baigan pakoras',6.00,NULL,"Beignets d'aubergines à la farine de pois chiches",1,1,NULL),
+
+ ('Crevettes pakoras',9.00,NULL,"Crevettes pakoras",1,4,NULL),
+
+ ('Achari murg tikka',8.00,NULL, "Filet de poulet mariné dans une sauce de mangue cru, moutarde, piment, gingembre et épices",3,2,1),
+
+ ('Bolywood kabab',8.00,NULL, "Blanc de poulet mariné dans une sauce à base de menthe, coriandre, yourt et épices",3,2,1),
+
+ ('Murg malai tikka',8.00,NULL, "Blanc de poulet mariné  au epice et crème fraiche",3,2,1),
+
+ ('Nargishi sheek kabab',8.00,NULL, "Gigot d'agneau finement haché aux épices",3,3,1),
+
+ ('Agneau bada kabab',8.00,NULL, "Jarret d'agneau marinée dans une sauce épicée au gingimbre ail et yoaurt",3,3,1),
+
+ ('Battera tandoori',11.00,NULL, "Cailles marinée dans une sauce parfumée aux épices",3,5,NULL),
+
+ ('Bangali fish tikka',9.50,NULL, "Poissons marinés avec des épices indiens et grillés au tandoor",3,4,NULL),
+
+ ('Tandoori gambas',18.50,NULL, "Gambas légérement marinée et soigneusement grillé au feu de bois",3,4,NULL),
+
+ ('Mixed grill',20.00,NULL, "Assortiment de poulet, agneau, poisson, gambas grillés et parfumés au feu de bois",3,3,NULL),
+
+ ('Bhuna gosth',14.00,NULL, "Cube d'agneau cuit au poivre vert, gingembre, ail et servi avec des oignions blondes",2,3,4),
+
+ ('Baigan mutton',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,1),
+
+ ('Agneau chennai',14.00,NULL, "Gigot en dés avec des épices verts et curry de madras",2,3,3),
+
+ ('Agneau royal korma',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,NULL),
+
+ ('Agneau kashmiri kofta',14.00,NULL, "Boulets d'agneau aux épices cuit au tandoor dans une sauce à base de noix de cajou",2,3,1),
+
+ ('Shahi keema mattar',14.00,NULL, "Agneau haché au petit pois dans une sauce moyennement relevée au gingembre",2,3,1),
+
+ ('Agneau punjabi',14.00,NULL, "Gigot d'agneau en cube préparé dans une sauce parfumée aux épices de Punjab",2,3,1),
+
+ ('Agneau palaak',14.00,NULL, "Viande d'agneau à l'épinard haché",2,3,NULL),
+
+ ('Agneau rogan josh',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,3),
+
+ ('Agneau vindaloo',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,3),
+
+ ('Agneau royal jalfreezi',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,3),
+
+ ('Traven karela',14.00,NULL, "Morceaux d'agneau au aubergines",2,3,2),
+
+ ('Agneau goan',14.00,NULL, "Gigot d'agneau au curry rouge lait de coco parfumé à la citronelle",2,3,3),
+
+ ('Chicken tikka mashala',12.00,NULL, "Poulet grillé au tandoor avec des tomates oignions agrémenté d'un riche mélange d'épices",2,2,1),
+
+ ('Poulet makhan paalak',12.00,NULL, "Poulet grillé au tandoor et cuit avec des épinards aux arômes du sud de l'Inde",2,2,1),
+
+ ('Butter chicken',12.00,NULL, "Volaille grillée mijotée dans une sauce aux tomates, gingimbre ail et coriandre fraîche",2,2,1),
+
+ ('Shahi chicken korma',12.00,NULL, "Poulet désossé dans une sauce doux aux amandes",2,2,2),
+
+ ('Chicken royal jalfrezy',12.00,NULL, "Poulet cuit dans une sauce aux poivrons tomates oignions et coriandre",2,2,3),
+
+ ('Chicken vindaloo',12.00,NULL, "Poulet désossée dans une sauce légèrement épicée et pomme de terre",2,2,3),
+
+ ('Chicken karahi',12.00,NULL, "Poulet avec des oignions gingembres ail et herbes fraiches",2,2,3),
+
+ ('Fish bengali',13.00,NULL, "Filet de poisson aux épices du Bengale",2,4,1),
+
+ ('Poisson madras',13.00,NULL, "Filet de poisson mariné au citron vert noix de coco, tomates coriandre et épices du sud
+",2,4,3),
+
+ ('Prawn rajesthani',14.00,NULL, "Crevettes décortiquées à la menthe et crème de coco",2,4,3),
+
+ ('Fish green mashala',13.00,NULL, "Filets de poissons aux herbes et coriandre",2,4,1),
+
+ ('Crevette korma',14.00,NULL, "Crevettes décortiquées dans une sauce douce noix de cajou et fruits secs",2,4,1),
+
+ ('Gambas maison',20.00,NULL, "Gambas grillée au tandoor puis servie dans une sauce aromatisée au gingembre et épices",2,4,1),
+
+ ('Sipi goan',13.00,NULL, "Filet de poisson aux épices du Bengale",2,4,3),
+
+ ('Vegetable biriyani',12.00,NULL, "Riz mijoté avec des légumes aux épices fruit sec et noix de cajou",10,1,1),
+
+ ('Chicken biriyani',14.00,NULL, "Riz mijoté avec du poulet aux épices fruit sec cajou",10,2,1),
+
+ ('Mutton biriyani',16.00,NULL, "Délice de riz à l'agneau aux épices fruits sec noix de cajou",10,3,1),
+
+ ('Crevette biriyani',16.00,NULL, "Riz mijoté avec des crevettes aux épices fruit sec cajou",10,4,1),
+
+ ('Royale biriyani maison',18.00,NULL, "Délice de riz mijoté avec du poulet agneau crevettes gambas aux épices fruit sec et noix de cajou ",10,4,1),
+
+ ('Baiga bhurta',9.00,NULL, "Caviar d'aubergine aux épices et oignions",6,1,1),
+
+ ('Palak paneer',8.50,NULL, "Cube de fromage fait maison aux épinards hachés",6,1,1),
+
+ ('Shahi légume korma',10.00,NULL, "Assortiments de légume à la crème d'amande",6,1,1),
+
+ ('Mattar paneer',8.50,NULL, "Petit pois tendres fromage de maison aux épices",6,1,1),
+
+ ('Aaloo chana mashala',8.50,NULL, "Un mélange de poids chiches et pomme de terre agrémentés d'épices",6,1,2),
+
+ ('Dal tarka',8.50,NULL, "Lentilles aux tomates ail gingembre",6,1,1),
+
+ ('Aloo jeera',9.00,NULL, "Pomme de terre sauté au cumin",6,1,1),
+
+ ('Mix vegetable',9.00,NULL, "Mélange de légumes frais aux épices",6,1,1)
 
 
-('Gulab Jamun', 4.90, 'gulab_jamun.jpg',
- 'Boules de lait sucrées servies dans un sirop parfumé.',
- 4, NULL, NULL)
+
+
+
  ;
 
  INSERT INTO lechemin_dev.menu (name, price)

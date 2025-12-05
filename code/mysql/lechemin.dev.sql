@@ -102,14 +102,20 @@ VALUES
 	( NULL, "plat" ),
 	(NULL, 'grillades'),
 	( NULL, "dessert" ),
-	( NULL, "boisson" )
+	( NULL, "boisson" ),
+	(NULL, "accompagnements"),
+	(NULL, "soupes"),
+	(NULL,"salades"),
+	(NULL, "specialité_népalaise"),
+	(Null, "Biryani"),
+	(NULL, "Pains Indien")
 ;
 
 -- drink_type / orderable_type / orderable_spice
 
 INSERT INTO lechemin_dev.drink_type
 VALUES
-	(NULL, "Avec Alcohol"),
+	(NULL, "Alcohol"),
 	(NULL, "Sans Alcohol"),
 	(NULL, "Boisson Chaude"),
 	(NULL, "Boisson Froide")
@@ -121,7 +127,8 @@ VALUES
 	(NULL, "Poulet"),
 	(NULL, "Agneau"),
 	(NULL, "Poisson"),
-	(NULL, "Crevettes")
+	(Null,"OISEAU")
+	
 ;
 
 INSERT INTO lechemin_dev.orderable_spice
