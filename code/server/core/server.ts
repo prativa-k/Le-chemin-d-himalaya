@@ -1,6 +1,7 @@
 import express from "express";
 import HomepageRouter from "../router/homepage_router";
 import MenuRouter from "../router/menu_router";
+import CategoryRouter from "../router/category_router";
 
 class Server{
 
@@ -23,6 +24,7 @@ class Server{
            // créer un préfix à toutes les routes incluses dans un routeur
            this.router.use("/api", new HomepageRouter().getRoutes());
            this.router.use("/api/menu", new MenuRouter().getRoutes());
+           this.router.use("/api/category", new CategoryRouter().getRoutes());
         };
 
         // demarrer le serveur

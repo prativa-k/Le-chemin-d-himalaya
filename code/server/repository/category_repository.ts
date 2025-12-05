@@ -1,13 +1,12 @@
 import type { Category } from "../../models/category";
-import type { Menu } from "../../models/menu";
 import MYSQLService from "../service/mysql_service";
 
-class MenuRepository {
+class CategoryRepository {
 	//nom de la table SQL
-	private table = "menu";
+	private table = "category";
 
 	// sélectionner tous les enregistrements
-	public selectAll = async (): Promise<Menu[] | unknown> => {
+	public selectAll = async (): Promise<Category[] | unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -33,8 +32,8 @@ class MenuRepository {
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
-		data:Partial<Menu>,
-	): Promise<Menu| unknown> => {
+		data:Partial<Category>,
+	): Promise<Category| unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -64,4 +63,4 @@ class MenuRepository {
 	};
 }
 
-export default MenuRepository;
+export default CategoryRepository;
