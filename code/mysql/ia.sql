@@ -178,37 +178,154 @@ VALUES
 
   ("Naan aux oignons",3.50,NULL, "Galettes de farine de blé au levain aux oignions",11,1,1),
 
-  ("Cheese naan à l'ail",4.50,NULL, "Galettes de farine de blé au levain au fromage et ail",11,1,NULL)
+  ("Cheese naan à l'ail",4.50,NULL, "Galettes de farine de blé au levain au fromage et ail",11,1,NULL),
+
+  ("Salades de fruits de goa",6.00,NULL, "Salades de fruits exotiques",4,1,NULL),
+
+  ("Pista Kulfi",6.00,NULL, "Crème glacée Himalaya à base de pistaches,amandes",4,1,NULL),
+
+  ("Halwa maison",4.00,NULL, "Gâteau de semoule à la carotte",4,1,NULL),
+
+  ("Colonel",6.00,NULL, "Sorbet citron vert et vodka",4,1,NULL),
+
+  ("Hot gulab jamun",5.00,NULL, "Fantaisies chaudes de maharanis, beignets au lait arrosés de sirop de cannelle",4,1,NULL),
+
+ ("Hot gulab jamun au cognac",6.00,NULL, "Fantaisies chaudes de maharanis, beignets au lait arrosés de sirop de cannelle au cognac",4,1,NULL),
+
+ ("Banana split",6.00,NULL, NULL,4,1,NULL),
+
+ ("Dame Blanche",6.00,NULL, NULL,4,1,NULL),
+
+ ("Farandole des sorbets",4.00,NULL, "Deux parfums au choix, vanille, chocolat, citron vert, mangue, fruits de la passion, coco, ananas, nougat, fraise, menthe, pistache",4,1,NULL),
+
+ ("Mango ice cream",6.00,NULL, "Crème glacée à base de mangue fait maison",4,1,NULL),
+
+ ("Kheer sukameli",4.00,NULL, "Riz au lait maison à la cardamone",4,1,NULL),
+
+ ("Café gourmand",7.00,NULL, NULL,4,1,NULL),
+
+ ("Fruits frais",5.00,NULL, "Selon saison mangue ananas ou melon",4,1,NULL),
+
+ ("Tamatar ko soupe",6.00,NULL, "Soupe de tomates fraîches assaisonnées d'épices et d'herbes parsemée de feuille de coriandre",9,1,NULL),
+
+ ("Chicken sixty five",7.00,NULL, "Poulet mariné gigembre ail et épices frits et relevé",9,2,NULL),
+
+ ("Momo",10.00,NULL, "Raviolis népalaise à la viande d'agneau et poulet",9,3,NULL),
+
+ ("Lamb cutlet",17.00,NULL, "Côté d'agneau mariné à l'ail gimgembre servi avec de la salade",9,3,NULL),
+
+ ("Bhutuwa",17.00,NULL, "Viande d'agneau façon népalaise servie avec du riz",9,3,NULL),
+
+ ("Daal jhaneko",8.50,NULL, "Lentille aux herbes de haute altitude de l'himalaya",9,1,NULL),
+
+ ("Daal bhaat tarkari",16.00,NULL, "Plat préféré des népalais plat végétarien",9,1,NULL),
+
+ ("Daal bhaat mashu",19.00,NULL, "Plat préféré des népalais avec la viande au choix servie avec du riz",9,3,NULL),
+
+ ("Himalaya chicken chaw chaw",14.00,NULL, "Nouilles sautés avec du poulet aux épices népalaises",9,2,NULL),
+
+ ("Kathamandu mutton chaw chaw",16.00,NULL, "Nouilles sautés avec de l'agneau aux épices népalaises",9,3,NULL),
+
+ ("Annapurna crevette chaw chaw",16.00,NULL, "Nouilles sautés avec de l'agneau aux épices népalaises",9,4,NULL),
+
+ ("Shivapuri vegetable chaw chaw",16.00,NULL, "Nouilles sautés avec des légumes aux épices népalaises",9,1,NULL),
+
+ ("Royale himalaya chaw chaw",18.00,NULL, "Nouilles sautés avec des crevettes, agneau, poulet, gambas aux épices népalaises",9,3,NULL);
 
 
- ;
 
- INSERT INTO lechemin_dev.menu (name, price)
+INSERT INTO lechemin_dev.menu (name, price)
 VALUES
-('Menu Classique', 19.90),
-('Menu Royal', 25.90);
+('Indian Mail Express', 12.00),
+('Business Menu', 16.00),
+('Menu Himalaya',12.00),
+('Menu Gastronomique',25.00),
+('Menu dégustation',58.00),
+('Menu Enfant',8.00)
+;
 
--- Menu Classique
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
-VALUES
-(1, 1),  
-(3, 1),  
-(8, 1);  
+--Indian Mail Express
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(11, 1),   -- Raita
+(1, 1),    -- Pakora maison
+(3, 1),    -- Chicken curry Mugal (Poulet curry maison)
+(92, 1),   -- Daal Jhaneko
+(76, 1),   -- Mixed vegetable
+(121, 1);  -- Halwa maison
 
--- Menu Royal
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
-VALUES
-(2, 2),  
-(6, 2),
-(4, 2),
-(9, 2),
-(10, 2);
+
+-- Business Menu
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(12, 2),   -- Salade indienne
+(15, 2),   -- Samossa légumes
+(6, 2),    -- Poulet tandoori
+(57, 2),   -- Poulet tikka masala
+(26, 2),   -- Fish Baiganwala (Bangali fish tikka)
+(74, 2),   -- Mattar paneer
+(121, 2),  -- Halwa maison
+(125, 2),  -- Kheer maison
+(120, 2);  -- Farandole des sorbets
+
+
+-- Menu Himalaya
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(9, 4),     -- Soupe de lentilles
+(6, 4),     -- Poulet tandoori
+(1, 4),     -- Mixed pakora
+(15, 4),    -- Samossa légumes
+(31, 4),    -- Agneau curry (Agneau royal korma)
+(59, 4),    -- Fish mashala (Poisson madras)
+(75, 4),    -- Shahi légume korma
+(122, 4),   -- Gulab jamun
+(121, 4),   -- Halwa maison
+(120, 4);   -- Sorbet/glace
+
+
+-- Menu Gastonomique
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(18, 5),    -- Achari murg tikka
+(21, 5),    -- Seekh kabab (closest match)
+(13, 5),    -- Salade de crevettes
+(106, 5),   -- Soupe de tomates
+(70, 5),    -- Crevettes malai (Crevette korma)
+(110, 5),   -- Agneau chaw chaw
+(14, 5),    -- Caviar d'aubergine
+(62, 5),    -- Chicken karahi
+(116, 5),   -- Salade de fruits de Goa
+(117, 5),   -- Zafrani/Pista kulfi
+(119, 5),   -- Mango kulfi
+(123, 5);   -- Coupe colonel
+
+-- Menu Degustation
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(27, 6),   -- Mixed grill
+(1, 6),    -- Pakora
+(15, 6),   -- Samossa légumes
+(5, 6),    -- Crevettes masala
+(92, 6),   -- Daal jhaneko
+(73, 6),   -- Palak paneer
+(31, 6);   -- Agneau korma
+
+
+-- Menu Enfants
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
+(57, 8),   -- Poulet tikka
+(78, 8),   -- Riz nature
+(120, 8);  -- Sorbets
+
+
+
 
 
 INSERT INTO lechemin_dev.drink (name, price, drink_type_id)
 VALUES
-('Lassi Mangue', 4.50, 2),
+('Lassi Mangue', 4.50, 4),
 ('Thé Masala', 3.00, 3),
-('Coca-Cola 33cl', 2.50, 4);
+('Coca-Cola 33cl', 2.50, 2),
+('Népalais Beer', 5.00,1),
+('Mojito', 6.00,1),
+('Cocolada',5.00,2),
+('Café', 3.00,3)
+;
 
 
