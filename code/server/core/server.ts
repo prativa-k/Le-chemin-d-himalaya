@@ -25,6 +25,13 @@ class Server{
            this.router.use("/api", new HomepageRouter().getRoutes());
            this.router.use("/api/menu", new MenuRouter().getRoutes());
            this.router.use("/api/category", new CategoryRouter().getRoutes());
+           this.router.use("/api/drink_type", new CategoryRouter().getRoutes());
+           this.router.use("/api/drink", new CategoryRouter().getRoutes());
+           this.router.use("/api/orderable_menu", new CategoryRouter().getRoutes());
+           this.router.use("/api/orderable_spice", new CategoryRouter().getRoutes());
+           this.router.use("/api/orderable_type", new CategoryRouter().getRoutes());
+           this.router.use("/api/orderable", new CategoryRouter().getRoutes());
+           
         };
 
         // demarrer le serveur

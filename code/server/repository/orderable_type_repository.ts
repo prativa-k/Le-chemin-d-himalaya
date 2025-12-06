@@ -1,13 +1,12 @@
-
-import type { DrinkType } from "../../models/drink_type";
+import type { OrderableType } from "../../models/orderable_type";
 import MYSQLService from "../service/mysql_service";
 
-class DrinkTypeRepository {
+class OrderableTypeRepository {
 	//nom de la table SQL
-	private table = "drinktype";
+	private table = "OrderableType";
 
 	// sélectionner tous les enregistrements
-	public selectAll = async (): Promise<DrinkType[] | unknown> => {
+	public selectAll = async (): Promise<OrderableType[] | unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -33,8 +32,8 @@ class DrinkTypeRepository {
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
-		data:Partial<DrinkType>,
-	): Promise<DrinkType| unknown> => {
+		data:Partial<OrderableType>,
+	): Promise<OrderableType| unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -55,7 +54,7 @@ class DrinkTypeRepository {
 			const [query] = await connection.execute(sql,data);
 
 			// shift: récupérer le premier indice d'un array
-			const result = (query as DrinkType[]).shift();
+			const result = (query as OrderableType[]).shift();
 
 			return result;
 		} catch (error) {
@@ -64,4 +63,4 @@ class DrinkTypeRepository {
 	};
 }
 
-export default DrinkTypeRepository;
+export default OrderableTypeRepository;
