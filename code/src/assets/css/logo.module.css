@@ -1,0 +1,9 @@
+.logo {
+	h1 {
+		display: none;
+	}
+
+	img {
+		width: 10rem;
+	}
+}

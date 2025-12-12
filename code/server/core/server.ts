@@ -2,6 +2,13 @@ import express from "express";
 import HomepageRouter from "../router/homepage_router";
 import MenuRouter from "../router/menu_router";
 import CategoryRouter from "../router/category_router";
+import DrinkTypeRouter from "../router/drink_type_router";
+import DrinkRouter from "../router/drink_router";
+import OrderableMenuRepository from "../repository/orderable_menu_repository";
+import OrderableMenuRouter from "../router/orderable_menu.router";
+import OrderableSpiceRouter from "../router/orderable_spice_router";
+import OrderableTypeRouter from "../router/orderable_type_router";
+import OrderableRouter from "../router/orderable_router";
 
 class Server{
 
@@ -25,12 +32,12 @@ class Server{
            this.router.use("/api", new HomepageRouter().getRoutes());
            this.router.use("/api/menu", new MenuRouter().getRoutes());
            this.router.use("/api/category", new CategoryRouter().getRoutes());
-           this.router.use("/api/drink_type", new CategoryRouter().getRoutes());
-           this.router.use("/api/drink", new CategoryRouter().getRoutes());
-           this.router.use("/api/orderable_menu", new CategoryRouter().getRoutes());
-           this.router.use("/api/orderable_spice", new CategoryRouter().getRoutes());
-           this.router.use("/api/orderable_type", new CategoryRouter().getRoutes());
-           this.router.use("/api/orderable", new CategoryRouter().getRoutes());
+           this.router.use("/api/drink_type", new DrinkTypeRouter().getRoutes());
+           this.router.use("/api/drink", new DrinkRouter().getRoutes());
+           this.router.use("/api/orderable_menu", new OrderableMenuRouter().getRoutes());
+           this.router.use("/api/orderable_spice", new OrderableSpiceRouter().getRoutes());
+           this.router.use("/api/orderable_type", new OrderableTypeRouter().getRoutes());
+           this.router.use("/api/orderable", new OrderableRouter().getRoutes());
            
         };
 

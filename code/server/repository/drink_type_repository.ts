@@ -4,7 +4,7 @@ import MYSQLService from "../service/mysql_service";
 
 class DrinkTypeRepository {
 	//nom de la table SQL
-	private table = "drinktype";
+	private table = "drink_type";
 
 	// sélectionner tous les enregistrements
 	public selectAll = async (): Promise<DrinkType[] | unknown> => {

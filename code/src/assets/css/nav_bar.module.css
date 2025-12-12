@@ -1,0 +1,72 @@
+header {
+	background-color: var(--header-bg-color);
+	height: 6vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 0 0.4rem rgb(255, 191, 0);
+	padding: 1rem;
+}
+
+.logo {
+	color: var(--header-text-color);
+	font-size: 0.5rem;
+}
+
+.nav {
+	font-size: 1rem;
+	color: black;
+	top: 3.65rem;
+	right: -350px;
+	height: 100vh;
+	background-color: rgba(159, 148, 103, 0.25);
+	backdrop-filter: blur(4px);
+	transition: 0.3s ease;
+
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	padding: 1rem 0;
+
+	&.navbar-mobile-visible {
+		display: block;
+		right: 0;
+	}
+}
+
+.menu_burger {
+	display: flex;
+	flex-direction: column;
+	border: none;
+	background: transparent;
+
+	.line {
+		width: 1rem;
+		height: 0.15rem;
+		margin-bottom: 0.3rem;
+		background-color: black;
+	}
+}
+.list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	color: var(--header-text-color);
+	gap: 1.2rem;
+}
+
+/* for the navlink */
+.link {
+	color: white;
+	font-size: 1.3rem;
+	text-decoration: none;
+}
+a:hover {
+	border-bottom: 1px solid rgb(169, 50, 50);
+	width: 5rem;
+}
+
+/* @media screen and (min-width:1000px)  {
+        
+} */

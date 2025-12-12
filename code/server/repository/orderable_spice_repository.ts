@@ -4,7 +4,7 @@ import MYSQLService from "../service/mysql_service";
 
 class OrderableSpiceRepository {
 	//nom de la table SQL
-	private table = "OrderableSpice";
+	private table = "orderable_spice";
 
 	// sélectionner tous les enregistrements
 	public selectAll = async (): Promise<OrderableSpice[] | unknown> => {

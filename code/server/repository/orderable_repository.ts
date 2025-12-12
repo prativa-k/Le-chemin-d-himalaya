@@ -3,7 +3,7 @@ import MYSQLService from "../service/mysql_service";
 
 class OrderableRepository {
 	//nom de la table SQL
-	private table = "drink";
+	private table = "orderable";
 
 	// sélectionner tous les enregistrements
 	public selectAll = async (): Promise<Orderable[] | unknown> => {

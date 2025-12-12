@@ -1,0 +1,28 @@
+/* polices */
+@font-face {
+	font-family: montserrat;
+	src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+}
+/* varibales css */
+:root {
+	--body-color: #FAF7F2;
+    --header-text-color:#FFFFFF;
+    --header-bg-color:#D4A017;
+    --nav-hover-color: #F2C14E;
+    --primary-button-color:#D97925;
+    --primary-button-hover-color:#B8611D;
+    --card-border-color:#E8DCCC;
+}
+
+/* balises HTML */
+
+body {
+	background-color: var(--body-color);
+	font-family: montserrat, sans-serif;
+}
+* {
+	box-sizing: box-sizing;
+}
+img {
+	width: 100%;
+}
