@@ -1,44 +1,22 @@
-import type { Category } from "../../models/category";
-import type { Menu } from "../../models/menu";
+
+import type { Role } from "../../models/role";
 import MYSQLService from "../service/mysql_service";
 
-class MenuRepository {
+class RoleRepository {
 	//nom de la table SQL
-	private table = "menu";
+	private table = "role";
 
 	// sélectionner tous les enregistrements
-	public selectAll = async (): Promise<Menu[] | unknown> => {
+	public selectAll = async (): Promise<Role[] | unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
 		// requête SQL
 		// SELECT menu.* FROM foodtruck_dev.menu;
-		/*
-			SELECT
-				menu.*,
-				GROUP_CONCAT(orderable.id) AS orderable_ids
-			FROM
-				foodtruck_dev.menu
-			JOIN
-				foodtruck_dev.orderable_menu
-			ON
-				orderable_menu.menu_id = menu.id
-			JOIN
-				foodtruck_dev.orderable
-			ON
-				orderable.id = orderable_menu.orderable_id
-			GROUP BY
-				menu.id
-			;
-		*/
 		const sql = `
-        SELECT 
-			${this.table}.*,
-			GROUP_CONCAT(orderable.id) AS orderable_ids
+        SELECT ${this.table}.*
         FROM
-        	${process.env.MYSQL_DATABASE}.${this.table};
-		
-		JOIN
+        ${process.env.MYSQL_DATABASE}.${this.table};
         `;
 		//try / catch : récupérer les resultats de la requête ou un erreur
 
@@ -55,8 +33,8 @@ class MenuRepository {
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
-		data:Partial<Menu>,
-	): Promise<Menu| unknown> => {
+		data:Partial<Role>,
+	): Promise<Role| unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -77,7 +55,7 @@ class MenuRepository {
 			const [query] = await connection.execute(sql,data);
 
 			// shift: récupérer le premier indice d'un array
-			const result = (query as Category[]).shift();
+			const result = (query as Role[]).shift();
 
 			return result;
 		} catch (error) {
@@ -86,4 +64,4 @@ class MenuRepository {
 	};
 }
 
-export default MenuRepository;
+export default RoleRepository;

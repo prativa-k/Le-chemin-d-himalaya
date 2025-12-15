@@ -27,10 +27,9 @@ class OrderableSpiceController {
 	public selectOne = async (req: Request, res: Response) => {
 		// récupérer la varibale de route
 		console.log(req.params);
-		
 
 		//récupération des résultats de la résultats de la requête
-		const results = await new OrderableSpiceRepository().selectOne({id: 1});
+		const results = await new OrderableSpiceRepository().selectOne(req.params);
 
 		// si la requête renvoie une erreur
 		if (results instanceof Error) {

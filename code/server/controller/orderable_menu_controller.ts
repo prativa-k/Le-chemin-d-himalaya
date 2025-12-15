@@ -30,7 +30,7 @@ class OrderableMenuController {
 		
 
 		//récupération des résultats de la résultats de la requête
-		const results = await new OrderableMenuRepository().selectOne({id: 1});
+		const results = await new OrderableMenuRepository().selectOne(req.params);
 
 		// si la requête renvoie une erreur
 		if (results instanceof Error) {

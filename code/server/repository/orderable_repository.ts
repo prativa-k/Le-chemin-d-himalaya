@@ -1,5 +1,12 @@
+import type { i } from "@vitejs/plugin-rsc/index-CM9Mmb_C";
+import type { Category } from "../../models/category";
 import type { Orderable } from "../../models/orderable";
+import type { OrderableSpice } from "../../models/orderable_spice";
+import type { OrderableType } from "../../models/orderable_type";
 import MYSQLService from "../service/mysql_service";
+import CategoryRepository from "./category_repository";
+import OrderableSpiceRepository from "./orderable_spice_repository";
+import OrderableTypeRepository from "./orderable_type_repository";
 
 class OrderableRepository {
 	//nom de la table SQL
@@ -23,6 +30,27 @@ class OrderableRepository {
 			// exécution de la requête
 			const [query] = await connection.execute(sql);
 
+			// boucler sur les résultats pour récupèrer les objets en relation (composition en POO)
+			for (let i = 0; i < (query as Orderable[]).length; i++) {
+				// récupérer un résultat
+
+				const result = (query as Orderable[])[i] as Orderable;
+
+				// clés étrangères
+				result.category = (await new CategoryRepository().selectOne({
+					id: result.category_id,
+				})) as Category;
+
+				result.orderable_spice =
+					(await new OrderableSpiceRepository().selectOne({
+						id: result.orderable_spice_id,
+					})) as OrderableSpice;
+
+				result.orderable_type = (await new OrderableTypeRepository().selectOne({
+					id: result.orderable_type_id,
+				})) as OrderableType;
+			}
+
 			return query;
 		} catch (error) {
 			return error;
@@ -32,8 +60,8 @@ class OrderableRepository {
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
-		data:Partial<Orderable>,
-	): Promise<Orderable| unknown> => {
+		data: Partial<Orderable>,
+	): Promise<Orderable | unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -51,10 +79,24 @@ class OrderableRepository {
 
 		try {
 			// exécution de la requête
-			const [query] = await connection.execute(sql,data);
+			const [query] = await connection.execute(sql, data);
 
 			// shift: récupérer le premier indice d'un array
-			const result = (query as Orderable[]).shift();
+			const result = (query as Orderable[]).shift() as Orderable;
+
+			// clés étranger
+			result.category = (await new CategoryRepository().selectOne({
+				id: result.category_id,
+			})) as Category;
+
+			result.orderable_spice =
+					(await new OrderableSpiceRepository().selectOne({
+						id: result.orderable_spice_id,
+					})) as OrderableSpice;
+
+				result.orderable_type = (await new OrderableTypeRepository().selectOne({
+					id: result.orderable_type_id,
+				})) as OrderableType;
 
 			return result;
 		} catch (error) {
