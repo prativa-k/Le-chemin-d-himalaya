@@ -1,4 +1,4 @@
-import type { Category } from "../../models/category";
+import type { QueryResult } from "mysql2";
 import type { Menu } from "../../models/menu";
 import type { Orderable } from "../../models/orderable";
 import MYSQLService from "../service/mysql_service";
@@ -122,6 +122,41 @@ class MenuRepository {
 			)) as Orderable[];
 
 			return result;
+		} catch (error) {
+			return error;
+		}
+	};
+
+	// insérer un enregistrement
+
+	public insert = async (
+		data: Partial<Menu>,
+	): Promise<QueryResult | unknown> => {
+		// connection au serveur
+
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		const sql = `
+			INSERT INTO 
+			${process.env.MYSQL_DATABASE}.${this.table}
+
+			VALUE
+			(
+			NULL,
+			:name,
+			:price
+			)
+			;
+		
+		`;
+
+		try {
+			// exécution de la requête
+			const [query] = await connection.execute(sql, data);
+
+			return query;
+			// retourner kes résultants
 		} catch (error) {
 			return error;
 		}

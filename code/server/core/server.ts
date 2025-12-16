@@ -7,8 +7,8 @@ import MenuRouter from "../router/menu_router";
 import OrderableRouter from "../router/orderable_router";
 import OrderableSpiceRouter from "../router/orderable_spice_router";
 import OrderableTypeRouter from "../router/orderable_type_router";
-import UserRouter from "../router/user_router";
 import RoleRouter from "../router/role_router";
+import UserRouter from "../router/user_router";
 
 class Server {
 	// proprétés
@@ -17,6 +17,9 @@ class Server {
 
 	// contructeur
 	constructor() {
+		// intégrer le middleware express JSON qui permet de récupérer la proprieté body de la requête HTTP en JSON
+		this.app.use(express.json());
+
 		// relier le routeur à l'application
 		this.app.use(this.router);
 
@@ -32,12 +35,17 @@ class Server {
 		this.router.use("/api/category", new CategoryRouter().getRoutes());
 		this.router.use("/api/drink_type", new DrinkTypeRouter().getRoutes());
 		this.router.use("/api/drink", new DrinkRouter().getRoutes());
-		this.router.use("/api/orderable_spice",new OrderableSpiceRouter().getRoutes(),);
-		this.router.use("/api/orderable_type",new OrderableTypeRouter().getRoutes(),);
+		this.router.use(
+			"/api/orderable_spice",
+			new OrderableSpiceRouter().getRoutes(),
+		);
+		this.router.use(
+			"/api/orderable_type",
+			new OrderableTypeRouter().getRoutes(),
+		);
 		this.router.use("/api/orderable", new OrderableRouter().getRoutes());
 		this.router.use("/api/user", new UserRouter().getRoutes());
-        this.router.use("/api/role", new RoleRouter().getRoutes());
-      
+		this.router.use("/api/role", new RoleRouter().getRoutes());
 	};
 
 	// demarrer le serveur
