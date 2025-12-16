@@ -80,6 +80,8 @@ CREATE TABLE lechemin_dev.drink(
 );
 
 
+
+
 -- insérer des données
 INSERT INTO lechemin_dev.role
 VALUES

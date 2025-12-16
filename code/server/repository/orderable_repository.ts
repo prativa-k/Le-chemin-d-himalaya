@@ -1,4 +1,3 @@
-import type { i } from "@vitejs/plugin-rsc/index-CM9Mmb_C";
 import type { Category } from "../../models/category";
 import type { Orderable } from "../../models/orderable";
 import type { OrderableSpice } from "../../models/orderable_spice";
@@ -57,6 +56,7 @@ class OrderableRepository {
 		}
 	};
 
+	
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
@@ -103,6 +103,54 @@ class OrderableRepository {
 			return error;
 		}
 	};
+
+	public selectINlist = async (list: string): Promise<Orderable[] | unknown> => {
+		// connexion au serveur MYSQL
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		// SELECT menu.* FROM foodtruck_dev.menu;
+		const sql = `
+        SELECT ${this.table}.*
+        FROM
+        ${process.env.MYSQL_DATABASE}.${this.table}
+		WHERE ${this.table}.id IN(${list})
+		;
+        `;
+		//try / catch : récupérer les resultats de la requête ou un erreur
+
+		try {
+			// exécution de la requête
+			const [query] = await connection.execute(sql);
+
+			// boucler sur les résultats pour récupèrer les objets en relation (composition en POO)
+			for (let i = 0; i < (query as Orderable[]).length; i++) {
+				// récupérer un résultat
+
+				const result = (query as Orderable[])[i] as Orderable;
+
+				// clés étrangères
+				result.category = (await new CategoryRepository().selectOne({
+					id: result.category_id,
+				})) as Category;
+
+				result.orderable_spice =
+					(await new OrderableSpiceRepository().selectOne({
+						id: result.orderable_spice_id,
+					})) as OrderableSpice;
+
+				result.orderable_type = (await new OrderableTypeRepository().selectOne({
+					id: result.orderable_type_id,
+				})) as OrderableType;
+			}
+
+			return query;
+		} catch (error) {
+			return error;
+		}
+	};
+
+	
 }
 
 export default OrderableRepository;

@@ -233,85 +233,78 @@ VALUES
  ("Royale himalaya chaw chaw",18.00,NULL, "Nouilles sautés avec des crevettes, agneau, poulet, gambas aux épices népalaises",9,3,NULL);
 
 
-
-INSERT INTO lechemin_dev.menu (name, price)
-VALUES
-('Indian Mail Express', 12.00),
-('Business Menu', 16.00),
-('Menu Himalaya',12.00),
-('Menu Gastronomique',25.00),
-('Menu dégustation',58.00),
-('Menu Enfant',8.00)
+INSERT INTO lechemin_dev.menu (name, price) VALUES
+("Indian Mail Express", 12.00),
+("Business Menu", 16.00),
+("Himalaya Menu", 21.00),
+("Menu Gastronomique", 25.00)
 ;
 
---Indian Mail Express
 INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(11, 1),   -- Raita
-(1, 1),    -- Pakora maison
-(3, 1),    -- Chicken curry Mugal (Poulet curry maison)
-(92, 1),   -- Daal Jhaneko
-(76, 1),   -- Mixed vegetable
-(121, 1);  -- Halwa maison
+    (22,1),
+    (44,1),
+    (78,1);
+
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
+SELECT o.id, m.id
+FROM lechemin_dev.orderable o
+JOIN lechemin_dev.menu m ON m.name = 'Business Menu'
+WHERE o.name IN (
+  'Green Plate',
+  'Samosa légume',
+  'Poulet Tandoori Traditionnel',
+  'Chicken tikka mashala',
+  'Bangali fish tikka',
+  'Mattar paneer',
+  'Halwa maison',
+  'Kheer sukameli',
+  'Farandole des sorbets'
+);
+
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
+SELECT o.id, m.id
+FROM lechemin_dev.orderable o
+JOIN lechemin_dev.menu m ON m.name = 'Himalaya Menu'
+WHERE o.name IN (
+  'Soupe de lentille',
+  'Poulet Tandoori Traditionnel',
+  'Mix Pakora ',
+  'Samosa légume',
+  'Agneau royal korma',
+  'Poisson madras',
+  'Shahi légume korma',
+  'Hot gulab jamun',
+  'Halwa maison',
+  'Farandole des sorbets'
+);
 
 
--- Business Menu
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(12, 2),   -- Salade indienne
-(15, 2),   -- Samossa légumes
-(6, 2),    -- Poulet tandoori
-(57, 2),   -- Poulet tikka masala
-(26, 2),   -- Fish Baiganwala (Bangali fish tikka)
-(74, 2),   -- Mattar paneer
-(121, 2),  -- Halwa maison
-(125, 2),  -- Kheer maison
-(120, 2);  -- Farandole des sorbets
+INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id)
+SELECT o.id, m.id
+FROM lechemin_dev.orderable o
+JOIN lechemin_dev.menu m ON m.name = 'Menu Gastronomique'
+WHERE o.name IN (
+  'Achari murg tikka',
+  'Nargishi sheek kabab',
+  'Jhinga salade',
+  'Tamatar ko soupe',
+  'Crevette korma',
+  'Himalaya chicken chaw chaw',
+  'Bharta mashala',
+  'Chicken karahi',
+  'Salades de fruits de goa',
+  'Pista Kulfi',
+  'Colonel'
+);
 
 
--- Menu Himalaya
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(9, 4),     -- Soupe de lentilles
-(6, 4),     -- Poulet tandoori
-(1, 4),     -- Mixed pakora
-(15, 4),    -- Samossa légumes
-(31, 4),    -- Agneau curry (Agneau royal korma)
-(59, 4),    -- Fish mashala (Poisson madras)
-(75, 4),    -- Shahi légume korma
-(122, 4),   -- Gulab jamun
-(121, 4),   -- Halwa maison
-(120, 4);   -- Sorbet/glace
 
 
--- Menu Gastonomique
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(18, 5),    -- Achari murg tikka
-(21, 5),    -- Seekh kabab (closest match)
-(13, 5),    -- Salade de crevettes
-(106, 5),   -- Soupe de tomates
-(70, 5),    -- Crevettes malai (Crevette korma)
-(110, 5),   -- Agneau chaw chaw
-(14, 5),    -- Caviar d'aubergine
-(62, 5),    -- Chicken karahi
-(116, 5),   -- Salade de fruits de Goa
-(117, 5),   -- Zafrani/Pista kulfi
-(119, 5),   -- Mango kulfi
-(123, 5);   -- Coupe colonel
-
--- Menu Degustation
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(27, 6),   -- Mixed grill
-(1, 6),    -- Pakora
-(15, 6),   -- Samossa légumes
-(5, 6),    -- Crevettes masala
-(92, 6),   -- Daal jhaneko
-(73, 6),   -- Palak paneer
-(31, 6);   -- Agneau korma
 
 
--- Menu Enfants
-INSERT INTO lechemin_dev.orderable_menu (orderable_id, menu_id) VALUES
-(57, 8),   -- Poulet tikka
-(78, 8),   -- Riz nature
-(120, 8);  -- Sorbets
+
+
+
 
 
 
@@ -328,4 +321,6 @@ VALUES
 ('Café', 3.00,3)
 ;
 
+
+SELECT menu.*,GROUP_CONCAT(orderable.id) AS orderable_ids FROM lechemin_dev.menu JOIN lechemin_dev.orderable_menu ON orderable_menu.menu_id = menu.id JOIN lechemin_dev.orderable ON orderable.id = orderable_menu.orderable_id GROUP BY menu.id;
 

@@ -9,7 +9,7 @@ type Menu = {
 
     // liste concaténée des identifiants des plats
     orderable_ids: string;
-    orderable: Orderable[];
+    orderables: Orderable[];
 };
 
 
