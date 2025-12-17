@@ -321,6 +321,8 @@ VALUES
 ('Café', 3.00,3)
 ;
 
+-- SELECT menu.*,GROUP_CONCAT(orderable.id) AS orderable_ids FROM lechemin_dev.menu JOIN lechemin_dev.orderable_menu ON orderable_menu.menu_id = menu.id JOIN lechemin_dev.orderable ON orderable.id = orderable_menu.orderable_id GROUP BY menu.id;
 
-SELECT menu.*,GROUP_CONCAT(orderable.id) AS orderable_ids FROM lechemin_dev.menu JOIN lechemin_dev.orderable_menu ON orderable_menu.menu_id = menu.id JOIN lechemin_dev.orderable ON orderable.id = orderable_menu.orderable_id GROUP BY menu.id;
+-- SELECT category.*,GROUP_CONCAT(orderable.id) AS orderable_ids FROM lechemin_dev.category JOIN lechemin_dev.orderable ON category_id= category.id GROUP BY category.id;
+ 
 

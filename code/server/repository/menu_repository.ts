@@ -137,7 +137,7 @@ class MenuRepository {
 		const connection = await new MYSQLService().connect();
 
 		// requête SQL
-		const sql = `
+		let sql = `
 			INSERT INTO 
 			${process.env.MYSQL_DATABASE}.${this.table}
 
@@ -152,12 +152,53 @@ class MenuRepository {
 		`;
 
 		try {
+			//demarré un transaction SQL
+			connection.beginTransaction();
+
+			//exécuter la prémiere requête SQL
+			await connection.execute(sql, data);
+
+			// deuxième requête SQL
+			sql = `SET @id = LAST_INSERT_ID();`;
+			await connection.execute(sql, data);
+
+			// troisième requête
+			/*
+			INSERT INTO lechemin_dev.orderable_menu
+		 	VALUES
+			(1, @id),
+			(2, @id),
+			(3, @id);
+
+			split: extraire des données d'une chaîne de caractères en array
+				1,2,3 >> (1, @id),(2, @id),(3, @id)
+			*/
+			const joinIds = data.orderable_ids
+				?.split(",")
+				.map((value) => `(${value},@id)`)
+				.join();
+			// console.log(joinIds);
+
+			sql = `
+				INSERT INTO
+				${process.env.MYSQL_DATABASE}.orderable_menu
+				VALUES
+				${joinIds}
+				;
+			`;
+			const [query] = await connection.execute(sql);
+
 			// exécution de la requête
-			const [query] = await connection.execute(sql, data);
+			// const [query] = await connection.execute(sql, data);
+
+			//valider la transaction SQL
+			connection.commit();
 
 			return query;
 			// retourner kes résultants
 		} catch (error) {
+			//annuler une transcation SQL
+			connection.rollback();
 			return error;
 		}
 	};

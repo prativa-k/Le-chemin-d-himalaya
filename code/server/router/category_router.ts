@@ -1,25 +1,26 @@
 import express from "express";
+import multer from "multer";
 import CategoryController from "../controller/category_controller";
 
-class CategoryRouter{
+class CategoryRouter {
+	//router express
+	private router = express.Router();
+	private multer = multer({ dest: "pub" });
 
-    //router express
-    private router = express.Router();
+	// liste des routes
+	public getRoutes = () => {
+		// créer une route /api accessible en GET
+		// below under req  have added underscore just for the sake that the warning does not keep on showing meaning without _ it says the parametre is unused
+		// le préfixe des routes est dans le serveur
+		this.router.get("/", new CategoryController().index);
 
-    // liste des routes
-    public getRoutes = () => {
-         // créer une route /api accessible en GET
-            // below under req  have added underscore just for the sake that the warning does not keep on showing meaning without _ it says the parametre is unused
-            // le préfixe des routes est dans le serveur
-            this.router.get('/', new CategoryController().index);   
-            
-            //variable de route: précédée par un:; suivie du nom de la variable
-            this.router.get('/:id', new CategoryController().selectOne); 
+		//variable de route: précédée par un:; suivie du nom de la variable
+		this.router.get("/:id", new CategoryController().selectOne);
+		this.router.post("/", this.multer.any(), new CategoryController().insert);
 
-            // retourner le routeur
-            return this.router;
-        }
-    }
-
+		// retourner le routeur
+		return this.router;
+	};
+}
 
 export default CategoryRouter;

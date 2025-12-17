@@ -24,6 +24,7 @@ class CategoryController {
 			data: results,
 		});
 	};
+
 	public selectOne = async (req: Request, res: Response) => {
 		// récupérer la varibale de route
 		console.log(req.params);
@@ -41,6 +42,7 @@ class CategoryController {
 			return;
 		}
 
+	
 		//renvoyer une réponse avec un code de status HTTP et au format JSON
 		res.status(200).json({
 			status: 200,
@@ -48,6 +50,33 @@ class CategoryController {
 			data: results,
 		});
 	};
+
+	
+	public insert = async (req: Request, res: Response) => {
+		console.log(req.body);
+		
+		
+		//récupération des résultats de la résultats de la requête
+		// req.body: récupérer la priopriété body de la requête
+		const results = await new CategoryRepository().insert(req.body);
+
+		// si la requête renvoie une erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+
+		//renvoyer une réponse avec un code de status HTTP et au format JSON
+		res.status(201).json({
+			status: 201,
+			message: "Creating",
+			data: results,
+		});
+	};	
 }
 
 export default CategoryController;
