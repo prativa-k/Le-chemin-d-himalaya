@@ -19,10 +19,18 @@ class MenuRouter {
 		//variable de route: précédée par un:; suivie du nom de la variable
 		this.router.get("/:id", new MenuController().selectOne);
 
-		//indérer un enregistrement
+		//insérer un enregistrement
         // utilisation du middleware multer
         this.router.post("/",new MenuController().insert);
 		// this.router.post("/", this.multer.any(),new MenuController().insert);
+
+		//mettre un enregistrement
+        // utilisation du middleware multer
+        this.router.put("/",new MenuController().update);
+		// this.router.post("/", this.multer.any(),new MenuController().insert);
+
+		// utilisation du middleware multer
+        this.router.delete("/",new MenuController().delete);
 
 		// retourner le routeur
 		return this.router;

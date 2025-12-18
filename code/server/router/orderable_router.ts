@@ -1,5 +1,6 @@
 import express from "express";
 import OrderableController from "../controller/orderable_controller";
+import multer from "multer";
 
 
 
@@ -9,7 +10,7 @@ class OrderableRouter{
     private router = express.Router();
 
     // multer permet de gérer le transferet de fichiers
-	// private multer = multer({ dest: "pub" });
+	private multer = multer({ dest: "pub" });
 
     // liste des routes
     public getRoutes = () => {
@@ -20,7 +21,8 @@ class OrderableRouter{
             
             //variable de route: précédée par un:; suivie du nom de la variable
             this.router.get('/:id', new OrderableController().selectOne); 
-            // this.router.post("/", this.multer.any(),new MenuController().insert);
+            
+            this.router.post("/", this.multer.any(),new OrderableController().insert);
 
             // retourner le routeur
             return this.router;

@@ -1,3 +1,4 @@
+import type { QueryResult } from "mysql2";
 import type { Category } from "../../models/category";
 import type { Orderable } from "../../models/orderable";
 import type { OrderableSpice } from "../../models/orderable_spice";
@@ -56,7 +57,6 @@ class OrderableRepository {
 		}
 	};
 
-	
 	// sélectionner un les enregistrements
 	// data représente une partie des proriétés du type
 	public selectOne = async (
@@ -89,14 +89,13 @@ class OrderableRepository {
 				id: result.category_id,
 			})) as Category;
 
-			result.orderable_spice =
-					(await new OrderableSpiceRepository().selectOne({
-						id: result.orderable_spice_id,
-					})) as OrderableSpice;
+			result.orderable_spice = (await new OrderableSpiceRepository().selectOne({
+				id: result.orderable_spice_id,
+			})) as OrderableSpice;
 
-				result.orderable_type = (await new OrderableTypeRepository().selectOne({
-					id: result.orderable_type_id,
-				})) as OrderableType;
+			result.orderable_type = (await new OrderableTypeRepository().selectOne({
+				id: result.orderable_type_id,
+			})) as OrderableType;
 
 			return result;
 		} catch (error) {
@@ -104,7 +103,9 @@ class OrderableRepository {
 		}
 	};
 
-	public selectINlist = async (list: string): Promise<Orderable[] | unknown> => {
+	public selectINlist = async (
+		list: string,
+	): Promise<Orderable[] | unknown> => {
 		// connexion au serveur MYSQL
 		const connection = await new MYSQLService().connect();
 
@@ -130,9 +131,9 @@ class OrderableRepository {
 				const result = (query as Orderable[])[i] as Orderable;
 
 				// clés étrangères
-				result.category = (await new CategoryRepository().selectOne({
-					id: result.category_id,
-				})) as Category;
+				// result.category = (await new CategoryRepository().selectOne({
+				// 	id: result.category_id,
+				// })) as Category;
 
 				result.orderable_spice =
 					(await new OrderableSpiceRepository().selectOne({
@@ -150,7 +151,52 @@ class OrderableRepository {
 		}
 	};
 
-	
+	public insert = async (
+		data: Partial<Orderable>,
+	): Promise<QueryResult | unknown> => {
+		// connection au serveur
+
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		const sql = `
+			INSERT INTO 
+			${process.env.MYSQL_DATABASE}.${this.table}
+
+			VALUE
+			(
+			NULL,
+			:name,
+			:price,
+			:image,
+			:description,
+			:category_id,
+			:orderable_type_id,
+			:orderable_spice_id
+
+			)
+			;
+		
+		`;
+
+		try {
+			//demarré un transaction SQL
+			connection.beginTransaction();
+
+			// exécution de la requête
+			const [query] = await connection.execute(sql, data);
+
+			//valider la transaction SQL
+			connection.commit();
+
+			return query;
+			// retourner kes résultants
+		} catch (error) {
+			//annuler une transcation SQL
+			connection.rollback();
+			return error;
+		}
+	};
 }
 
 export default OrderableRepository;

@@ -202,6 +202,138 @@ class MenuRepository {
 			return error;
 		}
 	};
+
+	//
+	public update = async (
+		data: Partial<Menu>,
+	): Promise<QueryResult | unknown> => {
+		// connection au serveur
+
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		let sql = `
+			UPDATE
+				${process.env.MYSQL_DATABASE}.${this.table}
+
+			SET
+				${this.table}.name = :name,
+				${this.table}.price = :price
+			WHERE
+			${this.table}.id = :id
+			;
+		
+		`;
+
+		try {
+			//demarré un transaction SQL
+			connection.beginTransaction();
+
+			//exécuter la prémiere requête SQL
+			//si la requêye posséde des variables, utliser le paramétre de la methode
+			await connection.execute(sql, data);
+
+			// // deuxième requête SQL
+			sql = `
+				DELETE FROM 
+					${process.env.MYSQL_DATABASE}.orderable_menu
+				WHERE	 
+					orderable_menu.menu_id = :id
+				;
+			`;
+			await connection.execute(sql, data);
+
+			// troisième requête
+			/*
+			INSERT INTO lechemin_dev.orderable_menu
+		 	VALUES
+			(1, @id),
+			(2, @id),
+			(3, @id);
+
+			split: extraire des données d'une chaîne de caractères en array
+				1,2,3 >> (1, @id),(2, @id),(3, @id)
+			*/
+
+
+			const joinIds = data.orderable_ids
+				?.split(",")
+				.map((value) => `(${value}, :id)`)
+				.join();
+			// 	// console.log(joinIds);
+
+			sql = `
+				INSERT INTO
+				${process.env.MYSQL_DATABASE}.orderable_menu
+				VALUES
+				${joinIds}
+				;
+			`;
+
+			// exécution de la requête
+			const [query] = await connection.execute(sql, data);
+
+			//valider la transaction SQL
+			connection.commit();
+
+			return query;
+			// retourner kes résultants
+		} catch (error) {
+			//annuler une transcation SQL
+			connection.rollback();
+			return error;
+		}
+	};
+
+	// suprimer un enegistrement
+	public delete= async (
+		data: Partial<Menu>,
+	): Promise<QueryResult | unknown> => {
+		// connection au serveur
+
+		const connection = await new MYSQLService().connect();
+
+		// requête SQL
+		let sql = `
+			DELETE FROM
+				${process.env.MYSQL_DATABASE}.orderable_menu
+			WHERE
+			orderable_menu.menu_id = :id
+			;
+		
+		`;
+
+		try {
+			//demarré un transaction SQL
+			connection.beginTransaction();
+
+			//exécuter la prémiere requête SQL
+			//si la requêye posséde des variables, utliser le paramétre de la methode
+			await connection.execute(sql, data);
+
+			// // deuxième requête SQL
+			sql = `
+				DELETE FROM 
+					${process.env.MYSQL_DATABASE}.${this.table}
+				WHERE	 
+					${this.table}.id = :id
+				;
+			`;
+
+			// exécution de la requête
+			const [query] = await connection.execute(sql, data);
+
+			//valider la transaction SQL
+			connection.commit();
+
+			return query;
+			// retourner kes résultants
+		} catch (error) {
+			//annuler une transcation SQL
+			connection.rollback();
+			return error;
+		}
+	};
 }
 
 export default MenuRepository;

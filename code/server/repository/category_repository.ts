@@ -137,7 +137,7 @@ class CategoryRepository {
 			VALUE
 			(
 			NULL,
-			:name,
+			:name
 			)
 			;
 		
