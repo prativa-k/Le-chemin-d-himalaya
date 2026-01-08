@@ -11,61 +11,65 @@ class RouterService {
 				path: "/",
 
 				// importation de la mise en page parente
-				lazy: () => import("../layouts/root_layout"),
+				lazy: () => import("../layouts/public_layout"),
+
 				children: [
 					{
-						id: "public",
+						id: "home",
+						index: true,
 						path: "",
-						lazy: () => import("../layouts/public_layout"),
+						lazy: () => import("../pages/index"),
+					},
+					{
+						id: "contact",
+						path: "contact",
+						lazy: () => import("../pages/contact/contact"),
+					},
+					{
+						id: "reserver",
+						path: "reserver",
+						lazy: () => import("../pages/reserver/reserver"),
+					},
 
-						children: [
-							{
-								id: "home",
-								index: true,
-								path: "",
-								lazy: () => import("../pages/index"),
-							},
-							{
-								id: "contact",
-								path: "contact",
-								lazy: () => import("../pages/contact"),
-							},
-							{
-								id: "reserver",
-								path: "reserver",
-								lazy: () => import("../pages/reserver"),
-							},
+					{
+						id: "commander",
+						path: "commander",
+						lazy: () => import("../pages/commander/commander"),
+					},
 
-							{
-								id: "commander",
-								path: "commander",
-								lazy: () => import("../pages/commander"),
-							},
+					{
+						id: "galarie",
+						path: "galarie",
+						lazy: () => import("../pages/galarie/galerie"),
+					},
 
-							{
-								id: "galarie",
-								path: "galarie",
-								lazy: () => import("../pages/galerie"),
-							},
+					{
+						id: "avis",
+						path: "avis",
+						lazy: () => import("../pages/avis/avis"),
+					},
 
-							{
-								id: "avis",
-								path: "avis",
-								lazy: () => import("../pages/avis"),
-							},
+					{
+						id: "carte",
+						path: "carte",
+						lazy: () => import("../pages/menu/carte"),
+					},
 
-							{
-								id: "carte",
-								path: "carte",
-								lazy: () => import("../pages/carte"),
-							},
+					{
+						id: "admin",
+						path: "admin",
+						lazy: () => import("../pages/admin/admin"),
+					},
 
-							{
-								id: "admin",
-								path: "admin",
-								lazy: () => import("../pages/admin"),
-							},
-						],
+					{
+						id: "admin-menus-home",
+						path: "admin/menus",
+						lazy: () => import("../pages/admin-menu/admin-menus-home"),
+					},
+					{
+						id: "admin-menus-form",
+						path: "admin/menus/form",
+						lazy: () => import("../pages/admin-menu/admin-menus-form"),
 					},
 				],
 			},

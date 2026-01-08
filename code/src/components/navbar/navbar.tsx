@@ -4,9 +4,9 @@ import { useState } from "react";
 // import { useState } from "react";
 import { NavLink } from "react-router";
 
-import styles from "../assets/css/nav_bar.module.css";
-import UserAdmin from "./admin";
-import Logo from "./logo";
+import styles from "../../assets/css/nav_bar.module.css";
+import UserAdmin from "../admin/admin_home_content";
+import Logo from "../logo/logo";
 
 const NavBar = () => {
 	//créer un état: hook useState

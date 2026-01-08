@@ -1,5 +1,5 @@
-import { Fragment } from "react/jsx-runtime";
-import styles from "../assets/css/hello.module.css";
+
+import styles from "../../assets/css/hello.module.css";
 
 const Hello = () => {
 	const name = "prativa";
