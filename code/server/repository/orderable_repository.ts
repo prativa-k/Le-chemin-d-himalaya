@@ -155,6 +155,7 @@ class OrderableRepository {
 		data: Partial<Orderable>,
 	): Promise<QueryResult | unknown> => {
 		// connection au serveur
+		//console.log(data);
 
 		const connection = await new MYSQLService().connect();
 

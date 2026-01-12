@@ -24,6 +24,7 @@ class MenuController {
 			data: results,
 		});
 	};
+	
 	public selectOne = async (req: Request, res: Response) => {
 		// récupérer la varibale de route
 		console.log(req.params);

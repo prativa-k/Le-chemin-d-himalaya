@@ -1,10 +1,75 @@
-import { useId } from "react";
+"use client";
+import { useId, useState } from "react";
+import { useForm } from "react-hook-form";
+import type { ZodIssue } from "zod/v3";
+import type { Menu } from "../../../../models/menu";
+import type { Orderable } from "../../../../models/orderable";
 import type { AdminMenuFormContentProps } from "../../../models/props/admin_menu_form_content_props";
+import MenuApiService from "../../../services/menu_api_service";
 
-const AdminMenusFormContent = ({ orderables }: AdminMenuFormContentProps) => {
+const AdminMenusFormContent = ({
+	orderables,
+	validator,
+}: AdminMenuFormContentProps) => {
 	const nameId = useId();
 	const priceId = useId();
 	const idId = useId();
+
+	// stocker les messages d'erreur de validation côté serveur
+	const [serverErrors, setServerErrors] = useState<Partial<Menu>>();
+
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<Partial<Menu>>();
+
+	// // soumission du formulaire
+	// // data stocke la saisie du formulaire
+	const submitForm = async (data: Partial<Menu>) => {
+		// normaliser les données saisies : se baser sur les données testées dans flashpost pour que les données
+		const normalizedData = {
+			...data,
+			orderable_ids: (data.orderable_ids as unknown as Orderable[]).join(),
+		};
+
+		const validation = await validator(normalizedData);
+
+		// console.log(validation);
+
+		// si la validation échoue
+		if (validation instanceof Error) {
+			// stocker les messages d'erreur
+			let errors = {};
+
+			//récupérer les messages d'erreur
+			(JSON.parse(validation.message) as ZodIssue[]).map((item) => {
+				errors = { ...errors, [item.path.shift() as string]: item.message };
+				return errors;
+			});
+
+			// définir l'état affichant les messages d'erreur côté serveur
+			setServerErrors(errors);
+
+			return;
+		}
+
+		// if you have images in you file you have to do the formdata
+		// formData.set("id", normalizedData.id as unknown as string);
+		// formData.set("name", normalizedData.name as unknown as string);
+		// formData.set("image", normalizedData.image as unknown as string);
+		// formData.set(
+		// 	"description",
+		// 	normalizedData.description as unknown as string,
+		// );
+		// formData.set("is_active", normalizedData.is_active ? "1" : "0");
+		// formData.set("asso_id", normalizedData.asso_id as unknown as string);
+
+		// requête HTTP vers l'API
+		const process = await new MenuApiService().insert(normalizedData);
+		console.log(process);
+	};
 
 	return (
 		<>
@@ -19,40 +84,88 @@ const AdminMenusFormContent = ({ orderables }: AdminMenuFormContentProps) => {
 
  	<select>, soit des butons radio
  		> sélection d'un seul choix
- 	tabke de jointure: cases à cocher
+ 	table de jointure: cases à cocher
  		> sélection de plusieurs choix
 
 // 	*/}
 
-			<form>
+			<form onSubmit={handleSubmit(submitForm)}>
 				<p>
 					<label htmlFor={nameId}>Nom:</label>
-					<input type="text" name="name" id={nameId} />
+					<input
+						type="text"
+						id={nameId}
+						{...register("name", {
+							required: "Name is required",
+							minLength: {
+								value: 2,
+								message: "Un nom doit comporter, au minimum, 2 caractères",
+							},
+							maxLength: {
+								value: 50,
+								message: "Un nom doit comporter, au maximum, 50 caractères",
+							},
+						})}
+					/>
+					{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+					<small role="alert">
+						{errors.name?.message ?? serverErrors?.name}
+					</small>
 				</p>
 
 				<p>
 					<label htmlFor={priceId}>Prix:</label>
-					<input type="text" name="price" id={priceId} />
+					<input
+						type="text"
+						id={priceId}
+						{...register("price", {
+							required: "Price is required",
+
+							min: {
+								value: 2,
+								message: "Le prix doit être au minimum de 2€",
+							},
+							max: {
+								value: 50,
+								message: "Un nom doit comporter, au maximum, 50 caractères",
+							},
+						})}
+					/>
+					{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+					<small role="alert">
+						{errors.price?.message ?? serverErrors?.price}
+					</small>
 				</p>
 
 				<p>Plats:</p>
 				{orderables.map((item) => {
 					return (
 						<p key={item.id}>
-							<input type= "checkbox" value={item.id} id={item.id as unknown as string}
-							name="orderable_ids" />
+							<input
+								type="checkbox"
+								value={item.id}
+								id={item.id as unknown as string}
+								{...register("orderable_ids", {
+									required: "orderable_ids is required",
+								})}
+							/>
 							{/* //reprendre strictement le nom des champs de formulaire testés avec flashpost */}
-							<label htmlFor= {item.id as unknown as string}> {item.name}</label>
+							<label htmlFor={item.id as unknown as string}> {item.name}</label>
 						</p>
 					);
 				})}
+				{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+				<small role="alert">
+					{errors.orderable_ids?.message ?? serverErrors?.orderable_ids}
+				</small>
 
 				<p>
-					<input type="text" name="price" id={idId} />
+					<input type="hidden" id={idId} {...register("id")} />
 					<button type="submit">Créer un Menu</button>
 				</p>
 			</form>
 		</>
 	);
 };
+
 export default AdminMenusFormContent;
