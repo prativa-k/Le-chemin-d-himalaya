@@ -1,10 +1,9 @@
 header {
-	background-color:#642a1a;
+	background-color:rgb(244, 236, 169);
 	height: 6vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: 0 0 0.4rem rgb(255, 191, 0);
 	padding: 1rem;
 }
 
@@ -12,8 +11,8 @@ header {
 .nav {
 	font-size: 1rem;
 	color: black;
-	top: 3.65rem;
-	right: -350px;
+	top: 9.2rem;
+	right: -1000px;
 	height: 100vh;
 	background-color: rgba(159, 148, 103, 0.25);
 	backdrop-filter: blur(4px);
@@ -31,7 +30,7 @@ header {
 	}
 }
 
-.menu_burger {
+.menuburger {
 	display: flex;
 	flex-direction: column;
 	border: none;

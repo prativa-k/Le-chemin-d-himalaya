@@ -6,6 +6,7 @@ import type { Orderable } from "../../../models/orderable"
 type AdminMenuFormContentProps = {
     orderables: Orderable[];
     validator: (data: Partial<Menu>) => Promise<Partial<Menu> | ZodError>;
+    dataToUpdate:  Menu | undefined;
 };
 
 export type {AdminMenuFormContentProps}

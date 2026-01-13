@@ -1,3 +1,9 @@
 .banner {
-    width: 100%;
+	width: auto;
+    
+}
+
+.img {
+	width: 100%;
+	object-position: cover;
 }

@@ -11,65 +11,83 @@ class RouterService {
 				path: "/",
 
 				// importation de la mise en page parente
-				lazy: () => import("../layouts/public_layout"),
+				lazy: () => import("../layouts/root_layout"),
 
 				children: [
 					{
-						id: "home",
-						index: true,
+						// identifant unique de la route
+						id: "public",
+
+						// préfixe des route
 						path: "",
-						lazy: () => import("../pages/index"),
-					},
-					{
-						id: "contact",
-						path: "contact",
-						lazy: () => import("../pages/contact/contact"),
-					},
-					{
-						id: "reserver",
-						path: "reserver",
-						lazy: () => import("../pages/reserver/reserver"),
-					},
 
-					{
-						id: "commander",
-						path: "commander",
-						lazy: () => import("../pages/commander/commander"),
-					},
+						// importation de la mise en page parente
+						lazy: () => import("../layouts/public_layout"),
 
-					{
-						id: "galarie",
-						path: "galarie",
-						lazy: () => import("../pages/galarie/galerie"),
-					},
+						children: [
+							{
+								id: "home",
+							
+								index: true,
+								path: "",
+								//path représente la route
+								lazy: () => import("../pages/index"),
+							},
+							{
+								id: "contact",
+								path: "contact",
+								lazy: () => import("../pages/contact/contact"),
+							},
+							{
+								id: "reserver",
+								path: "reserver",
+								lazy: () => import("../pages/reserver/reserver"),
+							},
 
-					{
-						id: "avis",
-						path: "avis",
-						lazy: () => import("../pages/avis/avis"),
-					},
+							{
+								id: "commander",
+								path: "commander",
+								lazy: () => import("../pages/commander/commander"),
+							},
 
-					{
-						id: "carte",
-						path: "carte",
-						lazy: () => import("../pages/menu/carte"),
-					},
+							{
+								id: "galarie",
+								path: "galarie",
+								lazy: () => import("../pages/galarie/galerie"),
+							},
 
-					{
-						id: "admin",
-						path: "admin",
-						lazy: () => import("../pages/admin/admin"),
-					},
+							{
+								id: "avis",
+								path: "avis",
+								lazy: () => import("../pages/avis/avis"),
+							},
 
-					{
-						id: "admin-menus-home",
-						path: "admin/menus",
-						lazy: () => import("../pages/admin-menu/admin-menus-home"),
-					},
-					{
-						id: "admin-menus-form",
-						path: "admin/menus/form",
-						lazy: () => import("../pages/admin-menu/admin-menus-form"),
+							{
+								id: "carte",
+								path: "carte",
+								lazy: () => import("../pages/menu/carte"),
+							},
+
+							{
+								id: "admin",
+								path: "admin",
+								lazy: () => import("../pages/admin/admin"),
+							},
+
+							{
+								id: "admin-menus-home",
+								path: "admin/menus",
+								lazy: () => import("../pages/admin-menu/admin-menus-home"),
+							},
+							{
+								id: "admin-menus-form",
+								//path représente la route
+								//varibale d'url est préfixée d'un :
+								// variable d'url optionnell est suffixée d'un ?
+								path: "admin/menus/form/:id?",
+								lazy: () => import("../pages/admin-menu/admin-menus-form"),
+							},
+						],
 					},
 				],
 			},

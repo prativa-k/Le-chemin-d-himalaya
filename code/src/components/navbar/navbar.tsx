@@ -79,7 +79,7 @@ const NavBar = () => {
 
 			{/* évenementclic  */}
 			<button
-				className={styles["menu_burger"]}
+				className={styles.menuburger}
 				onClick={handleclick}
 				type="button"
 			>

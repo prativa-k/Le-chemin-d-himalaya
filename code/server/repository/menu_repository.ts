@@ -65,7 +65,7 @@ class MenuRepository {
 
 				// clés jointures
 				result.orderables = (await new OrderableRepository().selectINlist(
-					result.orderable_ids,
+					result.orderable_ids as string,
 				)) as Orderable[];
 			}
 
@@ -118,7 +118,7 @@ class MenuRepository {
 
 			// clés jointures
 			result.orderables = (await new OrderableRepository().selectINlist(
-				result.orderable_ids,
+				result.orderable_ids as string,
 			)) as Orderable[];
 
 			return result;
@@ -173,7 +173,7 @@ class MenuRepository {
 			split: extraire des données d'une chaîne de caractères en array
 				1,2,3 >> (1, @id),(2, @id),(3, @id)
 			*/
-			const joinIds = data.orderable_ids
+			const joinIds = (data.orderable_ids as string)
 				?.split(",")
 				.map((value) => `(${value},@id)`)
 				.join();
@@ -255,8 +255,7 @@ class MenuRepository {
 				1,2,3 >> (1, @id),(2, @id),(3, @id)
 			*/
 
-
-			const joinIds = data.orderable_ids
+			const joinIds = (data.orderable_ids as string)
 				?.split(",")
 				.map((value) => `(${value}, :id)`)
 				.join();
@@ -286,7 +285,7 @@ class MenuRepository {
 	};
 
 	// suprimer un enegistrement
-	public delete= async (
+	public delete = async (
 		data: Partial<Menu>,
 	): Promise<QueryResult | unknown> => {
 		// connection au serveur
