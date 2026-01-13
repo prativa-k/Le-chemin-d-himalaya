@@ -1,6 +1,6 @@
 import { RiAdminFill } from "react-icons/ri";
 import { Link } from "react-router";
-import styles from "../../assets/css/nav_bar.module.css";
+import styles from "../../assets/css/nav/nav_bar.module.css";
 
 
 const AdminHomeContent = () => {

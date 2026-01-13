@@ -1,4 +1,4 @@
-import styles from "../../assets/css/bienvenue.module.css";
+import styles from "../../assets/css/bienvenue/bienvenue.module.css";
 
 const Bienvenue = () => {
 	return (

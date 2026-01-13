@@ -6,7 +6,7 @@
 .title {
 	font-size: 1.4rem;
 	color: white;
-	background-color: #4e1c15;
+	background-color:  #989e38;
 	text-align: center;
     margin: 1.5rem 0;
     padding: 1rem;
@@ -15,12 +15,13 @@
 /* bienvenue chez nous */
 .about {
 	margin: 2rem;
-	border: 1px solid var(--header-bg-color);
+	border: 1px solid  #e59a75;
 	width: 80%;
 }
 
 .description {
 	font-size: 1rem;
-    /* padding: 1rem 0; */
+    padding: 1rem;
+	line-height: 1.6;
 	
 }

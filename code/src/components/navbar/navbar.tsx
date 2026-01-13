@@ -4,7 +4,7 @@ import { useState } from "react";
 // import { useState } from "react";
 import { NavLink } from "react-router";
 
-import styles from "../../assets/css/nav_bar.module.css";
+import styles from "../../assets/css/nav/nav_bar.module.css";
 import UserAdmin from "../admin/admin_home_content";
 import Logo from "../logo/logo";
 

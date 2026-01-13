@@ -1,4 +1,4 @@
-import styles from "../../assets/css/food.module.css";
+import styles from "../../assets/css/food/food.module.css";
 
 const Food = () => {
     return (
