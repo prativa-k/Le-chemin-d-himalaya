@@ -5,13 +5,9 @@
 }
 /* varibales css */
 :root {
-	--body-color: #FAF7F2;
-    --header-text-color:#FFFFFF;
-    --header-bg-color:#D4A017;
-    --nav-hover-color: #F2C14E;
-    --primary-button-color:#D97925;
-    --primary-button-hover-color:#B8611D;
-    --card-border-color:#E8DCCC;
+	
+    --header-text-color:#989e38;
+    
 }
 
 /* balises HTML */

@@ -13,7 +13,7 @@ const AdminMenusHomeContent = () => {
 			{/* <p>AdminMenusHomeContent</p> */}
 
 			<h2>Géstion des Menu</h2>
-			<Link to={"/admin/menus/form"}>ajouter</Link>
+			<Link to={"/admin/menu/form"}>ajouter</Link>
 
 			{/* affichage des menus */}
 			{results?.map((item) => {
@@ -21,8 +21,8 @@ const AdminMenusHomeContent = () => {
 					<div key={item.id}>
 						<p> {item.name}</p>
 						<p>
-							<Link to={`/admin/menus/form/${item.id}`}>Modifier</Link>
-							<Link to={""}>Suprimer</Link>
+							<Link to={`/admin/menu/form/${item.id}`}>Modifier</Link>
+							<Link to={`/admin/menu/delete/${item.id}`}>Suprimer</Link>
 						</p>
 					</div>
 				);

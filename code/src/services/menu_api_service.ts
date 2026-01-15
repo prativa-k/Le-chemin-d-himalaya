@@ -68,6 +68,10 @@ class MenuApiService {
 		// retourner les résultats
 		return results;
 	};
+	// supression d'un engristrement
+
+	// si le formulaire contient de ficher: utiliser Formdata  en parametre
+	// si le formulaire ne contient pas de champ: utiliser le id
 
 	public Update = async (
 		data: Partial<Menu>,
@@ -83,6 +87,38 @@ class MenuApiService {
 				headers: {
 					"Content-Type": "application/json",
 				},
+				body: JSON.stringify(data),
+			},
+		);
+
+		const response = await fetch(request);
+
+		// convertir la réponse en JSON
+		// sérialiser : convertir des données complexes (objet, array) en chaine de caractères
+		// désérialiser : convertir une chaine de caractère en données complexe : objet, array...
+		const results = await response.json();
+
+		// retourner les résultats
+		return results;
+	};
+
+	// supression d'un engristrement
+	public Delete = async (
+		data: Partial<Menu>,
+	): Promise<ApiResponse<Menu[]>> => {
+		// configurer la requête HTTP
+		// import.meta.env permet d'importer une variable d'environnement dans vite/react
+		const request = new Request(
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
+			{
+				method: "delete",
+
+				//  si le formulaire contient un champ de ficher la propriéte body renovie un objet 
+				headers: {
+					"Content-Type": "application/json",
+				},
+				// séralise: transformer une donnée complexe (array, objet) en chaine de caractères 
+				// déséraliser: transformer une chaine de caractères en ube donnée complexe (arraya, objet)
 				body: JSON.stringify(data),
 			},
 		);

@@ -7,7 +7,7 @@ class MenuRouter {
 	private router = express.Router();
 
 	// multer permet de gérer le transferet de fichiers
-	// private multer = multer({ dest: "pub" });
+	// private multer = multer({ dest: `${process.env.PUBLIC_DIR}/img/menu` });
 
 	// liste des routes
 	public getRoutes = () => {

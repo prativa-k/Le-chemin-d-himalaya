@@ -1,26 +1,23 @@
 "use client";
 import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
+import { data, useNavigate } from "react-router";
 import type { ZodIssue } from "zod/v3";
 import type { Menu } from "../../../../models/menu";
 import type { Orderable } from "../../../../models/orderable";
 import type { AdminMenuFormContentProps } from "../../../models/props/admin_menu_form_content_props";
 import MenuApiService from "../../../services/menu_api_service";
-import { useNavigate } from "react-router";
-import { data } from "react-router";
 
 const AdminMenusFormContent = ({
 	orderables,
 	validator,
 	dataToUpdate,
-	
-}: AdminMenuFormContentProps) => {
+
+}: 
+AdminMenuFormContentProps) => {
 	const nameId = useId();
 	const priceId = useId();
 	const idId = useId();
-
-
-	
 
 	// useNavigate permet de créer une redirection
 	const navigate = useNavigate();
@@ -29,7 +26,7 @@ const AdminMenusFormContent = ({
 	const [serverErrors, setServerErrors] = useState<Partial<Menu>>();
 
 	// message lié à la soumission du formulaire
-	const [message, setMessage] = useState<string>("")
+	const [message, setMessage] = useState<string>("");
 
 	const {
 		register,
@@ -38,22 +35,22 @@ const AdminMenusFormContent = ({
 		formState: { errors },
 	} = useForm<Partial<Menu>>();
 
-
 	//pré-remplier le formulaire avant l'affichage du composant
 	useEffect(() => {
-
 		// si des données sont à mettre à jour
-		if(dataToUpdate){
+		if (dataToUpdate) {
+
 
 			// normaliser les données saisies : se baser sur les données testées dans flashpost pour que les données
 			const normalizedData = {
-			...dataToUpdate,
-			orderable_ids: (dataToUpdate.orderable_ids as string).split(',')
-		};
-			reset(normalizedData)
+				...dataToUpdate,
+				orderable_ids: (dataToUpdate.orderable_ids as string).split(","),
+			};
+			reset(normalizedData);
 		}
-		
-	},[reset, dataToUpdate])
+	}, [reset, dataToUpdate]);
+
+	
 
 	// // soumission du formulaire
 	// // data stocke la saisie du formulaire
@@ -100,18 +97,22 @@ const AdminMenusFormContent = ({
 		const process = dataToUpdate
 			? await new MenuApiService().Update(normalizedData)
 			: await new MenuApiService().insert(normalizedData);
-		// console.log(process);
+			
+		
+			// console.log(process);
 
 		// si la requête HTTP a réussie
-		if([200,201].indexOf(process.status) !== -1) {
-
+		if ([200, 201].indexOf(process.status) !== -1) {
 			// redirection
-			navigate("/admin/menus");
-		}
-		else if ([400].indexOf(process.status) !== -1) {
+			navigate("/admin/menu");
+		
+			
+		} else if ([400].indexOf(process.status) !== -1) {
 			// afficher un message
 			setMessage(process.message as unknown as string);
 		}
+
+		
 	};
 
 	return (
@@ -119,9 +120,7 @@ const AdminMenusFormContent = ({
 			<p>Gérer les menus</p>
 
 			{/* afficher le message */}
-			{
-				message ? <p role="alert">{message}</p> : null
-			}
+			{message ? <p role="alert">{message}</p> : null}
 
 			{/* 
  

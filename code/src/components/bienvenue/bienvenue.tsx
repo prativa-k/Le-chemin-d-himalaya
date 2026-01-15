@@ -1,3 +1,4 @@
+
 import styles from "../../assets/css/bienvenue/bienvenue.module.css";
 
 const Bienvenue = () => {
@@ -8,10 +9,15 @@ const Bienvenue = () => {
             </div>
 
             <div className={styles.about}>
-                <p className={styles.description}>Bienvenue au Chemin de l'Himalaya!Envie d'une escapade délicieuse,venez découvrir la haute gastronomie indienne et népalaise dans votre restaurant le Chemin de l'Himalaya, à Evry, élu papilles d'Or 2009, meilleur restaurant de l'Essonne dans la catégorie « Cuisine du monde ». </p>
+                <p className={styles.description}>Bienvenue au Chemin de l’Himalaya, restaurant indien et népalais à Évry, élu <span className={styles.bold}>Papilles d’Or 2009 </span> et reconnu comme meilleur restaurant de l’Essonne dans la catégorie 
+                     <span className={styles.bold}> "Cuisine du monde".</span> </p>
 
-                <p className={styles.description}>Situé à un carrefour stratégique de la ville, à deux pas du centre commercial régional Agora, du Parc des Coquibus, de l'Hôtel de Ville, de l'université, de la cathédrale d'Evry, le Chemin de l'Himalaya, restaurant indien-népalais a le plaisir de vous accueillir chaleureusement, dans un cadre authentique et dépaysant</p>
+                <p className={styles.description}>Apprécié par nos clients, nous sommes fiers d’afficher une note de  <span className={styles.bold}>4,4/5 </span> sur  <span>TripAdvisor</span> et  <span className={styles.bold}>4,5/5</span> sur <span className={styles.bold}>Google</span>, gages de la qualité de notre cuisine et de notre accueil.</p>
+
+                <p className={styles.description}>Nous vous invitons à venir vivre une expérience authentique et savoureuse.</p>
             </div>
+
+     
 		</>
 	);
 };

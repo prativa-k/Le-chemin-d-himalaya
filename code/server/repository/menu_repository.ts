@@ -257,9 +257,9 @@ class MenuRepository {
 
 			const joinIds = (data.orderable_ids as string)
 				?.split(",")
-				.map((value) => `(${value}, :id)`)
+				.map((value) => `(${value},:id)`)
 				.join();
-			// 	// console.log(joinIds);
+			// console.log(joinIds);
 
 			sql = `
 				INSERT INTO

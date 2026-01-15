@@ -27,11 +27,11 @@ class RouterService {
 						children: [
 							{
 								id: "home",
-							
+
 								index: true,
 								path: "",
 								//path représente la route
-								lazy: () => import("../pages/index"),
+								lazy: () => import("../pages/admin/index"),
 							},
 							{
 								id: "contact",
@@ -68,24 +68,68 @@ class RouterService {
 								lazy: () => import("../pages/menu/carte"),
 							},
 
-							{
-								id: "admin",
-								path: "admin",
-								lazy: () => import("../pages/admin/admin"),
-							},
+							// {
+							// 	id: "admin",
+							// 	path: "admin",
+							// 	lazy: () => import("../pages/admin/admin"),
+							// },
 
+							// {
+							// 	id: "admin-menus-home",
+							// 	path: "admin/menus",
+							// 	lazy: () => import("../pages/admin-menu/admin-menus-home"),
+							// },
+							// {
+							// 	id: "admin-menus-form",
+							// 	//path représente la route
+							// 	//varibale d'url est préfixée d'un :
+							// 	// variable d'url optionnell est suffixée d'un ?
+							// 	path: "admin/menus/form/:id?",
+							// 	lazy: () => import("../pages/admin-menu/admin-menus-form"),
+							// },
+							// {
+							// 	id: "delete",
+							// 	//path représente la route
+							// 	//varibale d'url est préfixée d'un :
+							// 	// variable d'url optionnell est suffixée d'un ?
+							// 	path: "delete/:id?",
+							// 	lazy: () => import("../pages/delete"),
+							// }
+						],
+					},
+
+
+					{
+						id: "admin",
+						path: "/admin",
+						lazy: () => import("../layouts/admin_layout"),
+						children: [
 							{
-								id: "admin-menus-home",
-								path: "admin/menus",
-								lazy: () => import("../pages/admin-menu/admin-menus-home"),
+								id: "admin-home",
+								index: true, // admin
+								lazy: () => import("../pages/admin/index"),
 							},
 							{
-								id: "admin-menus-form",
+								id: "admin-menu",
+								path: "menu",
+								lazy: () => import("../pages/admin/menu/index"),
+							},
+							{
+								id: "admin-menu-form",
 								//path représente la route
 								//varibale d'url est préfixée d'un :
 								// variable d'url optionnell est suffixée d'un ?
-								path: "admin/menus/form/:id?",
-								lazy: () => import("../pages/admin-menu/admin-menus-form"),
+								path: "menu/form/:id?",
+								lazy: () =>
+									import("../pages/admin/menu/form"),
+							},
+							{
+								id: "delete",
+								//path représente la route
+								//varibale d'url est préfixée d'un :
+								// variable d'url optionnell est suffixée d'un ?
+								path: "menu/delete/:id?",
+								lazy: () => import("../pages/admin/menu/delete"),
 							},
 						],
 					},

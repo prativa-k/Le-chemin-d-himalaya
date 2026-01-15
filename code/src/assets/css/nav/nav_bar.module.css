@@ -11,8 +11,8 @@ header {
 .nav {
 	font-size: 1rem;
 	color: black;
-	top: 9.2rem;
-	right: -1000px;
+	top: 4.35rem;
+	right: -375px;
 	height: 100vh;
 	background-color: rgba(159, 148, 103, 0.25);
 	backdrop-filter: blur(4px);
@@ -43,6 +43,19 @@ header {
 		background-color: black;
 	}
 }
+
+.open .line:nth-child(1) {
+	transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .open .line:nth-child(2) {
+	opacity: 0;
+  }
+  
+  .open .line:nth-child(3) {
+	transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
 .list {
 	list-style: none;
 	display: flex;
