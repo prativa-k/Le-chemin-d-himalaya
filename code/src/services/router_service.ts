@@ -31,7 +31,7 @@ class RouterService {
 								index: true,
 								path: "",
 								//path représente la route
-								lazy: () => import("../pages/admin/index"),
+								lazy: () => import("../pages/index"),
 							},
 							{
 								id: "contact",
@@ -51,9 +51,9 @@ class RouterService {
 							},
 
 							{
-								id: "galarie",
-								path: "galarie",
-								lazy: () => import("../pages/galarie/galerie"),
+								id: "galerie",
+								path: "galerie",
+								lazy: () => import("../pages/galerie/galerie"),
 							},
 
 							{
@@ -98,7 +98,6 @@ class RouterService {
 						],
 					},
 
-
 					{
 						id: "admin",
 						path: "/admin",
@@ -107,7 +106,7 @@ class RouterService {
 							{
 								id: "admin-home",
 								index: true, // admin
-								lazy: () => import("../pages/admin/index"),
+								lazy: () => import("../pages/admin/admin"),
 							},
 							{
 								id: "admin-menu",
@@ -120,8 +119,7 @@ class RouterService {
 								//varibale d'url est préfixée d'un :
 								// variable d'url optionnell est suffixée d'un ?
 								path: "menu/form/:id?",
-								lazy: () =>
-									import("../pages/admin/menu/form"),
+								lazy: () => import("../pages/admin/menu/form"),
 							},
 							{
 								id: "delete",

@@ -1,7 +1,49 @@
-.title 	{
-		font-size: 1.4rem;
-		color: white;
-		background-color: #989e38;
-		justify-content: center;
-		display: flex;
-	}
+.titlebox{
+	display: flex;
+	justify-content: center;
+}
+
+.title {
+	font-size: 1.4rem;
+	color: white;
+	background-color:  #989e38;
+	text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+.specialitybox {
+	max-width: 375px;
+	width: 100%;
+}
+
+.speciality{
+	width: 300px;
+	margin: 2rem ;
+}
+
+.speciality img {
+	width: 100%;
+	height: auto;
+}
+.foodname{
+	font-weight: bold;
+	font-size: 1.2rem;
+	color: #ac6945;
+	line-height: 1.5;
+}
+.description {
+	color:#989e38;
+	font-size: 1rem;
+}
+.decouvrir {
+	color: #ac6945;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	/* text-align: center;
+	align-items: center; */
+	font-size: 1.3rem;
+	
+	
+}

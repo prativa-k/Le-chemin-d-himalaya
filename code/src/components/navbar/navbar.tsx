@@ -50,8 +50,8 @@ const NavBar = () => {
 					</li>
 
 					<li>
-						<NavLink className={styles.link} to={"/galarie"}>
-							Galaire
+						<NavLink className={styles.link} to={"/galerie"}>
+							Galerie
 						</NavLink>
 					</li>
 

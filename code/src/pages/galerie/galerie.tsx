@@ -1,14 +1,14 @@
 import Seo from "../../components/seo/seo";
 
 
-const GalariePage = () => {
+const GaleriePage = () => {
     return (
         <>
             <Seo title= "Galerie" description= "Galarie - description" url="/" />
-             <h2>Galaire</h2>
+             <h2>Galerie</h2>
         </>
        
     );
 }
 
-export default GalariePage;
+export default GaleriePage;
