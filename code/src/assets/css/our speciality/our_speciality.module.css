@@ -1,3 +1,8 @@
+
+.speciality{
+	max-width: 375px;
+	width: 100%;
+}
 .titlebox{
 	display: flex;
 	justify-content: center;
@@ -6,38 +11,49 @@
 .title {
 	font-size: 1.4rem;
 	color: white;
-	background-color:  #989e38;
+	background-color: var(--primary-color);
 	text-align: center;
     margin: 1.5rem 0;
     padding: 1rem;
 }
 
+/* for the speciality container box */
 .specialitybox {
-	max-width: 375px;
-	width: 100%;
+	width: 350px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+
 }
 
-.speciality{
-	width: 300px;
-	margin: 2rem ;
+.specialityitem {
+	max-width: 300px;
+	width: 100%;
+	text-align: center;
+	margin: 1rem O;
+	padding: 1rem;
 }
+
 
 .speciality img {
 	width: 100%;
 	height: auto;
+	display: block;
 }
 .foodname{
 	font-weight: bold;
 	font-size: 1.2rem;
-	color: #ac6945;
+	color: var(--secondary-color);
 	line-height: 1.5;
 }
 .description {
-	color:#989e38;
+	color:var(--primary-color);
 	font-size: 1rem;
 }
 .decouvrir {
-	color: #ac6945;
+	color: var(--secondary-color);
 	font-weight: bold;
 	display: flex;
 	justify-content: center;

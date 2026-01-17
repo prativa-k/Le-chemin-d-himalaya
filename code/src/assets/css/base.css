@@ -6,7 +6,9 @@
 /* varibales css */
 :root {
 	
-    --header-text-color:#989e38;
+    --primary-color:#989e38;
+	--secondary-color:#ac6945;
+	--hover-color: #f79124;
     
 }
 
@@ -17,5 +19,5 @@ body {
 	font-family: montserrat, sans-serif;
 }
 * {
-	box-sizing: box-sizing;
+	box-sizing: border-box;
 }

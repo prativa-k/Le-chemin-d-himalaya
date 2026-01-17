@@ -3,7 +3,7 @@ import styles from "../../assets/css/bienvenue/bienvenue.module.css";
 
 const Bienvenue = () => {
 	return (
-		<>
+		<div className={styles.bienvenue}>
             <div className={styles.titlebox}>
 		    	<h2 className={styles.title}>Bienvenue Chez Nous</h2>
             </div>
@@ -18,7 +18,7 @@ const Bienvenue = () => {
             </div>
 
      
-		</>
+		</div>
 	);
 };
 

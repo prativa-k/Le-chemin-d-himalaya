@@ -1,9 +1,40 @@
 .banner {
-	width: auto;
+	max-width: 375px;
+	width: 100%;
     
 }
 
 .img {
 	width: 100%;
-	object-position: cover;
+	object-fit: cover;
+	height: 100%;
+}
+
+
+/* for ipad */
+@media screen  and (min-width:768px){
+	.banner {
+		max-width: 768px;
+		width: 100%;
+		
+	}
+	
+	.img {
+		width: 100%;
+		object-position: cover;
+	}
+}
+
+/* for Desktop */
+@media screen  and (min-width:1000px){
+	.banner {
+		max-width: 1000px;
+		width: 100%;
+		
+	}
+	
+	.img {
+		width: 100%;
+		object-position: cover;
+	}
 }

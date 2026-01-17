@@ -5,9 +5,13 @@ import "../assets/css/base.css";
 import { Outlet } from "react-router";
 import AdminSideBar from "../components/admin/admin_sidebar";
 import AdminTopBar from "../components/admin/admin_topbar";
+import NavBar from "../components/navbar/navbar";
+import Footer from "../components/footer/footer";
 
 const AdminLayout = () => {
 	return (
+		<>
+		<NavBar />
 		<div>
 			<AdminSideBar />
 
@@ -17,7 +21,9 @@ const AdminLayout = () => {
 					<Outlet />
 				</main>
 			</div>
-		</div>
+			</div>
+			<Footer />
+		</>
 	);
 };
 

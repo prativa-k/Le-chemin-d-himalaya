@@ -1,17 +1,21 @@
+/* for mobile */
+
 header {
+	max-width: 375px;
 	background-color:white;
 	height: 6vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem;
+	width: 100%;
+	padding: 2rem;
 }
 
-
+/* navbar */
 .nav {
 	font-size: 1rem;
 	color: black;
-	top: 4.35rem;
+	top: 4rem;
 	right: -375px;
 	height: 100vh;
 	background-color: rgba(159, 148, 103, 0.25);
@@ -29,7 +33,7 @@ header {
 		right: 0;
 	}
 }
-
+ /* hamburger menu */
 .menuburger {
 	display: flex;
 	flex-direction: column;
@@ -40,10 +44,10 @@ header {
 		width: 1rem;
 		height: 0.15rem;
 		margin-bottom: 0.3rem;
-		background-color: black;
+		background-color: var(--secondary-color);
 	}
 }
-
+/* for the cross upon clicking */
 .open .line:nth-child(1) {
 	transform: rotate(45deg) translate(5px, 5px);
   }
@@ -60,7 +64,7 @@ header {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	color: var(--header-text-color);
+	color: var(--primary-color);
 	gap: 1.2rem;
 }
 
@@ -71,10 +75,138 @@ header {
 	text-decoration: none;
 }
 a:hover {
-	border-bottom: 1px solid #f5b37e;
-	width: 5rem;
+	border-bottom: 1px solid var(--hover-color);
+	width: 8rem;
 }
 
-/* @media screen and (min-width:1000px)  {
-        
-} */
+/* for ipad */
+@media screen and (min-width:768px)  {
+	header {
+		max-width: 768px;
+		background-color:white;
+		height: 6vh;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2rem;
+		width: 100%;
+	}
+	
+	/* navbar */
+	.nav {
+		font-size: 1rem;
+		color: black;
+		top: 4rem;
+		right: -768px;
+		height: 100vh;
+		background-color: rgba(159, 148, 103, 0.25);
+		backdrop-filter: blur(4px);
+		transition: 0.3s ease;
+	
+		z-index: 1;
+		width: 100%;
+		text-align: center;
+		position: fixed;
+		padding: 1rem 0;
+	
+		&.navbar-mobile-visible {
+			display: block;
+			right: 0;
+		}
+	}
+	 /* hamburger menu */
+	.menuburger {
+		display: flex;
+		flex-direction: column;
+		border: none;
+		background: transparent;
+	
+		.line {
+			width: 1rem;
+			height: 0.15rem;
+			margin-bottom: 0.3rem;
+			background-color: var(--secondary-color);
+		}
+	}
+	/* for the cross upon clicking */
+	.open .line:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	  }
+	  
+	  .open .line:nth-child(2) {
+		opacity: 0;
+	  }
+	  
+	  .open .line:nth-child(3) {
+		transform: rotate(-45deg) translate(5px, -5px);
+	  }
+	  
+	.list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		color: var(--primary-color);
+		gap: 1.2rem;
+	}
+	
+	/* for the navlink */
+	.link {
+		color: white;
+		font-size: 1.3rem;
+		text-decoration: none;
+	}
+	a:hover {
+		border-bottom: 1px solid var(--hover-color);
+		width: 8rem;
+	}
+	
+}
+
+
+/* for desktop */
+@media screen and (min-width:1000px)  {
+	
+	header {
+		max-width: 1000px;
+		background-color:white;
+		height: 6vh;
+		padding: 2rem;
+		width: 100%;
+	}
+	
+	/* navbar */
+
+		/* hide burger on desktop */
+		.menuburger {
+		  display: none;
+		}
+	  
+		/* nav always visible */
+		.nav {
+		  position: static;        /* reset fixed */
+		  height: auto;
+		  width: auto;
+		  right: auto;
+		  top: auto;
+		  display: block;          /* always shown */
+		  background-color: transparent;
+		  backdrop-filter: none;
+		  padding: 0;
+		}
+	  
+		.list {
+		  display: flex;
+		  flex-direction: row;
+		  justify-content: center;
+		  gap: 2rem;
+		}
+	  
+		.link {
+		  color: var(--primary-color); /* not white on white bg */
+		  font-size: 1.1rem;
+		  text-decoration: none;
+		}
+
+	  
+	
+}

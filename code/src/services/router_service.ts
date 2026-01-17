@@ -68,6 +68,12 @@ class RouterService {
 								lazy: () => import("../pages/menu/carte"),
 							},
 
+							{
+								id: "mentionlegale",
+								path: "mentionlegale",
+								lazy: () => import("../pages/mentionlegale/mentionlegale"),
+							},
+
 							// {
 							// 	id: "admin",
 							// 	path: "admin",

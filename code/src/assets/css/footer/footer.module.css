@@ -1,0 +1,142 @@
+.footer {
+  max-width: 375px;
+  width: 100%;
+  background-color: #ffffff;
+  margin: 2rem 0;
+  padding: 1rem;
+
+    /* STRONG footer separation */
+    box-shadow:
+      0 -6px 20px rgba(0, 0, 0, 0.12),
+      0 -1px 0 rgba(232, 225, 225, 0.08);
+  }
+ 
+  .footercontent {
+    color: var(--secondary-color);
+  }
+  .name {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    color: var(--primary-color);
+  }
+  .address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* for the adrees to appear in two lines */
+  .one, .two {
+     display: block;
+     align-items: center;
+     text-align: center;
+  }
+  .phone {
+    display: flex;
+   gap: 0.4rem;
+   justify-content: center;
+   padding: 0.5rem 0.8rem;
+   align-items: center;   
+   text-align: center;
+  }
+  .icon, .number {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+  }
+ .navlink {
+  text-decoration: none;
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 0.3rem;
+ }
+ .mentionlegale{
+ max-width: 375px;;
+  color: var(--secondary-color);
+ display: flex;
+ justify-content: center;
+ /* margin-bottom: 1rem; */
+ padding: 0.3rem;
+ align-items: center;
+ width: 100%;
+ }
+
+ .mentiontext {
+  text-decoration: none;
+  color: var(--secondary-color);
+ }
+  
+ @media screen and (min-width:768px) {
+  .footer {
+    max-width: 768px;
+    width: 100%;
+    background-color: #ffffff;
+    margin: 2rem 0;
+    padding: 1rem;
+    width: 100%;
+  
+      /* STRONG footer separation */
+      box-shadow:
+        0 -6px 20px rgba(0, 0, 0, 0.12),
+        0 -1px 0 rgba(232, 225, 225, 0.08);
+    }
+   
+    .footercontent {
+      color: var(--secondary-color);
+    }
+    .name {
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-align: center;
+      padding: 0.6rem;
+      margin-top: 1rem;
+      color: var(--primary-color);
+    }
+    .address {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    /* for the adrees to appear in two lines */
+    .one, .two {
+       display: block;
+       align-items: center;
+       text-align: center;
+    }
+    .phone {
+      display: flex;
+     gap: 0.4rem;
+     justify-content: center;
+     padding: 0.5rem 0.8rem;
+     align-items: center;   
+     text-align: center;
+    }
+    .icon, .number {
+      display: inline-block;
+      align-items: center;
+      text-align: center;
+    }
+   .navlink {
+    text-decoration: none;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 0.3rem;
+   }
+   .mentionlegale{
+   max-width: 375px;;
+    color: var(--secondary-color);
+   display: flex;
+   justify-content: center;
+   /* margin-bottom: 1rem; */
+   padding: 0.3rem;
+   align-items: center;
+   width: 100%;
+   }
+  
+   .mentiontext {
+    text-decoration: none;
+    color: var(--secondary-color);
+   }
+ }

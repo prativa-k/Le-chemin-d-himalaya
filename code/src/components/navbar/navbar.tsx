@@ -6,7 +6,16 @@ import styles from "../../assets/css/nav/nav_bar.module.css";
 import UserAdmin from "../admin/admin_home_content";
 import Logo from "../logo/logo";
 
-
+const navLinks = [
+	{ label: "Accueil", to: "/" },
+	{ label: "Réserver", to: "/reserver" },
+	{ label: "Commander", to: "/commander" },
+	{ label: "Galerie", to: "/galerie" },
+	{ label: "Avis", to: "/avis" },
+	{ label: "Carte", to: "/carte" },
+	{ label: "Contact", to: "/contact" },
+  ];
+  
 
 const NavBar = () => {
 	//créer un état: hook useState
@@ -26,7 +35,21 @@ const NavBar = () => {
 			<nav
 				className={`${styles.nav} ${navMobileIsVisible ? styles["navbar-mobile-visible"] : ""}`}
 			>
+
 				<ul className={styles.list}>
+    				{navLinks.map((link) => (
+      						<li key={link.to}>
+        						<NavLink
+          						className={styles.link}
+          						to={link.to}
+          						onClick={() => setnavMobileIsVisible(false)}
+       						 >
+          					{link.label}
+        				</NavLink>
+     						 </li>
+    					))}
+  				</ul>
+				{/* <ul className={styles.list}>
 					<li>
 						<NavLink
 							className={styles.link}
@@ -72,7 +95,7 @@ const NavBar = () => {
 							Contact
 						</NavLink>
 					</li>
-				</ul>
+				</ul> */}
 
 			
 				
