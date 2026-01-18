@@ -41,7 +41,7 @@
 /* for ipad */
 @media screen and (min-width:768px) {
 	.bienvenue {
-		max-width: 768x;
+		max-width: 768px;
 		width: 100%;
 	}
 	
@@ -49,6 +49,7 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
+		z-index: 2;
 	}
 	
 	.title {
@@ -84,6 +85,46 @@
 
 
 /* for desktop*/
-@media screen and (min-width:768px) {
-
+@media screen and (min-width:1000px) {
+	.bienvenue {
+		max-width: 1000px;
+		width: 100%;
+	}
+	
+	.titlebox{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		z-index: 2;
+	}
+	
+	.title {
+		font-size: 1.4rem;
+		color: white;
+		background-color:  var(--primary-color);
+		text-align: center;
+		margin: 1.5rem 0;
+		padding: 1rem;
+	}
+	
+	/* bienvenue chez nous */
+	.about {
+		
+		margin: 1rem;
+		padding: 0;
+	}
+	
+	.description {
+		font-size: 1rem;
+		width: 100%;
+		text-align: center;
+		line-height: 1.5;
+		margin: 1rem 0;
+		color: var(--secondary-color);
+		margin: auto;
+	}
+	
+	.bold{
+		font-weight: bold;
+	}
 }

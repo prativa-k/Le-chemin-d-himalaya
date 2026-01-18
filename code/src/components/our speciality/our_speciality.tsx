@@ -18,14 +18,14 @@ const OurSpeciality = () => {
 					</p>
 				</div>
 				<div className={styles.specialityitem}>
-					<img src="/img/dhalbhatmasu.jpg" alt="briyani" />
+					<img src="/img/dhalbhatmasu.jpg" alt="dhalbhatmashala" />
 					<p className={styles.foodname}>Dhal Bhat Masu</p>
 					<p className={styles.description}>
 						Plat préféré des népalais avec la viande au choix servie avec du riz
 					</p>
 				</div>
 				<div className={styles.specialityitem}>
-					<img src="/img/chickentikka.jpg" alt="briyani" />
+					<img src="/img/chickentikka.jpg" alt="chickentikka" />
 					<p className={styles.foodname}>Chicken Tikka Mashala</p>
 					<p className={styles.description}>
 						Poulet grillé au tandoor avec des tomates oignions agrémenté d'un
@@ -33,17 +33,40 @@ const OurSpeciality = () => {
 					</p>
 				</div>
 				<div className={styles.specialityitem}>
-					<img src="/img/chickenchowmein.jpg" alt="briyani" />
-					<p className={styles.foodname}>Himalaya chicken chaw chaw</p>
+					<img src="/img/chickenkorma.jpg
+					" alt="chowmein" />
+					<p className={styles.foodname}> Shahi Chicken Korma</p>
 					<p className={styles.description}>
-						Nouilles sautés avec du poulet aux épices népalaises
+					Poulet désossé dans une sauce doux aux amandes
 					</p>
 				</div>
 
+				<div className={styles.specialityitem}>
+					<img src="/img/Panner tikka Mashala.jpg" alt="Panner Tikka Mashala" />
+					<p className={styles.foodname}>Panner Tikka Mashala</p>
+					<p className={styles.description}>
+					Cube de fromage avec des épices verts et curry de madras
+					</p>
+				</div>
+				
+				<div className={styles.specialityitem}>
+					<img src="/img/samosa.jpg" alt="samosa" />
+					<p className={styles.foodname}>Samossa légume</p>
+					<p className={styles.description}>
+					Feuilleté de pomme de terre farcie au petit poids, carotte, noix de cajou aux épices
+					</p>
+				</div>
+
+				
+			</div>
+
+				
 				<Link to={"/carte"} className={styles.decouvrir}>
 					Découvrir plus
 				</Link>
-			</div>
+			
+				
+			
 		</div>
 	);
 };
