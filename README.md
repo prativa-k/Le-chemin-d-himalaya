@@ -2,35 +2,38 @@
 
 Le chemin d’Himalaya is my final project for an intensive web development course.
 The project was developed from scratch and covers the full development process,
-from design to database and frontend integration.
+from design to database and frontend implementation.
 
-## Project Overview
-The goal of this project was to design and build a complete web application while
-understanding how UX, data modeling, backend, and frontend work together.
+## Mission
+Design and develop a complete web application from concept to frontend implementation
+with a focus on structured data, usability, and responsive design.
 
 ## What I Did
 - Designed UX/UI wireframes using Figma
-- Modeled the data using the Merise methodology
+- Modeled data using the Merise methodology
 - Designed and implemented a SQL database
 - Developed APIs to manage and retrieve data
-- Built and integrated the frontend
-- Focused on usability, structure, and responsive design
+- Built the frontend using TypeScript
+- Structured components for readability and reusability
+- Integrated frontend with backend APIs
+- Focused on usability, clean structure, and responsive design
 
 ## Technologies Used
-- HTML
-- CSS
-- JavaScript / TypeScript
+- HTML, CSS
+- TypeScript
+- (React/Next.js)
 - SQL
-- API development
+- APIs
 - Figma (UX/UI)
-- Merise (data modeling)
 
 ## What I Learned
-- Structuring a project from concept to implementation
-- Connecting databases and APIs to a frontend
-- Designing user-friendly and maintainable interfaces
-- Understanding the full lifecycle of a web application
+- Building maintainable frontend components
+- Connecting frontend to backend services
+- Data modeling and web application structure
+- Responsiveness and usability design principles
+
+# status
+Not finished yet done as a part of the course.
 
 ## Status
-Started as a course final project. Not finished.
-
+Completed as a final course project. Further improvements possible.
