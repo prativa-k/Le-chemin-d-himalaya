@@ -213,3 +213,11 @@
     color: var(--secondary-color);
    }
  }
+
+@media screen and (min-width:1000px)  {
+  .footer, .mentionlegale {
+    min-width: 1000px;
+    width: 100%;
+  }
+  
+}

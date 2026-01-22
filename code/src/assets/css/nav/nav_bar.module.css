@@ -167,7 +167,7 @@ a:hover {
 @media screen and (min-width:1000px)  {
 	
 	header {
-		max-width: 1000px;
+		min-width: 1000px;
 		background-color:white;
 		height: 6vh;
 		padding: 2rem;
