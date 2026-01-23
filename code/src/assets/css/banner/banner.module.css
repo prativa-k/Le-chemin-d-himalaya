@@ -1,13 +1,14 @@
 .banner {
 	
 	width: 95%;
+	margin-inline:auto;
     
 }
 
 .img {
 	width: 100%;
 	object-fit: cover;
-	height: 100%;
+	
 }
 
 
@@ -19,7 +20,7 @@
 	}
 	
 	.img {
-		width: 100%;
+		width: 95%;
 		object-position: cover;
 	}
 }

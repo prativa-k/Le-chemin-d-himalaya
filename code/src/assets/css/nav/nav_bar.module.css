@@ -16,7 +16,7 @@ header {
 	font-size: 1rem;
 	color: black;
 	top: 4rem;
-	right: -375px;
+	right: -768px;
 	height: 100vh;
 	background-color: rgba(159, 148, 103, 0.25);
 	backdrop-filter: blur(4px);
@@ -74,10 +74,7 @@ header {
 	font-size: 1.3rem;
 	text-decoration: none;
 }
-a:hover {
-	border-bottom: 1px solid var(--hover-color);
-	width: 8rem;
-}
+
 
 /* for ipad */
 @media screen and (min-width:768px)  {
@@ -97,7 +94,7 @@ a:hover {
 		font-size: 1rem;
 		color: black;
 		top: 4rem;
-		right: -768px;
+		right: -1000px;
 		height: 100vh;
 		background-color: rgba(159, 148, 103, 0.25);
 		backdrop-filter: blur(4px);
@@ -155,10 +152,7 @@ a:hover {
 		font-size: 1.3rem;
 		text-decoration: none;
 	}
-	a:hover {
-		border-bottom: 1px solid var(--hover-color);
-		width: 8rem;
-	}
+	
 	
 }
 
@@ -171,7 +165,6 @@ a:hover {
 		background-color:white;
 		height: 6vh;
 		padding: 2rem;
-		margin-inline:auto;
 	}
 	
 	/* navbar */
@@ -207,6 +200,11 @@ a:hover {
 		  text-decoration: none;
 		}
 
-	  
+	  .link:hover{
+		border: 2px solid var(--hover-color);
+		border-radius: 3rem;
+		padding: 0.5rem;
+		transform: scale(0.3);
+	  }
 	
 }
