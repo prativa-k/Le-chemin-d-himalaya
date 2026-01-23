@@ -1,7 +1,8 @@
 
 .speciality{
-	max-width: 375px;
-	width: 100%;
+	
+	width: 95%;
+	margin-inline:auto;
 }
 .titlebox{
 	display: flex;
@@ -19,18 +20,18 @@
 
 /* for the speciality container box */
 .specialitybox {
-	width: 350px;
+	width: 95%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: auto;
+	margin-inline:auto;
 
 }
 
 .specialityitem {
-	max-width: 300px;
-	width: 100%;
+	
+	width: 95%;
 	text-align: center;
 	margin: 1rem O;
 	padding: 1rem;
@@ -38,7 +39,7 @@
 
 
 .speciality img {
-	width: 100%;
+	width: 95%;
 	height: auto;
 	display: block;
 }
@@ -70,8 +71,8 @@
 
 @media screen and (min-width:768px) {
 	.speciality{
-		max-width: 768px;
-		width: 100%;
+		
+		width: 95%;
 	}
 
 	.titlebox{
@@ -90,7 +91,7 @@
 	
 	/* for the speciality container box */
 	.specialitybox {
-		width: 760px;
+		width: 95%;
 		display: flex;
 		gap: 8px;
 		flex-direction: row;
@@ -116,7 +117,7 @@
 	
 	
 	.specialityitem img {
-		width: 100%;
+		width: 95%;
 		height: 140px;
 		object-fit: cover;
 	}
@@ -144,7 +145,7 @@
 @media screen and (min-width:1000px) {
 	.speciality{
 		min-width: 1000px;
-		width: 100%;
+		margin-inline: auto;
 	}
 
 	.titlebox{
@@ -163,8 +164,8 @@
 	
 	/* for the speciality container box */
 	.specialitybox {
-		max-width: 1800px;
-		width: 1000px;
+		
+		min-width: 1000px;
 		display: flex;
 		gap: 8px;
 		flex-direction: row;
