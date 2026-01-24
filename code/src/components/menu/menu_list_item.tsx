@@ -1,5 +1,6 @@
 import type e from "express";
 
+
 import type { MenuListItemProps } from "../../models/props/menu_list_item_props";
 
 const MenuListItem = ({ data }: MenuListItemProps) => {

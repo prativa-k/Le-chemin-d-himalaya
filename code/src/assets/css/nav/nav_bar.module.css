@@ -21,6 +21,8 @@ header {
 	background-color: rgba(159, 148, 103, 0.25);
 	backdrop-filter: blur(4px);
 	transition: 0.3s ease;
+	text-transform: uppercase;
+	font-weight: bold;
 
 	z-index: 1;
 	width: 100%;
@@ -99,6 +101,8 @@ header {
 		background-color: rgba(159, 148, 103, 0.25);
 		backdrop-filter: blur(4px);
 		transition: 0.3s ease;
+		text-transform: uppercase;
+		font-weight: bold;
 	
 		z-index: 1;
 		width: 100%;
@@ -185,6 +189,8 @@ header {
 		  background-color: transparent;
 		  backdrop-filter: none;
 		  padding: 0;
+		  text-transform: uppercase;
+		  font-weight: bold;
 		}
 	  
 		.list {

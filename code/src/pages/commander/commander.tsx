@@ -1,11 +1,16 @@
 import Seo from "../../components/seo/seo";
+import styles from "./commander.module.css"
 
 
 const CommanderPage = () => {
     return (
         <>
-        <Seo title= "Commander" description= "Commander - description" url="/" />
-        <h2>Commander</h2>
+            <div className={styles.commander}>
+                
+            <Seo title= "Commander" description= "Commander - description" url="/" />
+            <h2 className={styles.title}>Commander</h2>
+        </div>
+        
 
         </>
     );

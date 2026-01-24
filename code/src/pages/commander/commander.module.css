@@ -1,0 +1,45 @@
+.commander{
+    width: 95%;
+    height: 80vh;
+    margin-inline:auto;
+}
+
+.title {
+    width: 95%;
+    margin-inline: auto;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@media screen and (min-width:768px) {
+    .commander{
+        width: 95%;
+        height: 90vh;
+        margin-inline:auto;
+    }
+    
+    .title {
+        width: 95%;
+        margin-inline: auto;
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .commander{
+       min-width: 1000px;
+        height: 90vh;
+        margin-inline:auto;
+    }
+    
+    .title {
+        width: 80%;
+        margin-inline: auto;
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-top: 10px;
+    }
+}
