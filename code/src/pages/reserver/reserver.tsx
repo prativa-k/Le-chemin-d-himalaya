@@ -16,49 +16,49 @@ const ReserverPage = () => {
 				</div>
 			<form action="" className={styles.form}>
 
-            <p className={styles.name}>
-					<label htmlFor='name' > Nom</label>
+            <div className={styles.row}>
+					<label htmlFor='name' > Nom:</label>
                 <input type="text"  id='name' name='name' required/>
-            </p>
-            <p className={styles.name}>
-                <label htmlFor='prenom' className={styles.name}> Prenom</label>
+            </div>
+            <div className={styles.row}>
+                <label htmlFor='prenom' className={styles.name}> Prenom:</label>
                 <input type="text"  id='prenom' name='prenom' required/>
-            </p>
-            <p className={styles.name}>
-                <label htmlFor="email"> E-mail</label>
+            </div>
+            <div className={styles.row}>
+                <label htmlFor="email"> E-mail:</label>
                 <input type="email"  id='email' name='email' required/>
-            </p>
+            </div>
 
-            <p className={styles.name}>
-				<label htmlFor="phone"> Portable</label>
+            <div className={styles.row}>
+				<label htmlFor="phone"> Portable:</label>
 				<input type="phone"  id='phone' name='phone' required/>
          
-            </p>
+            </div>
 
-            <p className={styles.name}>
-				<label htmlFor="date"> Date</label>
+            <div className={styles.row}>
+				<label htmlFor="date"> Date:</label>
 				<input type="date"  id='date' name='date' required/> 
-				</p>
+				</div>
 				
-				<p className={styles.name}>
-				<label htmlFor="time"> Heurs</label>
+			<div className={styles.row}>
+				<label htmlFor="time"> Heurs:</label>
 				<input type="time"  id='time' name='time' required/> 
-			</p>
+			</div>
 					
-			<p className={styles.name}>
-            	 <label htmlFor="person"> Nombre de couverts</label>
-				 <input type="time"  id='time' name='time' required/> 
-			</p>
+			<div className={styles.row}>
+            	 <label htmlFor="person"> Nombre de couverts:</label>
+				 <input type="number"  id='person' name='person' required/> 
+			</div>
 				
-			<p className={styles.name}>
-				<label htmlFor="message"> Message</label>
+			<div className={styles.row}>
+				<label htmlFor="message"> Message:</label>
 				<textarea name="message" id="message"></textarea>
                	
-			</p>
+			</div>
 				
-				<div className={styles.submit}>
-					<button type="submit" className={styles.button}>Send</button>
-				</div>
+		
+					<button type="button">Submit</button>
+				
 					</form>	
 				
 

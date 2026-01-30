@@ -39,41 +39,42 @@
     margin: 1rem auto;
     padding: 8px;
 }
-
-.name {
-
+/* form for each input and label */
+ .row {
+    margin: 6px;
     display: flex;
-    justify-content: space-between;
-  
-   
+    flex-direction: column;
+   align-items: center; 
+   gap: 10px;
+   /* to make the input starts from same vertical line */
 }
-.name input {
-
-    margin: 4px auto;
-    padding: 3px;
+.row input {
     color: var(--secondary-color);
+    padding: 3px;
 }
-
-.name label {
-
-    margin: 4px 0;
-    padding: 4px;
+.row label {
     color: var(--primary-color);
-    
 }
- .submit {
+
+
+
+ /* .submit {
     color: var(--secondary-color);
     padding: 2px;
     text-align: center;
     align-items: center;
-} 
-.button {
+}  */
+button {
     color: var(--secondary-color);
     padding: 6px;
     text-align: center;
     align-items: center;
     margin-top: 7px;
     background-color: var(--primary-color); 
+    border-color: var(--secondary-color);
+    display: inline-block;
+    justify-content: center;
+  
 }  
 
 @media screen and (min-width:768px) {
@@ -119,43 +120,49 @@
         margin: 1rem auto;
         padding: 8px;
     }
-    
-    .name {
-    
-        display: flex;
-        justify-content: space-between;
-      
-       
-    }
-    .name input {
-    
-        margin: 4px auto;
-        padding: 3px;
-        color: var(--secondary-color);
-    }
-    
-    .name label {
-    
-        margin: 4px 0;
-        padding: 4px;
-        color: var(--primary-color);
-        
-    }
-     .submit {
-        color: var(--secondary-color);
-        padding: 2px;
-        text-align: center;
-        align-items: center;
-    } 
-    .button {
-        color: var(--secondary-color);
-        padding: 6px;
-        text-align: center;
-        align-items: center;
-        margin-top: 7px;
-        background-color: var(--primary-color); 
-    }  
+    /* form for each input and label */
+ .row {
+    margin: 6px;
+    display: flex;
+    flex-direction: column;
+   align-items: center; 
+   gap: 10px;
+   /* to make the input starts from same vertical line */
 }
+.row input {
+    color: var(--secondary-color);
+    padding: 3px;
+}
+.row label {
+    color: var(--primary-color);
+}
+
+
+
+ /* .submit {
+    color: var(--secondary-color);
+    padding: 2px;
+    text-align: center;
+    align-items: center;
+}  */
+button {
+    color: var(--secondary-color);
+    padding: 6px;
+    text-align: center;
+    align-items: center;
+    margin-top: 7px;
+    background-color: var(--primary-color); 
+    border-color: var(--secondary-color);
+    display: inline-block;
+    justify-content: center;
+  
+}  
+    
+}
+       
+    
+    
+  
 
 @media screen and (min-width:1000px) {
     .box {
@@ -200,39 +207,41 @@
         padding: 8px;
     }
     
-    .name {
-    
-        display: flex;
-        justify-content: space-between;
-      
-       
-    }
-    .name input {
-    
-        margin: 4px auto;
-        padding: 3px;
-        color: var(--secondary-color);
-    }
-    
-    .name label {
-    
-        margin: 4px 0;
-        padding: 4px;
-        color: var(--primary-color);
-        
-    }
-     .submit {
-        color: var(--secondary-color);
-        padding: 2px;
-        text-align: center;
-        align-items: center;
-    } 
-    .button {
-        color: var(--secondary-color);
-        padding: 6px;
-        text-align: center;
-        align-items: center;
-        margin-top: 7px;
-        background-color: var(--primary-color); 
-    }  
+    /* form for each input and label */
+ .row {
+    margin: 6px;
+    display: flex;
+    flex-direction: column;
+   align-items: center; 
+   gap: 10px;
+   /* to make the input starts from same vertical line */
+}
+.row input {
+    color: var(--secondary-color);
+    padding: 3px;
+}
+.row label {
+    color: var(--primary-color);
+}
+
+
+
+ /* .submit {
+    color: var(--secondary-color);
+    padding: 2px;
+    text-align: center;
+    align-items: center;
+}  */
+button {
+    color: var(--secondary-color);
+    padding: 6px;
+    text-align: center;
+    align-items: center;
+    margin-top: 7px;
+    background-color: var(--primary-color); 
+    border-color: var(--secondary-color);
+    display: inline-block;
+    justify-content: center;
+  
+}  
 }
