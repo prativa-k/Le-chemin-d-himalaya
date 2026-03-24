@@ -7,7 +7,6 @@ import {
 	renderToReadableStream,
 } from "@vitejs/plugin-rsc/rsc";
 import { unstable_matchRSCServerRequest as matchRSCServerRequest } from "react-router";
-
 import RouterService from "../services/router_service";
 
 function fetchServer(request: Request) {
@@ -38,5 +37,5 @@ export default async function handler(request: Request) {
 		typeof import("./entry.ssr")
 	>("ssr", "index");
 
-	return ssr.generateHTML(request, fetchServer);
+	return ssr.generateHTML(request, await fetchServer(request));
 }

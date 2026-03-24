@@ -10,7 +10,7 @@ const ReserverPage = () => {
 					<img src="/img/lechemin.jpg" alt="restaurant" />
 			</div>
 			<div className={styles.con}>
-			<Seo title="Reserver" description="Reserver - desc" url="/" />
+			<Seo title="Reserver" description="Reserver - desc" url="/reserver" />
 				<h2 className={styles.title}>Reserver</h2>
 				<p className={styles.merci}>Merci de remplir le formulaire, nous vous contacterons pour confirmer.</p>
 				</div>

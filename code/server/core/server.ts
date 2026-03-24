@@ -8,8 +8,9 @@ import OrderableRouter from "../router/orderable_router";
 import OrderableSpiceRouter from "../router/orderable_spice_router";
 import OrderableTypeRouter from "../router/orderable_type_router";
 import RoleRouter from "../router/role_router";
-import UserRouter from "../router/user_router";
+import UserRouter from "../router/security_router";
 import cors from "cors"
+import SecurityRouter from "../router/security_router";
 
 
 
@@ -55,6 +56,7 @@ class Server {
 		this.router.use("/api/orderable", new OrderableRouter().getRoutes());
 		this.router.use("/api/user", new UserRouter().getRoutes());
 		this.router.use("/api/role", new RoleRouter().getRoutes());
+		this.router.use("/api", new SecurityRouter().getRoutes());
 	};
 
 	// demarrer le serveur

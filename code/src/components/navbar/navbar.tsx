@@ -3,6 +3,7 @@ import { useState } from "react";
 // import { useState } from "react";
 import { NavLink } from "react-router";
 import styles from "../../assets/css/nav/nav_bar.module.css";
+import RegisterPage from "../../pages/register/register";
 import UserAdmin from "../admin/admin_home_content";
 import Logo from "../logo/logo";
 
@@ -14,8 +15,8 @@ const navLinks = [
 	{ label: "Avis", to: "/avis" },
 	{ label: "Carte", to: "/carte" },
 	{ label: "Contact", to: "/contact" },
-  ];
-  
+	{ label: "S'enregister", to: "/register" },
+];
 
 const NavBar = () => {
 	//créer un état: hook useState
@@ -35,20 +36,19 @@ const NavBar = () => {
 			<nav
 				className={`${styles.nav} ${navMobileIsVisible ? styles["navbar-mobile-visible"] : ""}`}
 			>
-
 				<ul className={styles.list}>
-    				{navLinks.map((link) => (
-      						<li key={link.to}>
-        						<NavLink
-          						className={styles.link}
-          						to={link.to}
-          						onClick={() => setnavMobileIsVisible(false)}
-       						 >
-          					{link.label}
-        				</NavLink>
-     						 </li>
-    					))}
-  				</ul>
+					{navLinks.map((link) => (
+						<li key={link.to}>
+							<NavLink
+								className={styles.link}
+								to={link.to}
+								onClick={() => setnavMobileIsVisible(false)}
+							>
+								{link.label}
+							</NavLink>
+						</li>
+					))}
+				</ul>
 				{/* <ul className={styles.list}>
 					<li>
 						<NavLink
@@ -96,19 +96,14 @@ const NavBar = () => {
 						</NavLink>
 					</li>
 				</ul> */}
-
-			
-				
 			</nav>
 
 			<UserAdmin />
 
-			
-
 			{/* évenementclic  */}
 			<button
 				className={`${styles.menuburger}
-				${navMobileIsVisible ? styles.open: " "}`}
+				${navMobileIsVisible ? styles.open : " "}`}
 				onClick={handleclick}
 				type="button"
 			>

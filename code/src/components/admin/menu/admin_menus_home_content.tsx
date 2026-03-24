@@ -2,6 +2,7 @@
 import { use } from "react";
 import { Link } from "react-router";
 import MenuApiService from "../../../services/menu_api_service";
+import style from "../../../assets/css/admin/admin_home_content.module.css"
 
 const AdminMenusHomeContent = () => {
 	//récupération des menus
@@ -9,10 +10,10 @@ const AdminMenusHomeContent = () => {
 	// console.log(results);
 
 	return (
-		<section>
+		<section className={style.adminhome}>
 			{/* <p>AdminMenusHomeContent</p> */}
 
-			<h2>Géstion des Menu</h2>
+			<h2 className={style.gestion}>Géstion des Menu</h2>
 			<Link to={"/admin/menu/form"}>ajouter</Link>
 
 			{/* affichage des menus */}

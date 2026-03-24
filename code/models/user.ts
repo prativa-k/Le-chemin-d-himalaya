@@ -1,11 +1,11 @@
 import type { Role } from "./role";
 
-type User= {
-    id:number;
-    name:string;
+type User = {
+	id: number;
+	email: string;
+	password: string;
+	role_id: number;
+	role: Role;
+};
 
-    role_id:number;
-    role:Role
-}
-
-export type {User};
+export type { User };

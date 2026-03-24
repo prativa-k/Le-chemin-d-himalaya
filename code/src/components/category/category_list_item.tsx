@@ -3,8 +3,8 @@ import type { MenuListItemProps } from "../../models/props/menu_list_item_props"
 
 const CategoryListItem = ({ data }: MenuListItemProps) => {
 	return (
-		<details>
-			<summary>{data.name}</summary>
+		<section id={`#${data.name}`}>
+			<h3>{data.name}</h3>
 
 			<p>
 				{/* / cible le dossier public */}
@@ -12,13 +12,10 @@ const CategoryListItem = ({ data }: MenuListItemProps) => {
 			</p>
 			<div> {data.price}</div>
 
-			
-				{data.orderables.map((e) => {
-					return <li key={e.id}>
-                         {e.name}</li>;
-				})}
-		
-		</details>
+			{data.orderables.map((e) => {
+				return <li key={e.id}>{e.name}</li>;
+			})}
+		</section>
 	);
 };
 

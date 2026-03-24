@@ -74,6 +74,12 @@ class RouterService {
 								lazy: () => import("../pages/mentionlegale/mentionlegale"),
 							},
 
+							{
+								id: "register",
+								path: "register",
+								lazy: () => import("../pages/register/register"),
+							}
+
 							// {
 							// 	id: "admin",
 							// 	path: "admin",

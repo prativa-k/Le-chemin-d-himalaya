@@ -1,0 +1,17 @@
+.topbar {
+   position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  
+  .topbar h2 {
+    margin: 0;
+    color: var(--secondary-color);
+    position: absolute;
+    left: 50%;
+    top: -17px;
+ 
+ 
+  }

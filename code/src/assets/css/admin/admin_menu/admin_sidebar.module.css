@@ -1,0 +1,7 @@
+.sidebar {
+    height: 100%;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 1rem;
+
+}

@@ -3,7 +3,7 @@ import { data } from "react-router";
 import type { AdminMenuParams } from "../../../models/props/params/admin_menu_params";
 import type { Menu } from "../../../../models/menu";
 import MenuApiService from "../../../services/menu_api_service";
-import OrderableApiService from "../../../services/orderable_api_service";
+import OrderableApiService from "../../../services/security_api_service";
 import type { Orderable } from "../../../../models/orderable";
 import AdminMenusFormContent from "../../../components/admin/menu/admin_menus_form_content";
 import AdminActionFormValidator from "../../../validator/admin/admin_menu_form_validator";

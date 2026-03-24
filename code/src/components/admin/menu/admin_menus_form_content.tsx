@@ -163,7 +163,7 @@ AdminMenuFormContentProps) => {
 				<p>
 					<label htmlFor={priceId}>Prix:</label>
 					<input
-						type="text"
+						type="number"
 						id={priceId}
 						{...register("price", {
 							required: "Price is required",
@@ -174,7 +174,7 @@ AdminMenuFormContentProps) => {
 							},
 							max: {
 								value: 50,
-								message: "Un nom doit comporter, au maximum, 50 caractères",
+								message: "Un prix doit comporter, au maximum, 50 caractères",
 							},
 						})}
 					/>

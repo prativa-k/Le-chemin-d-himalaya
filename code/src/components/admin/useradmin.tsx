@@ -7,11 +7,11 @@ import { RiAdminFill } from 'react-icons/ri'
 const UserAdmin = () => {
   return (
     <div>
-      <NavLink className={styles.admin} to={"/admin "}>
+      <NavLink className={styles.admin} to={"/admin"}>
       <RiAdminFill /> 
       </NavLink>
     </div>
   )
 }
 
-export default UserAdmin
+export default UserAdmin;

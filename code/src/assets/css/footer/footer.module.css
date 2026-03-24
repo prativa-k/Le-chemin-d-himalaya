@@ -1,13 +1,12 @@
 .footer {
   
-    width: 95%;
+    width: 100%;
     background-color: #ffffff;
-    margin-top: 2rem;
 
     /* STRONG footer separation */
     box-shadow:
-      0 -6px 20px rgba(0, 0, 0, 0.12),
-      0 -1px 0 rgba(232, 225, 225, 0.08);
+      0 -6px 20px rgb(248, 245, 245),
+      0 -1px 0 rgba(245, 245, 245, 0.889);
   }
  
   .footercontent {
@@ -70,7 +69,7 @@
  @media screen and (min-width:768px) {
   .footer {
     
-    width: 95%;
+    width: 100%;
     background-color: #ffffff;
     margin: 2rem 0;
     padding: 1rem;
