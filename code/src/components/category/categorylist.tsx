@@ -15,19 +15,24 @@ use permet de récupérer les données d'une promesse dans un composant serveur 
 
 	return (
 		<section>
-			{/* <div>
+			<div>
 				{results.data?.map((item) => (
 					// item est passé en props
-					<Link to={`#${item.name}`} key={item.id}>
+					<a href={`#${item.name}`} key={item.id}>
 						{item.name}
-					</Link>
+					</a>
 				))}
-			</div> */}
+			</div>
 
 			{/* {results.data?.map((item) => (
 				// item est passé en props
-				<CategoryListItem key={item.id} data={item} />
+				<p key={item.id}> {item.name}</p>
 			))} */}
+
+			{results.data?.map((item) => (
+				// item est passé en props
+				<CategoryListItem key={item.id} data={item} />
+			))}
 		</section>
 	);
 };

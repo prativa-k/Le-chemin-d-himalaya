@@ -1,13 +1,12 @@
 import { use } from "react";
 import { data } from "react-router";
-import type { AdminMenuParams } from "../../../models/props/params/admin_menu_params";
 import type { Menu } from "../../../../models/menu";
-import MenuApiService from "../../../services/menu_api_service";
-import OrderableApiService from "../../../services/security_api_service";
 import type { Orderable } from "../../../../models/orderable";
 import AdminMenusFormContent from "../../../components/admin/menu/admin_menus_form_content";
+import type { AdminMenuParams } from "../../../models/params/admin_menu_params";
+import MenuApiService from "../../../services/menu_api_service";
+import OrderableApiService from "../../../services/security_api_service";
 import AdminActionFormValidator from "../../../validator/admin/admin_menu_form_validator";
-
 
 const AdminMenuForm = ({ params }: AdminMenuParams) => {
 	// récupérer la variable d'URL
@@ -28,8 +27,6 @@ const AdminMenuForm = ({ params }: AdminMenuParams) => {
 		dataToUpdate = use(new MenuApiService().selectOne(id)).data as Menu;
 	}
 
-	
-
 	const orderables = use(new OrderableApiService().selectAll())
 		.data as Orderable[];
 	// console.log(orderables);
@@ -39,7 +36,6 @@ const AdminMenuForm = ({ params }: AdminMenuParams) => {
 			orderables={orderables}
 			validator={new AdminActionFormValidator().validate}
 			dataToUpdate={dataToUpdate}
-			
 		/>
 	);
 };

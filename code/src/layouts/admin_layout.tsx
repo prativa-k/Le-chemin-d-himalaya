@@ -8,11 +8,12 @@ import AdminTopBar from "../components/admin/admin_topbar";
 import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 import style from "../assets/css/admin/admin_layout.module.css"
+import Guard from "../components/guard/guard";
 
 
 const AdminLayout = () => {
 	return (
-		<>
+		<Guard roles={['admin']}>
 		<NavBar />
 		<div className={style.adminPage}>
 		<div>
@@ -27,7 +28,7 @@ const AdminLayout = () => {
 			</div>
 			</div>
 			<Footer />
-		</>
+		</Guard>
 	);
 };
 

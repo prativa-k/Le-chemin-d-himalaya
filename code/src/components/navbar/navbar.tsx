@@ -1,22 +1,23 @@
 "use client";
 import { useState } from "react";
 // import { useState } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import styles from "../../assets/css/nav/nav_bar.module.css";
-import RegisterPage from "../../pages/register/register";
+import SecurityService from "../../services/security_service";
 import UserAdmin from "../admin/admin_home_content";
 import Logo from "../logo/logo";
 
-const navLinks = [
-	{ label: "Accueil", to: "/" },
-	{ label: "Réserver", to: "/reserver" },
-	{ label: "Commander", to: "/commander" },
-	{ label: "Galerie", to: "/galerie" },
-	{ label: "Avis", to: "/avis" },
-	{ label: "Carte", to: "/carte" },
-	{ label: "Contact", to: "/contact" },
-	{ label: "S'enregister", to: "/register" },
-];
+// const navLinks = [
+// 	{ label: "Accueil", to: "/" },
+// 	{ label: "Réserver", to: "/reserver" },
+// 	{ label: "Commander", to: "/commander" },
+// 	{ label: "Galerie", to: "/galerie" },
+// 	{ label: "Avis", to: "/avis" },
+// 	{ label: "Carte", to: "/carte" },
+// 	{ label: "Contact", to: "/contact" },
+// 	{ label: "S'enregister", to: "/register" },
+// 	{ label: "Connexion", to: "/login" }
+// ];
 
 const NavBar = () => {
 	//créer un état: hook useState
@@ -36,7 +37,7 @@ const NavBar = () => {
 			<nav
 				className={`${styles.nav} ${navMobileIsVisible ? styles["navbar-mobile-visible"] : ""}`}
 			>
-				<ul className={styles.list}>
+				{/* <ul className={styles.list}>
 					{navLinks.map((link) => (
 						<li key={link.to}>
 							<NavLink
@@ -48,8 +49,9 @@ const NavBar = () => {
 							</NavLink>
 						</li>
 					))}
-				</ul>
-				{/* <ul className={styles.list}>
+				</ul> */}
+
+				<ul className={styles.list}>
 					<li>
 						<NavLink
 							className={styles.link}
@@ -95,10 +97,51 @@ const NavBar = () => {
 							Contact
 						</NavLink>
 					</li>
-				</ul> */}
+				</ul>
 			</nav>
 
-			<UserAdmin />
+			<div>
+				<ul>
+					{
+						// si l'utilisateur est connecté
+						new SecurityService().getUser() ? (
+							<li>
+								<NavLink to={"/logout"} onClick={handleclick}>
+									Déconnexion
+								</NavLink>
+							</li>
+						) : (
+							// si l'utilisateur n'est pas connecté
+							<>
+								<li>
+									<NavLink to={"/register"}>S'engistrer</NavLink>
+								</li>
+
+								<li>
+									<NavLink to={"/login"}>Connexion</NavLink>
+								</li>
+							</>
+						)
+					}
+					{
+						// si l'utilisateur est admin
+
+						new SecurityService().getUser()?.role.name === "admin" ? (
+							<li>
+								<NavLink to={"/admin"} onClick={handleclick}>
+									{" "}
+									<UserAdmin />
+								</NavLink>
+							</li>
+						) : (
+							<></>
+						)
+					}
+				</ul>
+			</div>
+
+			{/* <NavLink to={"/register"}>S'enregister</NavLink>
+			<NavLink to={"/login"}>Connexion</NavLink> */}
 
 			{/* évenementclic  */}
 			<button

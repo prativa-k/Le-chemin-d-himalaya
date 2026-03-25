@@ -76,8 +76,21 @@ class RouterService {
 
 							{
 								id: "register",
+								// path représent la route
 								path: "register",
 								lazy: () => import("../pages/register/register"),
+							},
+							{
+								id: "login",
+								// path représent la route
+								path: "login",
+								lazy: () => import("../pages/login/login"),
+							},
+							{
+								id: "logout",
+								// path représent la route
+								path: "logout",
+								lazy: () => import("../pages/logout/logout"),
 							}
 
 							// {
