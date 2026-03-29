@@ -10,8 +10,8 @@ const Logout = () => {
 
     // suprimer à l'affichage du composant /page
     useEffect(() => {
-        // suprimmer l'utilisateur stocké
-        new SecurityService().setUser(null);
+        // déconnexion 
+        new SecurityService().logout();
 
         // redirection vers une route
         navigate ("/")

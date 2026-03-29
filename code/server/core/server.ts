@@ -1,5 +1,7 @@
+import cors from "cors";
 import express from "express";
 import CategoryRouter from "../router/category_router";
+import ContactRouter from "../router/contact_router";
 import DrinkRouter from "../router/drink_router";
 import DrinkTypeRouter from "../router/drink_type_router";
 import HomepageRouter from "../router/homepage_router";
@@ -8,12 +10,8 @@ import OrderableRouter from "../router/orderable_router";
 import OrderableSpiceRouter from "../router/orderable_spice_router";
 import OrderableTypeRouter from "../router/orderable_type_router";
 import RoleRouter from "../router/role_router";
-import UserRouter from "../router/security_router";
-import cors from "cors"
 import SecurityRouter from "../router/security_router";
-
-
-
+import UserRouter from "../router/user_router";
 
 class Server {
 	// proprétés
@@ -26,9 +24,11 @@ class Server {
 		this.app.use(express.json());
 
 		// intégrer le middleware CORS - Cross Origin Resource Sharing - qui permet d'autoriser l'accès aux ressources à des origines différentes(protocole, port, sous-domaine)
-		this.app.use(cors({
-			origin:process.env.ORIGINS?.split(",")
-		}))
+		this.app.use(
+			cors({
+				origin: process.env.ORIGINS?.split(","),
+			}),
+		);
 
 		// relier le routeur à l'application
 		this.app.use(this.router);
@@ -57,6 +57,7 @@ class Server {
 		this.router.use("/api/user", new UserRouter().getRoutes());
 		this.router.use("/api/role", new RoleRouter().getRoutes());
 		this.router.use("/api", new SecurityRouter().getRoutes());
+		this.router.use("/api/contact", new ContactRouter().getRoutes());
 	};
 
 	// demarrer le serveur

@@ -7,6 +7,7 @@ import type { Menu } from "../../../../models/menu";
 import type { Orderable } from "../../../../models/orderable";
 import type { AdminMenuFormContentProps } from "../../../models/props/admin_menu_form_content_props";
 import MenuApiService from "../../../services/menu_api_service";
+import SecurityService from "../../../services/security_service";
 
 const AdminMenusFormContent = ({
 	orderables,
@@ -95,8 +96,8 @@ AdminMenuFormContentProps) => {
 
 		// requête HTTP vers l'API
 		const process = dataToUpdate
-			? await new MenuApiService().Update(normalizedData)
-			: await new MenuApiService().insert(normalizedData);
+			? await new MenuApiService().Update(normalizedData, new SecurityService().getToken() as string)
+			: await new MenuApiService().insert(normalizedData, new SecurityService().getToken() as string);
 			
 		
 			// console.log(process);

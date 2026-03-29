@@ -1,103 +1,104 @@
 "use client";
 import { useId, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import type { User } from "../../../models/user";
 import styles from "../../assets/css/authentication/authentication.module.css";
 import SecurityApiService from "../../services/security_api_service";
-import { useNavigate } from "react-router";
 import SecurityService from "../../services/security_service";
 
-
 const LoginForm = () => {
-    const emailId = useId();
-    const passwordId = useId();
+	const emailId = useId();
+	const passwordId = useId();
 
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
-    const [message, setMessage] = useState<string>("");
+	const [message, setMessage] = useState<string>("");
 
-    const [serverErrors, setServerErrors] = useState<Partial<User>>({});
+	const [serverErrors, setServerErrors] = useState<Partial<User>>({});
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<Partial<User>>();
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<Partial<User>>();
 
-    const submitForm = async (data: Partial<User>) => {
-        setServerErrors({});
+	const submitForm = async (data: Partial<User>) => {
+		setServerErrors({});
 
-        const process = await new SecurityApiService().login(data);
+		const process = await new SecurityApiService().login(data);
 
-        // si  la requête HTTP a réussie
-        if ([200, 201].includes(process.status)) {
-        
-            // récupérer l'utilisateur
-            const user = process.data as User;
+		// si  la requête HTTP a réussie
+		if ([200, 201].includes(process.status)) {
+			// récupérer l'utilisateur
+			const user = process.data as User;
 
-            // stocker l'utilisateur
-            new SecurityService().setUser(user);
+			// stocker l'utilisateur
+			new SecurityService().setUser(user);
 
-            // redirection vers une route react selon le rôle de l'utilisateur
-            if (user.role.name === "admin") {
-                navigate("/admin");
-                return;
-            }
-                navigate("/admin")
+			// stocker un JWT
+			new SecurityService().setToken(user);
 
-                // si la requête HTTP a échoué
-        } else if ([400, 401,403].includes(process.status)) {
-            // afficher un message
-            setMessage(process.message as unknown as string);
-        }
-    };
-return (
-        <form className={styles.formCard} onSubmit={handleSubmit(submitForm)}>
-            <h2 className={styles.title}>Connexion</h2>
+			// redirection vers une route react selon le rôle de l'utilisateur
+			if (user.role.name === "admin") {
+				navigate("/admin");
+				return;
+			}
+			navigate("/admin");
 
-            {message && <p className={styles.message}>{message}</p>}
+			// si la requête HTTP a échoué
+		} else if ([400, 401, 403].includes(process.status)) {
+			// afficher un message
+			setMessage(process.message as unknown as string);
+		}
+	};
+	return (
+		<form className={styles.formCard} onSubmit={handleSubmit(submitForm)}>
+			<h2 className={styles.title}>Connexion</h2>
 
-            <div className={styles.formGroup}>
-                <label htmlFor={emailId}>Email</label>
-                <input
-                    type="email"
-                    id={emailId}
-                    {...register("email", {
-                        required: "L’email est requis.",
-                    })}
-                    placeholder="exemple@mail.com"
-                />
-                {errors.email && (
-                    <span className={styles.errorMessage}>{errors.email.message}</span>
-                )}
-                {serverErrors.email && (
-                    <span className={styles.errorMessage}>{serverErrors.email}</span>
-                )}
-            </div>
+			{message && <p className={styles.message}>{message}</p>}
 
-            <div className={styles.formGroup}>
-                <label htmlFor={passwordId}>Mot de passe</label>
-                <input
-                    type="password"
-                    id={passwordId}
-                    {...register("password", {
-                        required: "Le mot de passe est requis.",
-                    })}
-                    placeholder="••••••••"
-                />
-                {errors.password && (
-                    <span className={styles.errorMessage}>{errors.password.message}</span>
-                )}
-                {serverErrors.password && (
-                    <span className={styles.errorMessage}>{serverErrors.password}</span>
-                )}
-            </div>
+			<div className={styles.formGroup}>
+				<label htmlFor={emailId}>Email</label>
+				<input
+					type="email"
+					id={emailId}
+					{...register("email", {
+						required: "L’email est requis.",
+					})}
+					placeholder="exemple@mail.com"
+				/>
+				{errors.email && (
+					<span className={styles.errorMessage}>{errors.email.message}</span>
+				)}
+				{serverErrors.email && (
+					<span className={styles.errorMessage}>{serverErrors.email}</span>
+				)}
+			</div>
 
-            <button type="submit" className={styles.primaryButton}>
-                Login
-            </button>
-        </form>
-    );
+			<div className={styles.formGroup}>
+				<label htmlFor={passwordId}>Mot de passe</label>
+				<input
+					type="password"
+					id={passwordId}
+					{...register("password", {
+						required: "Le mot de passe est requis.",
+					})}
+					placeholder="••••••••"
+				/>
+				{errors.password && (
+					<span className={styles.errorMessage}>{errors.password.message}</span>
+				)}
+				{serverErrors.password && (
+					<span className={styles.errorMessage}>{serverErrors.password}</span>
+				)}
+			</div>
+
+			<button type="submit" className={styles.primaryButton}>
+				Login
+			</button>
+		</form>
+	);
 };
 
 export default LoginForm;

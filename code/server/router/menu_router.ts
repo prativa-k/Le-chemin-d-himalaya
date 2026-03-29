@@ -1,6 +1,7 @@
 import express from "express";
 // import multer from "multer";
 import MenuController from "../controller/menu_controller";
+import AuthorizationMiddleware from "../middleware/authorization_middleware";
 
 class MenuRouter {
 	//router express
@@ -20,17 +21,29 @@ class MenuRouter {
 		this.router.get("/:id", new MenuController().selectOne);
 
 		//insérer un enregistrement
-        // utilisation du middleware multer
-        this.router.post("/",new MenuController().insert);
+		// utilisation du middleware multer
+		this.router.post(
+			"/",
+			new AuthorizationMiddleware().authorize(["admin"]),
+			new MenuController().insert,
+		);
 		// this.router.post("/", this.multer.any(),new MenuController().insert);
 
 		//mettre un enregistrement
-        // utilisation du middleware multer
-        this.router.put("/",new MenuController().update);
+		// utilisation du middleware multer
+		this.router.put(
+			"/",
+			new AuthorizationMiddleware().authorize(["admin"]),
+			new MenuController().update,
+		);
 		// this.router.post("/", this.multer.any(),new MenuController().insert);
 
 		// utilisation du middleware multer
-        this.router.delete("/",new MenuController().delete);
+		this.router.delete(
+			"/",
+			new AuthorizationMiddleware().authorize(["admin"]),
+			new MenuController().delete,
+		);
 
 		// retourner le routeur
 		return this.router;

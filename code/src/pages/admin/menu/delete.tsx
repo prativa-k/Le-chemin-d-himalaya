@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import Seo from "../../../components/seo/seo";
 import type { AdminMenuParams } from "../../../models/params/admin_menu_params";
 import MenuApiService from "../../../services/menu_api_service";
+import SecurityService from "../../../services/security_service";
 
 const AdminMenuDelete = ({ params }: AdminMenuParams) => {
 	// uniquement des composants
@@ -19,10 +20,12 @@ const AdminMenuDelete = ({ params }: AdminMenuParams) => {
 	useEffect(() => {
 		// await n'est pas disponible dans useEffect
 		// la méthode then equivaut à await
-		new MenuApiService().Delete({ id: id }).then(() => {
-			// the path of the website
-			navigate("/admin/menu");
-		});
+		new MenuApiService()
+			.Delete({ id: id }, new SecurityService().getToken() as string)
+			.then(() => {
+				// the path of the website
+				navigate("/admin/menu");
+			});
 	}, [id, navigate]);
 	return (
 		<>

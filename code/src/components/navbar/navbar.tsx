@@ -100,8 +100,8 @@ const NavBar = () => {
 				</ul>
 			</nav>
 
-			<div>
-				<ul>
+			<div className={styles.rightSide}>
+				<ul className={styles.authList}>
 					{
 						// si l'utilisateur est connecté
 						new SecurityService().getUser() ? (

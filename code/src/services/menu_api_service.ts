@@ -44,6 +44,7 @@ class MenuApiService {
 
 	public insert = async (
 		data: Partial<Menu>,
+		token: string,
 	): Promise<ApiResponse<Menu[]>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react
@@ -53,6 +54,7 @@ class MenuApiService {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
 				},
 				body: JSON.stringify(data),
 			},
@@ -75,6 +77,7 @@ class MenuApiService {
 
 	public Update = async (
 		data: Partial<Menu>,
+		token: string,
 	): Promise<ApiResponse<Menu[]>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react
@@ -83,9 +86,10 @@ class MenuApiService {
 			{
 				method: "put",
 
-				//  si le formulaire contient un champ de ficher la propriéte body renovie un objet 
+				//  si le formulaire contient un champ de ficher la propriéte body renovie un objet
 				headers: {
 					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
 				},
 				body: JSON.stringify(data),
 			},
@@ -103,9 +107,7 @@ class MenuApiService {
 	};
 
 	// supression d'un engristrement
-	public Delete = async (
-		data: Partial<Menu>,
-	): Promise<ApiResponse<Menu[]>> => {
+	public Delete = async (data: Partial<Menu>, token: string,): Promise<ApiResponse<Menu[]>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react
 		const request = new Request(
@@ -113,11 +115,12 @@ class MenuApiService {
 			{
 				method: "delete",
 
-				//  si le formulaire contient un champ de ficher la propriéte body renovie un objet 
+				//  si le formulaire contient un champ de ficher la propriéte body renovie un objet
 				headers: {
 					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
 				},
-				// séralise: transformer une donnée complexe (array, objet) en chaine de caractères 
+				// séralise: transformer une donnée complexe (array, objet) en chaine de caractères
 				// déséraliser: transformer une chaine de caractères en ube donnée complexe (arraya, objet)
 				body: JSON.stringify(data),
 			},
