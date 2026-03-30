@@ -1,0 +1,110 @@
+/* --- BASE STYLES (Mobile First - 374px and up) --- */
+.adminhome {
+  padding: 15px; /* smaller padding for small screens */
+}
+
+.gestion {
+  font-size: 26px; /* slightly smaller title on mobile */
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center; /* center it so it looks balanced on phones */
+}
+
+.addButton {
+  display: block; /* make it full width or centered on mobile */
+  text-align: center;
+  padding: 12px 18px;
+  background: #a3a329;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.menuGrid {
+  display: grid;
+  /* On small phones, we show 1 card per row */
+  grid-template-columns: 1fr; 
+  gap: 20px;
+}
+
+.menuSquare {
+  /* removed fixed width so it can stretch/shrink naturally */
+  min-height: 180px;
+  background: white;
+  border: 2px solid #d8d8d8;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease; /* nice little pop effect */
+}
+
+.menuSquare:hover {
+  transform: translateY(-5px); /* lifts the card when mousing over */
+}
+
+.menuName {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between; /* separate the buttons to the edges */
+  gap: 10px;
+}
+
+.modifyLink,
+.deleteLink {
+  flex: 1; /* buttons take equal space */
+  text-align: center;
+  padding: 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modifyLink { background: #a3a329; color: white; }
+.deleteLink { background: #b66b3d; color: white; }
+
+/* --- IPAD BREAKPOINT (784px) --- */
+@media (min-width: 784px) {
+  .adminhome {
+    padding: 30px;
+  }
+  
+  .gestion {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .addButton {
+    display: inline-block; /* only as wide as the text now */
+  }
+
+  .menuGrid {
+    /* 2 columns for the iPad size */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- DESKTOP BREAKPOINT (1200px) --- */
+@media (min-width: 1200px) {
+  .menuGrid {
+    /* 3 or 4 columns depending on how big you want the squares */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .menuName {
+    font-size: 24px;
+  }
+}

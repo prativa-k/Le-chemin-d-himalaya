@@ -91,6 +91,12 @@ class RouterService {
 								// path représent la route
 								path: "logout",
 								lazy: () => import("../pages/logout/logout"),
+							},
+							{
+								id: "confirmation",
+								// path représent la route
+								path: "confirmation",
+								lazy: () => import("../pages/contact/confirmation"),
 							}
 
 							// {

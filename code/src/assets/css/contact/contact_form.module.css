@@ -1,0 +1,107 @@
+/* Container helps push the title to the top and center the form */
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fcfcfc; /* Very light background */
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.formTitle {
+  color: var(--secondary-color); 
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.formSubtitle {
+  color: var(--secondary-color); 
+  font-size: 16px;
+  text-align: center;
+  max-width: 400px;
+  margin-bottom: 40px;
+}
+
+/* This is the white card with the blue-ish border from your screenshot */
+.contactForm {
+  background-color: #ffffff;
+  border: 1px solid  var(--secondary-color); ; 
+  border-radius: 15px;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formGroup {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formLabel {
+  color: #8a9a3b; /* Olive green color */
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* Styled with just the bottom border to match the lines in your design */
+.formInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d1d1d1;
+  padding: 5px;
+  text-align: center;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
+
+.formTextarea {
+  min-height: 40px;
+  resize: none;
+}
+
+.submitBtn {
+  background-color: #a3b14a;
+  color: white;
+  border: none;
+  padding: 12px 45px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Mobile: 374px */
+@media (min-width: 374px) {
+  .contactForm {
+    max-width: 350px;
+  }
+}
+
+/* iPad: 784px */
+@media (min-width: 784px) {
+  .contactForm {
+    max-width: 550px;
+    padding: 60px 40px;
+  }
+}
+
+/* Desktop: 1200px */
+@media (min-width: 1200px) {
+  .contactForm {
+    max-width: 650px;
+  }
+  
+  .formTitle {
+    font-size: 32px;
+  }
+}

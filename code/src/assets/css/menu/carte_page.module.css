@@ -1,0 +1,59 @@
+
+/* The parent container for your banner section */
+.menuBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 1. Full-Width Image: Pushes out to the edges of the screen */
+.menuBanner img {
+    width: 100vw; /* 100% of the viewport width */
+    height: 35vh; /* Sets a professional height on all screens */
+    object-fit: cover; /* This makes sure the chicken doesn't stretch */
+    display: block;
+    border-radius: 0; /* Ensures it touches the edge completely */
+}
+
+/* 2. "Carte" Title: Aligns it to the left side of the page content */
+.menuBanner h3 {
+    color: var(--primary-color);
+    text-transform: capitalize;
+    font-weight: 500;
+    margin: 20px auto 10px auto; /* Top, auto right, bottom, left 0 */
+    max-width: 1100px; /* Constrains text width to match the rest of your content */
+    width: 100%;
+    padding: 0 20px; /* Sides breathe on mobile */
+    font-size: 1.3rem;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Mobile: 374px */
+@media (min-width: 374px) {
+    .menuBanner img {
+        height: 180px; 
+    }
+}
+
+/* iPad: 784px */
+@media (min-width: 784px) {
+    .menuBanner img {
+        height: 250px; 
+    }
+    .menuBanner h3 {
+        padding: 0 40px; /* Centered with content */
+    }
+}
+
+/* Desktop: 1200px */
+@media (min-width: 1200px) {
+    .menuBanner img {
+        height: 400px; /* High-end look for desktop */
+    }
+    .menuBanner h3 {
+        padding: 0; /* Perfectly aligned on large screens */
+        max-width: 1200px;
+    }
+}

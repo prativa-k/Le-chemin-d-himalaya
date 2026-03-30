@@ -8,7 +8,7 @@ import type { Orderable } from "../../../../models/orderable";
 import type { AdminMenuFormContentProps } from "../../../models/props/admin_menu_form_content_props";
 import MenuApiService from "../../../services/menu_api_service";
 import SecurityService from "../../../services/security_service";
-
+import styles from "../../../assets/css/admin/admin_menu/admin_menus_form_content.module.css"
 const AdminMenusFormContent = ({
 	orderables,
 	validator,
@@ -117,78 +117,79 @@ AdminMenuFormContentProps) => {
 	};
 
 	return (
-		<>
-			<p>Gérer les menus</p>
+		<div className={styles.adminContainer}>
+		<p className={styles.formTitle}>Gérer les menus</p>
 
-			{/* afficher le message */}
-			{message ? <p role="alert">{message}</p> : null}
+		{/* afficher le message */}
+		{message ? <p className={styles.alertMessage} role="alert">{message}</p> : null}
 
-			{/* 
- 
- 			- "si le formulaire contient un champ fe fichier: ajouter l'attribut enctype = multipart/ form-data"
+		{/* - "si le formulaire contient un champ fe fichier: ajouter l'attribut enctype = multipart/ form-data"
 
- 			- pour les champs en relation:
- 			FK: Créer , soit une liste déroulante
+		- pour les champs en relation:
+		FK: Créer , soit une liste déroulante
 
- 			<select>, soit des butons radio
- 			> sélection d'un seul choix
- 			table de jointure: cases à cocher
- 			> sélection de plusieurs choix
+		<select>, soit des butons radio
+		> sélection d'un seul choix
+		table de jointure: cases à cocher
+		> sélection de plusieurs choix
 
-			*/}
+		*/}
 
-			<form onSubmit={handleSubmit(submitForm)}>
-				<p>
-					<label htmlFor={nameId}>Nom:</label>
-					<input
-						type="text"
-						id={nameId}
-						{...register("name", {
-							required: "Name is required",
-							minLength: {
-								value: 2,
-								message: "Un nom doit comporter, au minimum, 2 caractères",
-							},
-							maxLength: {
-								value: 50,
-								message: "Un nom doit comporter, au maximum, 50 caractères",
-							},
-						})}
-					/>
-					{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
-					<small role="alert">
-						{errors.name?.message ?? serverErrors?.name}
-					</small>
-				</p>
+		<form className={styles.adminForm} onSubmit={handleSubmit(submitForm)}>
+			<p className={styles.inputGroup}>
+				<label className={styles.label} htmlFor={nameId}>Nom:</label>
+				<input
+					className={styles.textField}
+					type="text"
+					id={nameId}
+					{...register("name", {
+						required: "Name is required",
+						minLength: {
+							value: 2,
+							message: "Un nom doit comporter, au minimum, 2 caractères",
+						},
+						maxLength: {
+							value: 50,
+							message: "Un nom doit comporter, au maximum, 50 caractères",
+						},
+					})}
+				/>
+				{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+				<small className={styles.errorText} role="alert">
+					{errors.name?.message ?? serverErrors?.name}
+				</small>
+			</p>
 
-				<p>
-					<label htmlFor={priceId}>Prix:</label>
-					<input
-						type="number"
-						id={priceId}
-						{...register("price", {
-							required: "Price is required",
+			<p className={styles.inputGroup}>
+				<label className={styles.label} htmlFor={priceId}>Prix:</label>
+				<input
+					className={styles.numberField}
+					type="number"
+					id={priceId}
+					{...register("price", {
+						required: "Price is required",
 
-							min: {
-								value: 2,
-								message: "Le prix doit être au minimum de 2€",
-							},
-							max: {
-								value: 50,
-								message: "Un prix doit comporter, au maximum, 50 caractères",
-							},
-						})}
-					/>
-					{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
-					<small role="alert">
-						{errors.price?.message ?? serverErrors?.price}
-					</small>
-				</p>
+						min: {
+							value: 2,
+							message: "Le prix doit être au minimum de 2€",
+						},
+						max: {
+							value: 50,
+							message: "Un prix doit comporter, au maximum, 50 caractères",
+						},
+					})}
+				/>
+				{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+				<small className={styles.errorText} role="alert">
+					{errors.price?.message ?? serverErrors?.price}
+				</small>
+			</p>
 
-				<p>Plats:</p>
+			<p className={styles.selectionTitle}>Plats:</p>
+			<div className={styles.dishGrid}>
 				{orderables.map((item) => {
 					return (
-						<p key={item.id}>
+						<p key={item.id} className={styles.checkboxItem}>
 							<input
 								type="checkbox"
 								value={item.id}
@@ -202,17 +203,30 @@ AdminMenuFormContentProps) => {
 						</p>
 					);
 				})}
-				{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
-				<small role="alert">
-					{errors.orderable_ids?.message ?? serverErrors?.orderable_ids}
-				</small>
+			</div>
+			{/* Afficher les messages d'erreur : utiliser le name du champ, définit dans register */}
+			<small className={styles.errorText} role="alert">
+				{errors.orderable_ids?.message ?? serverErrors?.orderable_ids}
+			</small>
 
-				<p>
-					<input type="hidden" id={idId} {...register("id")} />
-					<button type="submit">Créer un Menu</button>
-				</p>
-			</form>
-		</>
+			<div className={styles.buttonGroup}>
+				<input type="hidden" id={idId} {...register("id")} />
+				
+				{/* Button to go back to the previous page */}
+				<button 
+					type="button" 
+					className={styles.backBtn} 
+					onClick={() => navigate(-1)}
+				>
+					Retour
+				</button>
+
+				<button className={styles.submitBtn} type="submit">
+					Créer un Menu
+				</button>
+			</div>
+		</form>
+	</div>
 	);
 };
 

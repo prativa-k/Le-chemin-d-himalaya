@@ -1,211 +1,103 @@
-
-.speciality{
-	
-	width: 95%;
-	margin-inline:auto;
+/* --- Mobile and iPad (Default) --- */
+.speciality {
+    width: 95%;
+    margin-inline: auto;
 }
-.titlebox{
-	display: flex;
-	justify-content: center;
+
+.titlebox {
+    display: flex;
+    justify-content: center;
 }
 
 .title {
-	font-size: 1.4rem;
-	color: white;
-	background-color: var(--primary-color);
-	text-align: center;
+    font-size: 1.4rem;
+    color: white;
+    background-color: var(--primary-color);
+    text-align: center;
     margin: 1.5rem 0;
     padding: 1rem;
 }
 
-/* for the speciality container box */
 .specialitybox {
-	width: 95%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin-inline:auto;
-
+    width: 95%;
+    display: flex;
+    flex-direction: column; /* Stack them vertically for small screens */
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
 }
 
 .specialityitem {
-	
-	width: 95%;
-	text-align: center;
-	margin: 1rem O;
-	padding: 1rem;
+    width: 95%;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
 }
 
+/* This hides everything after the 3rd item on mobile/ipad */
+.specialityitem:nth-child(n + 4) {
+    display: none;
+}
 
 .speciality img {
-	width: 95%;
-	height: auto;
-	display: block;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* added a little curve to the corners */
 }
-.foodname{
-	font-weight: bold;
-	font-size: 1.2rem;
-	color: var(--secondary-color);
-	line-height: 1.5;
+
+.foodname {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    line-height: 1.5;
 }
+
 .description {
-	color:var(--primary-color);
-	font-size: 1rem;
+    color: var(--primary-color);
+    font-size: 1rem;
 }
+
 .decouvrir {
-	color: var(--secondary-color);
-	font-weight: bold;
-	display: flex;
-	justify-content: center;
-	/* text-align: center;
-	align-items: center; */
-	font-size: 1.3rem;
-}
-/* to make only 3 dishes to be visible on mobile  */
-
-	.specialityitem:nth-child(n + 4) {
-		display: none;
-	  }
-	
-
-@media screen and (min-width:768px) {
-	.speciality{
-		
-		width: 95%;
-	}
-
-	.titlebox{
-		display: flex;
-		justify-content: center;
-	}
-	
-	.title {
-		font-size: 1.4rem;
-		color: white;
-		background-color: var(--primary-color);
-		text-align: center;
-		margin: 1.5rem 0;
-		padding: 1rem;
-	}
-	
-	/* for the speciality container box */
-	.specialitybox {
-		width: 95%;
-		display: flex;
-		gap: 8px;
-		flex-direction: row;
-		margin: 0 auto;
-		box-sizing: border-box;
-		align-items: flex-start;
-		flex-wrap: wrap;
-	
-	}
-
-	.specialityitem:nth-child(n + 4) {
-		display: block;
-	  }
-
-
-	.specialityitem {
-		margin: 1rem O;
-		padding: 1rem;
-		max-width: 186px;
-		box-sizing: border-box;
-		align-items: center;
-	}
-	
-	
-	.specialityitem img {
-		width: 95%;
-		height: 140px;
-		object-fit: cover;
-	}
-	.foodname{
-		font-weight: bold;
-		font-size: 1rem;
-		color: var(--secondary-color);
-		max-width: 186px;
-	}
-	.description {
-		color:var(--primary-color);
-		font-size: 1rem;
-	}
-	.decouvrir {
-		color: var(--secondary-color);
-		font-weight: bold;
-		display: flex;
-		/* text-align: center;
-		align-items: center; */
-		font-size: 1.3rem;
-	}
+    color: var(--secondary-color);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin:1rem 0 2rem 0;
 }
 
+/* --- Desktop (1200px and up) --- */
+@media screen and (min-width: 1200px) {
+    .specialitybox {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;     /* This is key to letting items go to the next line */
+        justify-content: center; /* Centers the 3 items */
+        gap: 20px;           /* Space between the pictures */
+        width: 100%;
+        max-width: 1200px;   /* Keeps the whole section from getting too wide */
+        margin: 0 auto;
+    }
 
-@media screen and (min-width:1000px) {
-	.speciality{
-		min-width: 1000px;
-		margin-inline: auto;
-	}
+    .specialityitem:nth-child(n + 4) {
+        display: block;      /* Shows all 6 items now */
+    }
 
-	.titlebox{
-		display: flex;
-		justify-content: center;
-	}
-	
-	.title {
-		font-size: 1.4rem;
-		color: white;
-		background-color: var(--primary-color);
-		text-align: center;
-		margin: 1.5rem 0;
-		padding: 1rem;
-	}
-	
-	/* for the speciality container box */
-	.specialitybox {
-		
-		min-width: 1000px;
-		display: flex;
-		gap: 8px;
-		flex-direction: row;
-		margin: 0 auto;
-		box-sizing: border-box;
-		align-items: flex-start;
-		flex-wrap: wrap;
-	
-	}
-	
-	.specialityitem {
-		margin: 1rem O;
-		padding: 1rem;
-		max-width: 300px;
-		box-sizing: border-box;
-		align-items: center;
-	}
-	
-	
-	.specialityitem img {
-		width: 100%;
-		height: 140px;
-		object-fit: cover;
-	}
-	.foodname{
-		font-weight: bold;
-		font-size: 1rem;
-		color: var(--secondary-color);
-		max-width: 250px;
-	}
-	.description {
-		color:var(--primary-color);
-		font-size: 1rem;
-	}
-	.decouvrir {
-		color: var(--secondary-color);
-		font-weight: bold;
-		display: flex;
-		/* text-align: center;
-		align-items: center; */
-		font-size: 1.3rem;
-	}
+    .specialityitem {
+        /* This math says: "Take 1/3 of the row, but minus some space for the gaps" */
+        width: calc(33.33% - 20px); 
+        max-width: 350px;    /* Prevents pictures from getting huge */
+        margin: 0; 
+        padding: 1rem;
+        box-sizing: border-box; /* Makes sure padding doesn't break the width */
+    }
+
+    .specialityitem img {
+        width: 100%;
+        height: 220px;       /* Fixed height so all pictures look the same size */
+        object-fit: cover;   /* Crops the image to fit the box without stretching */
+        border-radius: 10px;
+    }
 }

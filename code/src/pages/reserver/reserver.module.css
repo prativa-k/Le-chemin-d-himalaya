@@ -1,247 +1,114 @@
 .box {
-    width: 95%;
-    margin-inline:auto ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    width: 100%; /* Make sure the main box fills the screen */
 }
+
 .banner {
-   display: flex;
-   justify-content: center;
-    width: 90%;
-    height: 70px;
-    overflow: hidden;
-    margin-inline:auto;
+    width: 100%; /* This makes the container full width */
+    margin-bottom: 20px;
 }
+
 .banner img {
-    width: 100%;
-    height: 100%;
-    transform-origin: top;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-inline:auto ;
+    width: 100%; /* This makes the image fill the container */
+    height: 300px; /* Adjust this height as you like */
+    object-fit: cover; /* This keeps the photo from looking stretched */
+    display: block;
 }
-.title{
-    width: 95%;
-   margin-inline: auto;
-    font-weight: bold;
-    color: var(--primary-color);
-    padding: 0.8rem;
+
+.con {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 15px;
 }
-.merci{
-    width: 95%;
-    margin-inline: auto;
-    color: var(--secondary-color);
-    padding: 0.4rem;
+
+.title {
+    color:var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 10px;
 }
+
+.merci {
+    color:var(--secondary-color);
+    font-size: 14px;
+}
+
+/* White card for the form */
 .form {
+    background-color: #ffffff;
     border: 1px solid var(--primary-color);
-    width: 80%;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px; /* Limits how wide the card gets on desktop */
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.row {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelName {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.inputField {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d1d1d1;
     padding: 8px;
-}
-/* form for each input and label */
- .row {
-    margin: 6px;
-    display: flex;
-    flex-direction: column;
-   align-items: center; 
-   gap: 10px;
-   /* to make the input starts from same vertical line */
-}
-.row input {
-    color: var(--secondary-color);
-    padding: 3px;
-}
-.row label {
-    color: var(--primary-color);
-}
-
-
-
- /* .submit {
-    color: var(--secondary-color);
-    padding: 2px;
     text-align: center;
-    align-items: center;
-}  */
-button {
-    color: var(--secondary-color);
-    padding: 6px;
-    text-align: center;
-    align-items: center;
-    margin-top: 7px;
-    background-color: var(--primary-color); 
-    border-color: var(--secondary-color);
-    display: inline-block;
-    justify-content: center;
-  
-}  
-
-@media screen and (min-width:768px) {
-    
-    .box {
-        width: 95%;
-        margin-inline:auto ;
-    }
-    .banner {
-       display: flex;
-       justify-content: center;
-        width: 90%;
-        height: 70px;
-        overflow: hidden;
-        margin-inline:auto;
-    }
-    .banner img {
-        width: 100%;
-        height: 100%;
-        transform-origin: top;
-        object-fit: cover;
-        border-radius: 4px;
-        margin-inline:auto ;
-    }
-    .title{
-        width: 95%;
-       margin-inline: auto;
-        font-weight: bold;
-        color: var(--primary-color);
-        padding: 0.8rem;
-    }
-    .merci{
-        width: 95%;
-        margin-inline: auto;
-        color: var(--secondary-color);
-        padding: 0.4rem;
-    }
-    .form {
-        border: 1px solid var(--primary-color);
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        margin: 1rem auto;
-        padding: 8px;
-    }
-    /* form for each input and label */
- .row {
-    margin: 6px;
-    display: flex;
-    flex-direction: column;
-   align-items: center; 
-   gap: 10px;
-   /* to make the input starts from same vertical line */
-}
-.row input {
-    color: var(--secondary-color);
-    padding: 3px;
-}
-.row label {
-    color: var(--primary-color);
+    font-size: 16px;
+    outline: none;
+    background: transparent;
 }
 
-
-
- /* .submit {
-    color: var(--secondary-color);
-    padding: 2px;
-    text-align: center;
-    align-items: center;
-}  */
-button {
-    color: var(--secondary-color);
-    padding: 6px;
-    text-align: center;
-    align-items: center;
-    margin-top: 7px;
-    background-color: var(--primary-color); 
-    border-color: var(--secondary-color);
-    display: inline-block;
-    justify-content: center;
-  
-}  
-    
-}
-       
-    
-    
-  
-
-@media screen and (min-width:1000px) {
-    .box {
-       min-width: 1000px;
-        margin-inline:auto ;
-    }
-    .banner {
-       display: flex;
-       justify-content: center;
-        width: 90%;
-        height: 70px;
-        overflow: hidden;
-        margin-inline:auto;
-    }
-    .banner img {
-        width: 100%;
-        height: 100%;
-        transform-origin: top;
-        object-fit: cover;
-        border-radius: 4px;
-        margin-inline:auto ;
-    }
-    .title{
-        width: 90%;
-       margin-inline: auto;
-        font-weight: bold;
-        color: var(--primary-color);
-        padding: 0.8rem;
-    }
-    .merci{
-        width: 90%;
-        margin-inline: auto;
-        color: var(--secondary-color);
-        padding: 0.4rem;
-    }
-    .form {
-        border: 1px solid var(--primary-color);
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        margin: 1rem auto;
-        padding: 8px;
-    }
-    
-    /* form for each input and label */
- .row {
-    margin: 6px;
-    display: flex;
-    flex-direction: column;
-   align-items: center; 
-   gap: 10px;
-   /* to make the input starts from same vertical line */
-}
-.row input {
-    color: var(--secondary-color);
-    padding: 3px;
-}
-.row label {
-    color: var(--primary-color);
+.textArea {
+    min-height: 60px;
+    resize: none;
 }
 
+.errorText {
+    color: #cc0000;
+    font-size: 11px;
+    margin-top: 5px;
+}
 
+.submitBtn {
+    background-color: #a3b14a;
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
 
- /* .submit {
-    color: var(--secondary-color);
-    padding: 2px;
-    text-align: center;
-    align-items: center;
-}  */
-button {
-    color: var(--secondary-color);
-    padding: 6px;
-    text-align: center;
-    align-items: center;
-    margin-top: 7px;
-    background-color: var(--primary-color); 
-    border-color: var(--secondary-color);
-    display: inline-block;
-    justify-content: center;
-  
-}  
+/* --- Responsive Breakpoints --- */
+
+@media (min-width: 374px) {
+    .form { max-width: 350px; }
+}
+
+@media (min-width: 784px) {
+    .form { max-width: 550px; }
+    .banner img { height: 400px; }
+}
+
+@media (min-width: 1200px) {
+    .form { max-width: 650px; }
 }

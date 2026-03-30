@@ -1,11 +1,19 @@
 .logo {
 	h1 {
 		display: none;
+		
 	}
 
 	img {
-		width: 6rem;
+		width: 4.5rem;
 		color: #F4A62A;
+		/* margin-left: -2rem; */
 	}
 }
 
+@media screen and (min-width:1000px){
+	.logo img {
+		margin-left: -4rem;
+		width: 6rem;
+	}
+}

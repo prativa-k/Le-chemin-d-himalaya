@@ -1,150 +1,131 @@
+/* --- FOOTER MAIN BOX --- */
 .footer {
+  /* stretch from left to right edge */
+  width: 100%;
+  background-color: #ffffff;
   
-    width: 100%;
-    background-color: #ffffff;
+  /* shadow at the top to separate from the page */
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+  
+  /* using flex to center everything for mobile */
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  padding: 20px 0;
+  
+  /* OVERLAP FIX: This pushes the footer away from the admin form */
+  margin: 0;
+  margin-top: 100px; 
+  position: relative;
+  clear: both;
+}
 
-    /* STRONG footer separation */
-    box-shadow:
-      0 -6px 20px rgb(248, 245, 245),
-      0 -1px 0 rgba(245, 245, 245, 0.889);
+.number {
+  /* using the brown color for the phone number */
+  color: var(--secondary-color);
+}
+
+/* NO UNDERLINES - this takes them off every single link in the footer */
+.footer a {
+  text-decoration: none; 
+}
+
+.footercontent {
+  /* get rid of the list dots */
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.name {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.address span {
+  /* stack the address lines */
+  display: block;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.links {
+  /* list of links stuff */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  color: var(--primary-color);
+}
+
+.navlink {
+  /* using the brown color for the navigation links */
+  color: var(--secondary-color);
+}
+
+.mentionlegale {
+  /* the very bottom part */
+  width: 100%;
+  text-align: center;
+  /* line above the legal link */
+  border-top: 1px solid #eeeeee;
+  padding-top: 15px;
+  color: var(--secondary-color);
+}
+
+.mentiontext {
+  /* using the green color for the legal text */
+  color: var(--primary-color);
+}
+
+/* --- DESKTOP (WIDE SCREENS) --- */
+@media screen and (min-width: 1000px) {
+  .footer {
+    /* put the items side-by-side now */
+    flex-direction: row; 
+    /* let the legal text wrap to the next line */
+    flex-wrap: wrap; 
+    /* spread everything out evenly */
+    justify-content: space-around; 
+    /* 10% padding keeps the text away from the edges */
+    padding: 40px 10%; 
+    
+    /* bigger gap on desktop so it doesn't touch the admin form */
+    margin-top: 150px;
   }
- 
+
   .footercontent {
+    /* align text left for desktop look */
+    text-align: left;
+    flex: 1;
+  }
+
+  .links {
+    /* make the menu links horizontal */
+    flex-direction: row;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
     color: var(--secondary-color);
   }
-  .name {
-    font-weight: bold;
-    font-size: 1.3rem;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
+
+  .navlink {
+    /* keep links brown on desktop */
+    color: var(--secondary-color);
+  }
+
+  .mentionlegale {
+    /* trick to make the legal link take up the whole bottom row alone */
+    flex-basis: 100%; 
+    margin-top: 30px;
+  }
+
+  .mentiontext {
+    /* keep legal text green on desktop */
     color: var(--primary-color);
   }
-  .address {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  /* for the adrees to appear in two lines */
-  .one, .two {
-     display: block;
-     align-items: center;
-     text-align: center;
-  }
-  .phone {
-    display: flex;
-   gap: 0.4rem;
-   justify-content: center;
-   padding: 0.5rem 0.8rem;
-   align-items: center;   
-   text-align: center;
-  }
-  .icon, .number {
-    display: inline-block;
-    align-items: center;
-    text-align: center;
-  }
- .navlink {
-  text-decoration: none;
-  color: var(--secondary-color);
-  text-align: center;
-  padding: 0.3rem;
- }
- .mentionlegale{
-  width: 95%;
-  color: var(--secondary-color);
- display: flex;
- justify-content: center;
- /* margin-bottom: 1rem; */
- padding: 0.3rem;
- align-items: center;
-
- }
-
- .mentiontext {
-  text-decoration: none;
-  color: var(--secondary-color);
- }
-  
- @media screen and (min-width:768px) {
-  .footer {
-    
-    width: 100%;
-    background-color: #ffffff;
-    margin: 2rem 0;
-    padding: 1rem;
- 
-  
-      /* STRONG footer separation */
-      box-shadow:
-        0 -6px 20px rgba(0, 0, 0, 0.12),
-        0 -1px 0 rgba(232, 225, 225, 0.08);
-    }
-   
-    .footercontent {
-      color: var(--secondary-color);
-    }
-    .name {
-      font-weight: bold;
-      font-size: 1.3rem;
-      text-align: center;
-      padding: 0.6rem;
-      margin-top: 1rem;
-      color: var(--primary-color);
-    }
-    .address {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    /* for the adrees to appear in two lines */
-    .one, .two {
-       display: block;
-       align-items: center;
-       text-align: center;
-    }
-    .phone {
-      display: flex;
-     gap: 0.4rem;
-     justify-content: center;
-     padding: 0.5rem 0.8rem;
-     align-items: center;   
-     text-align: center;
-    }
-    .icon, .number {
-      display: inline-block;
-      align-items: center;
-      text-align: center;
-    }
-   .navlink {
-    text-decoration: none;
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 0.3rem;
-   }
-   .mentionlegale{
-    width: 95%;
-    color: var(--secondary-color);
-   display: flex;
-   justify-content: center;
-   /* margin-bottom: 1rem; */
-   padding: 0.3rem;
-   align-items: center;
- 
-   }
-  
-   .mentiontext {
-    text-decoration: none;
-    color: var(--secondary-color);
-   }
- }
-
- 
-@media screen and (min-width:1000px)  {
-  .footer, .mentionlegale {
-    min-width: 1000px;
-    width: 100%;
-  }
-  
-  
 }

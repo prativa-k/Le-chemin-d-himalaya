@@ -106,7 +106,7 @@ const NavBar = () => {
 						// si l'utilisateur est connecté
 						new SecurityService().getUser() ? (
 							<li>
-								<NavLink to={"/logout"} onClick={handleclick}>
+								<NavLink to={"/logout"} className={styles.connection}  onClick={handleclick}>
 									Déconnexion
 								</NavLink>
 							</li>
@@ -114,11 +114,11 @@ const NavBar = () => {
 							// si l'utilisateur n'est pas connecté
 							<>
 								<li>
-									<NavLink to={"/register"}>S'engistrer</NavLink>
+									<NavLink to={"/register"} className={styles.connection}>S'engistrer</NavLink>
 								</li>
 
 								<li>
-									<NavLink to={"/login"}>Connexion</NavLink>
+									<NavLink to={"/login"} className={styles.connection} >Connexion</NavLink>
 								</li>
 							</>
 						)

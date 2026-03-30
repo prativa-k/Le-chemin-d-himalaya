@@ -1,14 +1,14 @@
-import AdminHomeContent from "../../components/admin/admin_home_content";
+
 import style from "../../assets/css/admin/admin.module.css"
-import SecurityService from "../../services/security_service";
+
 "use client"
 
 
 const Admin = () => {
 	return (
 		<>
-			<h2 className={style.admin}>Admin</h2>
-			<AdminHomeContent />
+			{/* <h2 className={style.admin}>Administration</h2> */}
+			
 
 			{/* afficher l'utilisateur stocké 
 			{JSON.stringify(new SecurityService().getUser())} */}

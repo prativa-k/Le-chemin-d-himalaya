@@ -11,8 +11,6 @@ const Logo = () => {
 
 		" alt="logo" /></Link>	
 		
-
-
 		</div>
 	);
 };

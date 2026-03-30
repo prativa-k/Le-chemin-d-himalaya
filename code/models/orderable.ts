@@ -17,7 +17,8 @@ type Orderable= {
 
     orderable_spice_id:number;
     orderable_spice:OrderableSpice;
+
+};
     
-}
 
 export type {Orderable};

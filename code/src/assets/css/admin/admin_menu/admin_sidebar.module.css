@@ -1,7 +1,23 @@
 .sidebar {
-    height: 100%;
+    width: 250px;
+    padding: 40px 20px;
+    /* LA LIGNE FINE : une bordure à droite pour séparer les sections */
+    border-right: 1px solid #eeeeee;
+    min-height: 80vh;
+  }
+  
+  .sidebarTitle {
+    /* Administration en gras à gauche */
+    font-weight: bold;
     color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .navItem {
+    display: block;
+    color: var(--primary-color);
     text-decoration: none;
-    margin-left: 1rem;
-
-}
+    font-size: 1rem;
+  }

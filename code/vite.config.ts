@@ -1,13 +1,27 @@
 import react from "@vitejs/plugin-react";
 import rsc from "@vitejs/plugin-rsc";
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 
-export default defineConfig(() => {
+export default defineConfig(({mode}) => {
 	return {
     server: {
        port: 5173,
        host:true,
     },
+	test: {
+		// charger le fichier d'environnement de tests
+		env:loadEnv(mode,process.cwd(), ''),
+
+		// exclure des dossiers ou des fichiers
+		coverage: {
+			exclude: ["node_modules", "mongodb", "server/index.ts"],
+			include: ["server/**/*.ts"],
+
+			// dossier d'exportation de la couverture de code en HTML
+			reportsDirectory:"test/coverage",
+		}
+	
+	},
 		plugins: [
 			rsc({
 				// `entries` option is only a shorthand for specifying each `rollupOptions.input` below

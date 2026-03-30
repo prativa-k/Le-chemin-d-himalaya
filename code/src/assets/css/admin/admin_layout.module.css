@@ -1,3 +1,22 @@
-.adminPage{
-    height: 70vh;
-}
+.adminContainer {
+    display: flex; /* La magie qui met la sidebar à gauche du contenu */
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .contentWrapper {
+    flex: 1; /* Prend tout l'espace restant à droite de la sidebar */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainOutlet {
+    padding: 30px;
+  }
+  
+  /* PROTECTION DU FOOTER */
+  .footer {
+    /* Empêche le chevauchement si le contenu est court */
+    margin-top: 100px;
+    clear: both;
+  }
