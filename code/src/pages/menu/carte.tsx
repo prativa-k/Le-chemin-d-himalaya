@@ -11,7 +11,6 @@ const CartePage = () => {
 			
 			<div className={styles.menuBanner}>
 				<img src="/img/chickentikka.jpg" alt="" />
-				<h3>Carte</h3>
 			</div>
 			<CategoryList />
 			<MenuList />

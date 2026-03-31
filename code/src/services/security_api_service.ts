@@ -40,6 +40,8 @@ class SecurityApiService {
 
         return results;
     };
+
 }
+
 
 export default SecurityApiService;

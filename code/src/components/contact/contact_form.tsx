@@ -95,10 +95,7 @@ function ContactForm() {
             className={styles.formInput}
             {...register("email", { 
                 required: "L’email est requis.",
-                pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Format d'email invalide."
-                }
+                
             })}
           />
           {errors.email && <span className={styles.errorText}>{errors.email.message}</span>}
@@ -113,10 +110,7 @@ function ContactForm() {
             className={styles.formInput}
             {...register("phone", { 
                 required: "Numéro portable est requis.",
-                pattern: {
-                    value: /^[0-9+ ]+$/,
-                    message: "Veuillez entrer uniquement des chiffres."
-                },
+            
                 minLength: { value: 10, message: "Le numéro est trop court." }
             })}
           />

@@ -4,7 +4,7 @@ import type { ApiResponse } from "../../../models/api_response";
 import type { Category } from "../../../models/category";
 import CategoryListApiService from "../../services/category_api_service";
 import CategoryListItem from "./category_list_item";
-import styles from "../../assets/css/menu/category_list.module.css"
+import styles from "../../assets/css/category/category_list.module.css"
 
 const CategoryList = () => {
 	/* 

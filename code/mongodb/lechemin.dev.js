@@ -62,3 +62,65 @@ db.contact.insertMany([
           
         }
 ]);
+
+db.avis.insertMany([
+  {
+      name: 'Amandine',
+      rating: 5,
+      message: 'Le Momo (raviolis népalais) est une pure merveille. Une explosion de saveurs en bouche !',
+      
+  },
+  {
+      name: 'Karim',
+      rating: 4,
+      message: 'Très bon accueil. Le poulet Butter Chicken est onctueux, même si le naan était un peu petit.',
+     
+  },
+  {
+      name: 'Julie',
+      rating: 5,
+      message: 'Enfin un restaurant qui propose de vraies options végétariennes savoureuses. Je recommande le Dal Bhat.',
+      
+  },
+  {
+      name: 'Dhurba',
+      rating: 4,
+      message: 'Une ambiance chaleureuse qui rappelle le pays. Les épices sont parfaitement dosées.',
+      
+  },
+  {
+      name: 'Sana',
+      rating: 3,
+      message: 'La cuisine est excellente, mais l’attente était un peu longue ce samedi soir.',
+      
+  },
+  {
+      name: 'Romain',
+      rating: 5,
+      message: 'Dépaysement total ! Le thé népalais à la fin du repas est un incontournable.',
+      
+  },
+  {
+      name: 'Léa',
+      rating: 4,
+      message: 'Super rapport qualité-prix. Les portions sont généreuses et le personnel est souriant.',
+      
+  },
+  {
+      name: 'Mehdi',
+      rating: 5,
+      message: 'Le meilleur restaurant népalais de la ville, sans aucun doute. On reviendra pour l’anniversaire de mon fils.',
+      
+  },
+  {
+      name: 'Sophie',
+      rating: 2,
+      message: 'Un peu trop épicé pour moi, j’aurais dû demander une version plus douce.',
+      
+  },
+  {
+      name: 'Thomas',
+      rating: 5,
+      message: 'Cadre magnifique et plats authentiques. Une adresse à partager absolument !',
+  }
+]);
