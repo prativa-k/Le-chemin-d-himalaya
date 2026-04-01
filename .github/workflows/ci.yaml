@@ -28,3 +28,11 @@ jobs:
         name: Complier le project React
         working-directory: code
         run: npm run build
+
+      -
+        name: Démarrer MYSQL et importer la base de données de tests
+        working-directory: code/mysql
+        run: |
+          mysql -uroot -proot -e "source lechemin.test.sql;"
+          mysql -uroot -proot -e "source ia.test.sql;"
+          mysql -uroot -proot -e "show databases;"
