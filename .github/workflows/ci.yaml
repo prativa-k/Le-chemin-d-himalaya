@@ -1,5 +1,5 @@
 #nom du workflow
-name: Lechemin CI workflow
+name: Lechemin CI workflows
 
 #déclencheur du workflow
 on:
