@@ -59,10 +59,7 @@ function ContactForm() {
                 required: "Le nom est requis.",
                 minLength: { value: 2, message: "Minimum 2 caractères." },
                 maxLength: { value: 30, message: "Maximum 30 caractères." },
-                pattern: {
-                    value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s|-]+$/i,
-                    message: "Le nom ne doit contenir que des lettres."
-                }
+    
             })}
           />
           {errors.name && <span className={styles.errorText}>{errors.name.message}</span>}
@@ -78,10 +75,7 @@ function ContactForm() {
             {...register("prenom", { 
                 required: "Le prénom est requis.",
                 minLength: { value: 2, message: "Minimum 2 caractères." },
-                pattern: {
-                    value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s|-]+$/i,
-                    message: "Le prénom ne doit contenir que des lettres."
-                }
+               
             })}
           />
           {errors.prenom && <span className={styles.errorText}>{errors.prenom.message}</span>}

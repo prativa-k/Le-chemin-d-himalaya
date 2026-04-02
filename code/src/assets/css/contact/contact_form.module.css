@@ -25,7 +25,7 @@
 /* This is the white card with the blue-ish border from your screenshot */
 .contactForm {
   background-color: #ffffff;
-  border: 1px solid  var(--secondary-color); ; 
+  border: 1px solid  var(--hover-color); ; 
   border-radius: 15px;
   width: 100%;
   padding: 40px 20px;
@@ -44,7 +44,7 @@
 }
 
 .formLabel {
-  color: #8a9a3b; /* Olive green color */
+  color: var(--primary-color);
   font-weight: 500;
   margin-bottom: 8px;
   font-size: 18px;
@@ -68,7 +68,7 @@
 }
 
 .submitBtn {
-  background-color: #a3b14a;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 12px 45px;

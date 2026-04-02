@@ -1,22 +1,32 @@
+/* Mon conteneur principal pour toute la zone d'administration */
 .adminContainer {
-    display: flex; /* La magie qui met la sidebar à gauche du contenu */
+    /* J'utilise Flexbox pour placer ma barre latérale (Sidebar) à gauche du contenu */
+    display: flex; 
+    /* J'aligne mes éléments vers le haut pour éviter que la barre de menu ne se décale */
     align-items: flex-start;
     width: 100%;
-  }
-  
-  .contentWrapper {
-    flex: 1; /* Prend tout l'espace restant à droite de la sidebar */
+}
+
+/* C'est la zone qui va contenir tout ce qui se trouve à droite de ma Sidebar */
+.contentWrapper {
+    /* Avec flex: 1, je demande à cette zone de prendre toute la place restante à droite */
+    flex: 1; 
+    /* Je choisis une direction en colonne pour empiler mes éléments verticalement si besoin */
     display: flex;
     flex-direction: column;
-  }
-  
-  .mainOutlet {
+}
+
+/* C'est ici que je fais apparaître mes différentes pages (Dashboard, Produits, etc.) */
+.mainOutlet {
+    /* J'ajoute une marge interne de 30px pour que mon contenu ne colle pas aux bords */
     padding: 30px;
-  }
-  
-  /* PROTECTION DU FOOTER */
-  .footer {
-    /* Empêche le chevauchement si le contenu est court */
+}
+
+/* --- PROTECTION DE MON PIED DE PAGE (FOOTER) --- */
+
+.footer {
+    /* Je mets une grande marge en haut pour que mon footer reste bien en bas de page */
     margin-top: 100px;
+    /* J'utilise clear: both pour être sûr que rien ne vient chevaucher mon footer */
     clear: both;
-  }
+}

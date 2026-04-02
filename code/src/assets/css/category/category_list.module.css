@@ -1,70 +1,66 @@
-/* --- Base Container --- */
+/* --- MOBILE FIRST (Starts at 374px) --- */
 .carteContainer {
-    max-width: 1200px;
-    margin: 0 auto; /* Centers the whole page */
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers children horizontally */
-    min-height: 100vh;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
 }
 
-/* --- Category Navigation (Top Bar) --- */
 .categoryNav {
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap on small screens */
-    justify-content: center; /* Centers links */
-    gap: 15px;
-    padding: 20px;
-    position: sticky; /* Keeps nav visible while scrolling */
+    width: 100%;
+    position: sticky;
     top: 0;
-    background-color: #ffffff;
-    width: 100%;
-    z-index: 10;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 30px;
-}
-
-/* Individual links in the nav */
-.list {
-    text-decoration: none;
-    color: var(--secondary-color); /* Brown */
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.list:hover {
-    color: var(--primary-color); /* Green */
-    background-color: #f0f4e8;
-    border-color: var(--primary-color);
-}
-
-/* --- Menu Items List --- */
-.menuList {
-    width: 100%;
-    max-width: 900px; /* Constrains menu width for better readability */
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    
     display: flex;
-    flex-direction: column;
-    gap: 40px; /* Space between categories */
+    flex-direction: row;
+    /* On mobile: scrollable row */
+    flex-wrap: nowrap; 
+    overflow-x: auto;
+    justify-content: flex-start;
+    
+    scrollbar-width: none; 
 }
 
+.categoryNav::-webkit-scrollbar {
+    display: none;
+}
 
-/* --- Desktop Enhancements (768px+) --- */
-@media (min-width: 768px) {
+.list {
+    flex: 0 0 auto; /* Essential: prevents text from being crushed */
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+/* --- THE FIX: IPAD & DESKTOP (784px and 1200px+) --- */
+@media (min-width: 784px) {
     .categoryNav {
-        gap: 30px;
-        padding: 25px 0;
+        /* We stop scrolling and wrap the items so they stay centered */
+        flex-wrap: wrap; 
+        justify-content: center;
+        overflow-x: hidden; 
+        padding: 5px 0;
     }
 
     .list {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 15px 25px;
     }
+}
 
-    .carteContainer {
-        padding: 40px 20px;
-    }
+.menuList {
+    width: 100%;
+    max-width: 1000px; /* Constrains the items under the nav */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }

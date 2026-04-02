@@ -1,4 +1,9 @@
 .admin {
-    color: var(--secondary-color);
-    padding: 1rem;
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+.administration {
+	text-decoration: none;
+	z-index: 1;
 }

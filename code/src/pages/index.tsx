@@ -10,9 +10,11 @@ const HomePage = () => {
 		<>
 			<Seo title="Acceuil" description="Acceuil - description" url="/" />
 			{/* <h2>HomePage</h2> */}
-			<Banner />
-			<Bienvenue />
-			<OurSpeciality />
+			<main>
+				<Banner />
+				<Bienvenue />
+				<OurSpeciality />
+			</main>
 		</>
 	);
 };

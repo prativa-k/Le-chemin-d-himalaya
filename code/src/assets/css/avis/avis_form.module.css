@@ -1,0 +1,115 @@
+/* Conteneur principal de la page */
+.commander {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* On centre tout le contenu au milieu de l'écran */
+    width: 100%;
+    min-height: 80vh; /* On force une hauteur minimum pour que le footer ne remonte pas trop haut */
+    padding: 40px 20px;
+}
+
+/* Boîte qui contient le formulaire ou les liens de connexion */
+.avisContent {
+    width: 100%;
+    max-width: 800px; /* On limite la largeur pour que les lignes de texte ne soient pas trop longues */
+    text-align: center;
+}
+
+.pageTitle {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* Boîte affichée si l'utilisateur n'est pas connecté */
+.authPrompt {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px; /* On arrondit les coins pour un aspect plus moderne */
+    border: 1px solid #eee;
+}
+
+/* Alignement des boutons S'enregistrer et Connexion */
+.authLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espace régulier entre les deux liens */
+    margin-top: 20px;
+}
+
+.linkRegister {
+    background-color: var(--hover-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.linkLogin {
+    color: var(--hover-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* --- STRUCTURE DU FORMULAIRE --- */
+
+.avisForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espace entre chaque champ du formulaire */
+    margin-top: 30px;
+    text-align: left; /* Le texte des labels reste aligné à gauche */
+}
+
+/* Groupe comprenant un label et son champ de saisie */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Style commun pour les inputs et la zone de texte */
+.input, .textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.textarea {
+    min-height: 150px; /* On donne une hauteur par défaut plus grande pour le message */
+}
+
+.submitBtn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer; /* Le curseur change en main pour montrer que c'est cliquable */
+}
+
+/* Style pour les messages d'erreur de validation */
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+/* Message de succès après l'envoi */
+.serverMessage {
+    background: #eee;
+    padding: 10px;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+}

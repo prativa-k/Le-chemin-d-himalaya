@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useRef } from "react";
 import { Link } from "react-router";
 import type { ApiResponse } from "../../../models/api_response";
 import type { Category } from "../../../models/category";
@@ -14,8 +14,11 @@ use permet de récupérer les données d'une promesse dans un composant serveur 
 		new CategoryListApiService().selectAll(),
 	);
 
+
+
 	return (
 		<section className={styles.carteContainer}>
+		
 			<div className={styles.categoryNav}>
 				{results.data?.map((item) => (
 					// item est passé en props
@@ -35,7 +38,6 @@ use permet de récupérer les données d'une promesse dans un composant serveur 
 				<CategoryListItem key={item.id} data={item} />
 			))}
 			</div>
-			
 		</section>
 	);
 };

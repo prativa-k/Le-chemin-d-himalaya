@@ -1,4 +1,8 @@
 -- supprimer la base si elle existe
+-- mysql -u root -p
+-- use lechemin_dev
+-- pour chargé base de donnes source lechemin.dev.sql; source ia.sql;
+
 -- ATTENTION : pas en production
 DROP DATABASE IF EXISTS lechemin_dev;
 
@@ -108,7 +112,7 @@ VALUES
 	(NULL, "accompagnements"),
 	(NULL, "soupes"),
 	(NULL,"salades"),
-	(NULL, "specialité_népalaise"),
+	(NULL, "specialités népalaises"),
 	(Null, "Biryani"),
 	(NULL, "Pains Indien")
 ;
@@ -141,6 +145,8 @@ VALUES
 	(NULL,4),
 	(NULL,5)
 	;
+
+
 -- -- INSERT INTO foodtruck_dev.dish
 -- -- VALUES
 -- -- 	( NULL, "moussaka", 9.50, "moussaka.jpg", "description moussaka", 2, 2 ),

@@ -1,0 +1,29 @@
+.categorySection {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.categoryTitle {
+    text-align: center;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.menuRow {
+    display: flex;
+    justify-content: space-between; /* Pousse le prix à l'opposé du nom */
+    border-bottom: 1px dotted #ddd;
+    padding: 10px 0;
+}
+
+.dishName {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.dishPrice {
+    font-weight: 700;
+    color: var(--secondary-color);
+}

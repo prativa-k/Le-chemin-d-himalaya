@@ -34,7 +34,7 @@ const NavBar = () => {
 	return (
 		<header>
 			<Logo />
-			<nav
+			<nav aria-label="Navigation principale"
 				className={`${styles.nav} ${navMobileIsVisible ? styles["navbar-mobile-visible"] : ""}`}
 			>
 				{/* <ul className={styles.list}>
@@ -128,9 +128,9 @@ const NavBar = () => {
 
 						new SecurityService().getUser()?.role.name === "admin" ? (
 							<li>
-								<NavLink to={"/admin"} onClick={handleclick}>
+								<NavLink to={"/admin"} onClick={handleclick} aria-label="Administration">
 									{" "}
-									<UserAdmin />
+									<UserAdmin  />
 								</NavLink>
 							</li>
 						) : (
@@ -149,10 +149,13 @@ const NavBar = () => {
 				${navMobileIsVisible ? styles.open : " "}`}
 				onClick={handleclick}
 				type="button"
+				aria-label={navMobileIsVisible ? "Fermer le menu" : "Ouvrir le menu"}
+				aria-expanded={navMobileIsVisible}
+				aria-controls="main-navigation"
 			>
-				<div className={styles.line}></div>
-				<div className={styles.line}></div>
-				<div className={styles.line}></div>
+				<div className={styles.line} aria-hidden="true"></div>
+				<div className={styles.line} aria-hidden="true"></div>
+				<div className={styles.line} aria-hidden="true"></div>
 			</button>
 		</header>
 	);

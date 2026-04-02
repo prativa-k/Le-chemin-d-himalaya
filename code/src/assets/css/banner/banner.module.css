@@ -1,43 +1,50 @@
+/* --- MOBILE-FIRST STRATEGY (Default) --- */
 .banner {
-	
-	width: 100%;
-	margin-inline:auto;
-    
+  /* I use width 100% to ensure it fills the screen on all devices */
+  width: 100%;
+  margin-inline: auto;
+  /* CRITICAL FOR LIGHTHOUSE: I set an aspect-ratio. 
+     This reserves the space for the image BEFORE it loads, 
+     preventing the Cumulative Layout Shift (CLS) red triangle. */
+  aspect-ratio: 16 / 9; 
+  background-color: #f3f3f3; /* A light grey placeholder while loading */
+  overflow: hidden;
 }
 
 .img {
-	width: 100%;
-	object-fit: cover;
-	
+  width: 100%;
+  height: 100%;
+  /* I use object-fit: cover so the food image isn't squished or stretched */
+  object-fit: cover;
+  display: block;
 }
 
-
-/* for ipad */
-@media screen  and (min-width:768px){
-	.banner {
-		width: 100%;
-	
-	}
-	
-	.img {
-		width: 100%;
-		object-position: cover;
-	}
+/* --- TABLET / IPAD (768px+) --- */
+@media screen and (min-width: 768px) {
+  .banner {
+    /* I keep the width 100% for full-screen impact */
+    width: 100%;
+    /* On tablets, I can make the banner slightly taller or keep the ratio */
+    aspect-ratio: 21 / 9;
+  }
 }
 
-/* for Desktop */
-@media screen   and (min-width:1000px){
-	.banner {
-		min-width: 1000px;
-		width: 100%;
-		
-	}
-	
-	.img {
-		width: 100%;
-		object-fit: cover;
-		height: 40%;
-		
+/* --- DESKTOP (1200px+) --- */
+@media screen and (min-width: 1200px) {
+  .banner {
+    /* I set a max-width for very large screens to keep the image sharp, 
+       but you can keep it 100% if your image quality is very high. */
+    width: 100%;
+    max-width: 2000px; 
+    /* I use a fixed height on desktop to keep the "Above the Fold" content stable. 
+       This helps the Largest Contentful Paint (LCP) score. */
+    height: 500px;
+    aspect-ratio: auto; 
+  }
 
-	}
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

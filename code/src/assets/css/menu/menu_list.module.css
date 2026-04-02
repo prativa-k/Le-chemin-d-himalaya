@@ -1,0 +1,38 @@
+/* --- MOBILE FIRST (374px+) --- */
+
+.menuList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* This ensures every category block stays in the middle */
+    align-items: center; 
+    padding: 20px;
+    gap: 40px;
+}
+
+/* This targets the <section> inside the map (CategoryListItem) */
+.menuList > section {
+    width: 100%;
+    /* Limits the width on mobile for better reading */
+    max-width: 450px; 
+}
+
+/* --- THE FIX: IPAD & DESKTOP (784px and 1200px+) --- */
+@media (min-width: 784px) {
+    .menuList {
+        padding: 40px 0;
+    }
+
+    .menuList > section {
+        /* Matches the visual center of your Nav Bar */
+        /* Optimal width so Name and Price stay connected visually */
+        max-width: 800px; 
+    }
+}
+
+@media (min-width: 1200px) {
+    .menuList > section {
+        /* Slightly wider for large screens, but still centered */
+        max-width: 900px; 
+    }
+}

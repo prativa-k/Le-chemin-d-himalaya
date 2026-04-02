@@ -1,0 +1,106 @@
+.commander {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.avisContent {
+    width: 100%;
+    max-width: 800px; /* Aligné sur la largeur de ton menu */
+    text-align: center;
+}
+
+.pageTitle {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.authPrompt {
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.authLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.linkRegister {
+    background-color: var(--hover-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.linkLogin {
+    color: var(--hover-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Styles du formulaire */
+.avisForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.input, .textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.textarea {
+    min-height: 150px;
+}
+
+.submitBtn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.serverMessage {
+    background: #eee;
+    padding: 10px;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+}

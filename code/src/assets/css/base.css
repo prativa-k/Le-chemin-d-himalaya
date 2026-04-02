@@ -1,14 +1,15 @@
 /* polices */
 @font-face {
 	font-family: montserrat;
+	font-display: swap;
 	src: url(../fonts/Montserrat-VariableFont_wght.ttf);
 }
 /* varibales css */
 :root {
 	
-    --primary-color:#989e38;
-	--secondary-color:#ac6945;
-	--hover-color: #f79124;
+    --primary-color:#717628;;
+	--secondary-color:#925433;
+	--hover-color: #c96d00;
     
 }
 
