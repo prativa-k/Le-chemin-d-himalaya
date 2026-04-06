@@ -1,144 +1,158 @@
-/* for mobile */
+/* --- MOBILE SECTION --- */
 
 header {
-	width: 95%;
-	background-color: white;
-	height: 6vh;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-inline: auto;
-	padding: 2rem;
+    /* I used 100% instead of 95% to stop the header from being smaller than the screen */
+    width: 100%;
+    background-color: white;
+    /* I used 80px instead of 6vh so the header doesn't jump when the page loads */
+    height: 80px;
+    display: flex;
+    /* This pushes the logo to the left and the burger to the right */
+    justify-content: space-between;
+    align-items: center;
+    /* I added padding so the logo and burger aren't touching the screen edges */
+    padding: 0 1.5rem;
+    /* This makes sure the padding doesn't make the header wider than the screen */
+    box-sizing: border-box;
+    position: relative;
+    /* This hides the menu when it's tucked away to the right */
+    overflow: hidden;
 }
 
-/* navbar */
+/* This is the slide-out menu drawer */
 .nav {
-	font-size: 1rem;
-	color: black;
-	top: 4rem;
-	right: -1200px;
-	height: 100vh;
-	background-color: rgba(159, 148, 103, 0.25);
-	backdrop-filter: blur(4px);
-	transition: 0.3s ease;
-	text-transform: uppercase;
-	font-weight: bold;
-
-	z-index: 1;
-	width: 100%;
-	text-align: center;
-	position: fixed;
-	padding: 1rem 0;
-
-	&.navbar-mobile-visible {
-		display: block;
-		right: 0;
-	}
+    font-size: 1rem;
+    color: black;
+    /* This starts the menu right under the 80px header */
+    top: 80px;
+    /* I used -100% instead of -1200px so the browser doesn't think the page is huge */
+    right: -100%;
+    height: 100vh;
+    /* I made the background a bit more solid so the banner doesn't make text hard to read */
+    background-color: rgba(159, 148, 103, 0.95);
+    backdrop-filter: blur(4px);
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    padding: 1rem 0;
 }
-/* hamburger menu */
+
+/* This class gets added by React to show the menu */
+.nav.navbar-mobile-visible {
+    display: block;
+    right: 0;
+}
+
+/* This is the button that holds the three lines */
 .menuburger {
-	display: flex;
-	flex-direction: column;
-	border: none;
-	background: transparent;
-
-	.line {
-		width: 1rem;
-		height: 0.15rem;
-		margin-bottom: 0.3rem;
-		background-color: var(--secondary-color);
-	}
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: transparent;
+    /* This makes the cursor a hand so people know they can click it */
+    cursor: pointer;
 }
-/* for the cross upon clicking */
+
+/* These are the actual three lines of the burger */
+.line {
+    width: 1.5rem;
+    height: 0.15rem;
+    margin-bottom: 0.3rem;
+    background-color: var(--secondary-color);
+    /* This makes the lines spin smoothly when clicking */
+    transition: 0.3s;
+}
+
+/* This turns the top line into a diagonal */
 .open .line:nth-child(1) {
-	transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
+/* This hides the middle line */
 .open .line:nth-child(2) {
-	opacity: 0;
+    opacity: 0;
 }
 
+/* This turns the bottom line into the other diagonal */
 .open .line:nth-child(3) {
-	transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .list {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	color: var(--primary-color);
-	gap: 1.2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+    gap: 1.2rem;
 }
 
-/* for the navlink */
 .link {
-	color: white;
-	font-size: 1.3rem;
-	text-decoration: none;
+    /* I changed this to white so it stands out against the gold menu background */
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
 }
+
 .authList {
-	display: flex;
-	gap: 0.4rem;
-
-	.connection {
-		color: var(--primary-color);
-		text-decoration: none;
-	}
-}
-.authList {
-	text-transform: uppercase;
-	font-weight: bold;
+    display: flex;
+    gap: 0.4rem;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-/* for ipad */
+.connection {
+    color: var(--primary-color);
+    text-decoration: none;
+}
 
-/* for desktop */
+/* --- DESKTOP SECTION (1200px and up) --- */
+
 @media screen and (min-width: 1200px) {
-	header {
-		max-width: 1000px;
-		background-color: white;
-		height: 6vh;
-	}
+    header {
+        /* I made the header take up the full width but stay neat */
+        max-width: 1200px;
+        margin-inline: auto;
+        padding: 0 2rem;
+        /* I turned off overflow so the hover effects don't get cut off */
+        overflow: visible;
+    }
 
-	/* navbar */
+    /* We don't need the burger on a big screen */
+    .menuburger {
+        display: none;
+    }
 
-	/* hide burger on desktop */
-	.menuburger {
-		display: none;
-	}
+    /* This puts the menu back into the header bar instead of a side drawer */
+    .nav {
+        position: static;
+        height: auto;
+        width: auto;
+        display: block;
+        background-color: transparent;
+        backdrop-filter: none;
+        padding: 0;
+    }
 
-	/* nav always visible */
-	.nav {
-		position: static; /* reset fixed */
-		height: auto;
-		width: 100;
-		right: auto;
-		top: auto;
-		display: block; /* always shown */
-		background-color: transparent;
-		backdrop-filter: none;
-		padding: 0;
-		text-transform: uppercase;
-		font-weight: bold;
-	}
+    .list {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
 
-	.list {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 1rem;
-	}
+    .link {
+        /* On white background, we need the primary color again */
+        color: var(--primary-color);
+        font-size: 1.1rem;
+    }
 
-	.link {
-		color: var(--primary-color); /* not white on white bg */
-		font-size: 1.1rem;
-		text-decoration: none;
-	}
-
-	.link:hover {
-		border: 2px solid var(--hover-color);
-		border-radius: 3rem;
-		padding: 0.5rem;
-		transform: scale(0.3);
-	}
+    /* This makes the links grow slightly when you point at them */
+    .link:hover {
+        color: var(--hover-color);
+        transform: scale(1.1);
+        transition: 0.2s;
+    }
 }

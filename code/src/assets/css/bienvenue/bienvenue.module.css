@@ -26,7 +26,7 @@
     padding: 1rem;
     margin: 1.5rem 0;
     /* I added a small radius to match the rest of my UI design */
-    border-radius: 4px;
+    border-radius: 20px;
 }
 
 /* --- ABOUT TEXT --- */

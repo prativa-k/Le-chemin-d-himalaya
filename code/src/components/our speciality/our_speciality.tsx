@@ -70,24 +70,6 @@ const OurSpeciality = () => {
 				</li>
 
 				<li className={styles.specialityitem}>
-					<article aria-labelledby="dish-korma-title">
-						<img
-							width="600" 
-							height="400"
-							loading="lazy"
-							src="/img/chickenkorma.avif"
-							alt="Plat de shahi chicken korma dans une sauce douce aux amandes"
-						/>
-						<h3 id="dish-korma-title" className={styles.foodname}>
-							Shahi Chicken Korma
-						</h3>
-						<p className={styles.description}>
-							Poulet désossé dans une sauce douce aux amandes.
-						</p>
-					</article>
-				</li>
-
-				<li className={styles.specialityitem}>
 					<article aria-labelledby="dish-paneer-title">
 						<img
 							width="600" 
@@ -106,20 +88,39 @@ const OurSpeciality = () => {
 				</li>
 
 				<li className={styles.specialityitem}>
-					<article aria-labelledby="dish-samosa-title">
+					<article aria-labelledby="dish-chicken-chowmein-title">
 						<img
 							width="600" 
 							height="400"
 							loading="lazy"
-							src="/img/samosa.avif"
-							alt="Samossa aux légumes farci de pommes de terre, carottes et petits pois"
+							src="/img/chickenchowmein.avif"
+							alt="Nouilles sautées au poulet, légumes croquants et sauce soja parfumée au gingembre."
 						/>
-						<h3 id="dish-samosa-title" className={styles.foodname}>
-							Samossa légumes
+						<h3 id="dish-chicken-chowmein-title" className={styles.foodname}>
+							Chicken Chowmein
 						</h3>
 						<p className={styles.description}>
-							Feuilleté de pommes de terre farci aux petits pois, carottes,
-							noix de cajou et épices.
+						Nouilles sautées au poulet, légumes croquants et sauce soja parfumée au gingembre.
+						</p>
+					</article>
+				</li>
+
+				
+
+				<li className={styles.specialityitem}>
+					<article aria-labelledby="dish-momo-title">
+						<img
+							width="600" 
+							height="400"
+							loading="lazy"
+							src="/img/momo.avif"
+							alt="Samossa aux légumes farci de pommes de terre, carottes et petits pois"
+						/>
+						<h3 id="dish-momo-title" className={styles.foodname}>
+							Momo
+						</h3>
+						<p className={styles.description}>
+						Raviolis à la vapeur farcis au poulet et gingembre. Servis avec un chutney.
 						</p>
 					</article>
 				</li>

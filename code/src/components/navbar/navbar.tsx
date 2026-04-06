@@ -114,7 +114,7 @@ const NavBar = () => {
 							// si l'utilisateur n'est pas connecté
 							<>
 								<li>
-									<NavLink to={"/register"} className={styles.connection}>S'engistrer</NavLink>
+									<NavLink to={"/register"} className={styles.connection}>S'enregistrer</NavLink>
 								</li>
 
 								<li>

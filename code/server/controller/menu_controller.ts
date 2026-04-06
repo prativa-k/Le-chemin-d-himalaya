@@ -66,15 +66,10 @@ class MenuController {
 		//renommer le fichier transféré et recupérer le nom complet
 		// const fullname = fileService.rename(file);
 
-	
-		
-		
 		//récupération des résultats de la résultats de la requête
 		// req.body: récupérer la priopriété body de la requête
 		const results = await new MenuRepository().insert(req.body);
 		
-
-	
 
 		// si la requête renvoie une erreur
 		if (results instanceof Error) {

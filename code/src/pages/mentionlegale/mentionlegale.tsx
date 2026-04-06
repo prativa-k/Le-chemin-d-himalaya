@@ -9,9 +9,6 @@ const MentionLegale = () => {
       <Seo title="Mentions Légales" description="Informations légales et protection des données" url="mentions-legales" />
       
       {/* Bannière avec accessibilité */}
-      <div className={styles.mentionlegale} role="presentation">
-        <img src="/img/banner.avif" alt="Bannière décorative du restaurant" />
-      </div>
 
       <main className={styles.box} id="main-content">
         <h1 className={styles.title}>Mentions Légales</h1>

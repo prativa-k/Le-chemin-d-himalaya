@@ -746,17 +746,17 @@ import MYSQLService from "../service/mysql_service";
 import OrderableRepository from "./orderable_repository";
 &nbsp;
 class MenuRepository {
-	//nom de la table SQL
-	private table = "menu";
+  //nom de la table SQL
+  private table = "menu";
 &nbsp;
-	// sélectionner tous les enregistrements
-	public selectAll = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (): Promise&lt;Menu[] | unknown&gt; =&gt; {</span></span>
-		// connexion au serveur MYSQL
-		const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
+  // sélectionner tous les enregistrements
+  public selectAll = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (): Promise&lt;Menu[] | unknown&gt; =&gt; {</span></span>
+    // connexion au serveur MYSQL
+    const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
 &nbsp;
-		// requête SQL
-		// SELECT menu.* FROM lechemin_dev.menu;
-		/*
+    // requête SQL
+    // SELECT menu.* FROM lechemin_dev.menu;
+    /*
 			SELECT
 				menu.*,
 				GROUP_CONCAT(orderable.id) AS orderable_ids
@@ -774,7 +774,7 @@ class MenuRepository {
 				menu.id
 			;
 		*/
-		const sql = <span class="cstat-no" title="statement not covered" >`</span>
+    const sql = <span class="cstat-no" title="statement not covered" >`</span>
         SELECT 
 			${this.table}.*,
 			GROUP_CONCAT(orderable.id) AS orderable_ids
@@ -793,40 +793,40 @@ class MenuRepository {
 		${this.table}.id
 			;
         `;
-		//try / catch : récupérer les resultats de la requête ou un erreur
+    //try / catch : récupérer les resultats de la requête ou un erreur
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		try {</span>
-			// exécution de la requête
-			const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      // exécution de la requête
+      const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			for (let i = <span class="cstat-no" title="statement not covered" >0; i</span> &lt; (query as Menu[]).length; i++) {</span>
-				// récupérer un résultat
+<span class="cstat-no" title="statement not covered" >      for (let i = <span class="cstat-no" title="statement not covered" >0; i</span> &lt; (query as Menu[]).length; i++) {</span>
+        // récupérer un résultat
 &nbsp;
-				const result = (<span class="cstat-no" title="statement not covered" >query as Menu[])[i] as Menu;</span>
+        const result = (<span class="cstat-no" title="statement not covered" >query as Menu[])[i] as Menu;</span>
 &nbsp;
-				// clés jointures
-<span class="cstat-no" title="statement not covered" >				result.orderables = (await new OrderableRepository().selectINlist(</span>
-					result.orderable_ids as string,
-				)) as Orderable[];
-			}
+        // clés jointures
+<span class="cstat-no" title="statement not covered" >        result.orderables = (await new OrderableRepository().selectINlist(</span>
+          result.orderable_ids as string,
+        )) as Orderable[];
+      }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			return query;</span>
-		} catch (error) {
-<span class="cstat-no" title="statement not covered" >			return error;</span>
-		}
-	};
+<span class="cstat-no" title="statement not covered" >      return query;</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >      return error;</span>
+    }
+  };
 &nbsp;
-	// sélectionner un les enregistrements
-	// data représente une partie des proriétés du type
-	public selectOne = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (d</span>ata: Partial&lt;Menu&gt;): Promise&lt;Menu | unknown&gt; =&gt; {</span>
-		// connexion au serveur MYSQL
-		const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
+  // sélectionner un les enregistrements
+  // data représente une partie des proriétés du type
+  public selectOne = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (d</span>ata: Partial&lt;Menu&gt;): Promise&lt;Menu | unknown&gt; =&gt; {</span>
+    // connexion au serveur MYSQL
+    const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
 &nbsp;
-		// requête SQL
-		// WHERE category.id = ...
-		//variable de réqête: précédée d'un: , suivi du nom de la variable
-		// requêtes préparées : sécurité, le requêtes: la requête est exécutées si elle ne rpésente pas de risque de sécurité
-		const sql = <span class="cstat-no" title="statement not covered" >`</span>
+    // requête SQL
+    // WHERE category.id = ...
+    //variable de réqête: précédée d'un: , suivi du nom de la variable
+    // requêtes préparées : sécurité, le requêtes: la requête est exécutées si elle ne rpésente pas de risque de sécurité
+    const sql = <span class="cstat-no" title="statement not covered" >`</span>
         SELECT 
 			${this.table}.*,
 			GROUP_CONCAT(orderable.id) AS orderable_ids
@@ -847,38 +847,38 @@ class MenuRepository {
 			;
         `;
 &nbsp;
-		//try / catch : récupérer les resultats de la requête ou un erreur
+    //try / catch : récupérer les resultats de la requête ou un erreur
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		try {</span>
-			// exécution de la requête
-			const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      // exécution de la requête
+      const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
 &nbsp;
-			// récupérer un résultat
+      // récupérer un résultat
 &nbsp;
-			const result = (<span class="cstat-no" title="statement not covered" >query as Menu[]).shift() as Menu;</span>
+      const result = (<span class="cstat-no" title="statement not covered" >query as Menu[]).shift() as Menu;</span>
 &nbsp;
-			// clés jointures
-<span class="cstat-no" title="statement not covered" >			result.orderables = (await new OrderableRepository().selectINlist(</span>
-				result.orderable_ids as string,
-			)) as Orderable[];
+      // clés jointures
+<span class="cstat-no" title="statement not covered" >      result.orderables = (await new OrderableRepository().selectINlist(</span>
+        result.orderable_ids as string,
+      )) as Orderable[];
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			return result;</span>
-		} catch (error) {
-<span class="cstat-no" title="statement not covered" >			return error;</span>
-		}
-	};
+<span class="cstat-no" title="statement not covered" >      return result;</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >      return error;</span>
+    }
+  };
 &nbsp;
-	// insérer un enregistrement
+  // insérer un enregistrement
 &nbsp;
-	public insert = async (
-		data: Partial&lt;Menu&gt;,
-	): Promise&lt;QueryResult | unknown&gt; =&gt; {
-		// connection au serveur
+  public insert = async (
+    data: Partial&lt;Menu&gt;,
+  ): Promise&lt;QueryResult | unknown&gt; =&gt; {
+    // connection au serveur
 &nbsp;
-		const connection = await new MYSQLService().connect();
+    const connection = await new MYSQLService().connect();
 &nbsp;
-		// requête SQL
-		let sql = `
+    // requête SQL
+    let sql = `
 			INSERT INTO 
 			${process.env.MYSQL_DATABASE}.${this.table}
 &nbsp;
@@ -892,19 +892,19 @@ class MenuRepository {
 		
 		`;
 &nbsp;
-		try {
-			//demarré un transaction SQL
-			connection.beginTransaction();
+    try {
+      //demarré un transaction SQL
+      connection.beginTransaction();
 &nbsp;
-			//exécuter la prémiere requête SQL
-			await connection.execute(sql, data);
+      //exécuter la prémiere requête SQL
+      await connection.execute(sql, data);
 &nbsp;
-			// deuxième requête SQL
-			sql = `SET @id = LAST_INSERT_ID();`;
-			await connection.execute(sql, data);
+      // deuxième requête SQL
+      sql = `SET @id = LAST_INSERT_ID();`;
+      await connection.execute(sql, data);
 &nbsp;
-			// troisième requête
-			/*
+      // troisième requête
+      /*
 			INSERT INTO lechemin_dev.orderable_menu
 		 	VALUES
 			(1, @id),
@@ -914,46 +914,46 @@ class MenuRepository {
 			split: extraire des données d'une chaîne de caractères en array
 				1,2,3 &gt;&gt; (1, @id),(2, @id),(3, @id)
 			*/
-			const joinIds = (data.orderable_ids as string)
-				?.split(",")
-				.map((value) =&gt; `(${value},@id)`)
-				.join();
-			// console.log(joinIds);
+      const joinIds = (data.orderable_ids as string)
+        ?.split(",")
+        .map((value) =&gt; `(${value},@id)`)
+        .join();
+      // console.log(joinIds);
 &nbsp;
-			sql = `
+      sql = `
 				INSERT INTO
 				${process.env.MYSQL_DATABASE}.orderable_menu
 				VALUES
 				${joinIds}
 				;
 			`;
-			const [query] = await connection.execute(sql);
+      const [query] = await connection.execute(sql);
 &nbsp;
-			// exécution de la requête
-			// const [query] = await connection.execute(sql, data);
+      // exécution de la requête
+      // const [query] = await connection.execute(sql, data);
 &nbsp;
-			//valider la transaction SQL
-			connection.commit();
+      //valider la transaction SQL
+      connection.commit();
 &nbsp;
-			return query;
-			// retourner kes résultants
-		} catch (error) {
-			//annuler une transcation SQL
-<span class="cstat-no" title="statement not covered" >			connection.rollback();</span>
-<span class="cstat-no" title="statement not covered" >			return error;</span>
-		}
-	};
+      return query;
+      // retourner kes résultants
+    } catch (error) {
+      //annuler une transcation SQL
+<span class="cstat-no" title="statement not covered" >      connection.rollback();</span>
+<span class="cstat-no" title="statement not covered" >      return error;</span>
+    }
+  };
 &nbsp;
-	//
-	public update = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (</span></span>
-		data: Partial&lt;Menu&gt;,
-	): Promise&lt;QueryResult | unknown&gt; =&gt; {
-		// connection au serveur
+  //
+  public update = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (</span></span>
+    data: Partial&lt;Menu&gt;,
+  ): Promise&lt;QueryResult | unknown&gt; =&gt; {
+    // connection au serveur
 &nbsp;
-		const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
+    const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
 &nbsp;
-		// requête SQL
-		let sql = <span class="cstat-no" title="statement not covered" >`</span>
+    // requête SQL
+    let sql = <span class="cstat-no" title="statement not covered" >`</span>
 			UPDATE
 				${process.env.MYSQL_DATABASE}.${this.table}
 &nbsp;
@@ -966,26 +966,26 @@ class MenuRepository {
 		
 		`;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		try {</span>
-			//demarré un transaction SQL
-<span class="cstat-no" title="statement not covered" >			connection.beginTransaction();</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      //demarré un transaction SQL
+<span class="cstat-no" title="statement not covered" >      connection.beginTransaction();</span>
 &nbsp;
-			//exécuter la prémiere requête SQL
-			//si la requêye posséde des variables, utliser le paramétre de la methode
-<span class="cstat-no" title="statement not covered" >			await connection.execute(sql, data);</span>
+      //exécuter la prémiere requête SQL
+      //si la requêye posséde des variables, utliser le paramétre de la methode
+<span class="cstat-no" title="statement not covered" >      await connection.execute(sql, data);</span>
 &nbsp;
-			// // deuxième requête SQL
-<span class="cstat-no" title="statement not covered" >			sql = `</span>
+      // // deuxième requête SQL
+<span class="cstat-no" title="statement not covered" >      sql = `</span>
 				DELETE FROM 
 					${process.env.MYSQL_DATABASE}.orderable_menu
 				WHERE	 
 					orderable_menu.menu_id = :id
 				;
 			`;
-<span class="cstat-no" title="statement not covered" >			await connection.execute(sql, data);</span>
+<span class="cstat-no" title="statement not covered" >      await connection.execute(sql, data);</span>
 &nbsp;
-			// troisième requête
-			/*
+      // troisième requête
+      /*
 			INSERT INTO lechemin_dev.orderable_menu
 		 	VALUES
 			(1, @id),
@@ -996,13 +996,13 @@ class MenuRepository {
 				1,2,3 &gt;&gt; (1, @id),(2, @id),(3, @id)
 			*/
 &nbsp;
-			const joinIds = (<span class="cstat-no" title="statement not covered" >data.orderable_ids as string)</span>
-				?.split(",")
-				.map(<span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; <span class="cstat-no" title="statement not covered" >`(${value},:id)`)</span>
-				.join();
-			// console.log(joinIds);
+      const joinIds = (<span class="cstat-no" title="statement not covered" >data.orderable_ids as string)</span>
+        ?.split(",")
+        .map(<span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; <span class="cstat-no" title="statement not covered" >`(${value},:id)`)</span>
+        .join();
+      // console.log(joinIds);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			sql = `</span>
+<span class="cstat-no" title="statement not covered" >      sql = `</span>
 				INSERT INTO
 				${process.env.MYSQL_DATABASE}.orderable_menu
 				VALUES
@@ -1010,31 +1010,31 @@ class MenuRepository {
 				;
 			`;
 &nbsp;
-			// exécution de la requête
-			const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
+      // exécution de la requête
+      const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
 &nbsp;
-			//valider la transaction SQL
-<span class="cstat-no" title="statement not covered" >			connection.commit();</span>
+      //valider la transaction SQL
+<span class="cstat-no" title="statement not covered" >      connection.commit();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			return query;</span>
-			// retourner kes résultants
-		} catch (error) {
-			//annuler une transcation SQL
-<span class="cstat-no" title="statement not covered" >			connection.rollback();</span>
-<span class="cstat-no" title="statement not covered" >			return error;</span>
-		}
-	};
+<span class="cstat-no" title="statement not covered" >      return query;</span>
+      // retourner kes résultants
+    } catch (error) {
+      //annuler une transcation SQL
+<span class="cstat-no" title="statement not covered" >      connection.rollback();</span>
+<span class="cstat-no" title="statement not covered" >      return error;</span>
+    }
+  };
 &nbsp;
-	// suprimer un enegistrement
-	public delete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (</span></span>
-		data: Partial&lt;Menu&gt;,
-	): Promise&lt;QueryResult | unknown&gt; =&gt; {
-		// connection au serveur
+  // suprimer un enegistrement
+  public delete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (</span></span>
+    data: Partial&lt;Menu&gt;,
+  ): Promise&lt;QueryResult | unknown&gt; =&gt; {
+    // connection au serveur
 &nbsp;
-		const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
+    const connection = <span class="cstat-no" title="statement not covered" >await new MYSQLService().connect();</span>
 &nbsp;
-		// requête SQL
-		let sql = <span class="cstat-no" title="statement not covered" >`</span>
+    // requête SQL
+    let sql = <span class="cstat-no" title="statement not covered" >`</span>
 			DELETE FROM
 				${process.env.MYSQL_DATABASE}.orderable_menu
 			WHERE
@@ -1043,16 +1043,16 @@ class MenuRepository {
 		
 		`;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >		try {</span>
-			//demarré un transaction SQL
-<span class="cstat-no" title="statement not covered" >			connection.beginTransaction();</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      //demarré un transaction SQL
+<span class="cstat-no" title="statement not covered" >      connection.beginTransaction();</span>
 &nbsp;
-			//exécuter la prémiere requête SQL
-			//si la requêye posséde des variables, utliser le paramétre de la methode
-<span class="cstat-no" title="statement not covered" >			await connection.execute(sql, data);</span>
+      //exécuter la prémiere requête SQL
+      //si la requêye posséde des variables, utliser le paramétre de la methode
+<span class="cstat-no" title="statement not covered" >      await connection.execute(sql, data);</span>
 &nbsp;
-			// // deuxième requête SQL
-<span class="cstat-no" title="statement not covered" >			sql = `</span>
+      // // deuxième requête SQL
+<span class="cstat-no" title="statement not covered" >      sql = `</span>
 				DELETE FROM 
 					${process.env.MYSQL_DATABASE}.${this.table}
 				WHERE	 
@@ -1060,20 +1060,20 @@ class MenuRepository {
 				;
 			`;
 &nbsp;
-			// exécution de la requête
-			const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
+      // exécution de la requête
+      const [query] = <span class="cstat-no" title="statement not covered" >await connection.execute(sql, data);</span>
 &nbsp;
-			//valider la transaction SQL
-<span class="cstat-no" title="statement not covered" >			connection.commit();</span>
+      //valider la transaction SQL
+<span class="cstat-no" title="statement not covered" >      connection.commit();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			return query;</span>
-			// retourner kes résultants
-		} catch (error) {
-			//annuler une transcation SQL
-<span class="cstat-no" title="statement not covered" >			connection.rollback();</span>
-<span class="cstat-no" title="statement not covered" >			return error;</span>
-		}
-	};
+<span class="cstat-no" title="statement not covered" >      return query;</span>
+      // retourner kes résultants
+    } catch (error) {
+      //annuler une transcation SQL
+<span class="cstat-no" title="statement not covered" >      connection.rollback();</span>
+<span class="cstat-no" title="statement not covered" >      return error;</span>
+    }
+  };
 }
 &nbsp;
 export default MenuRepository;
@@ -1084,7 +1084,7 @@ export default MenuRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-31T08:12:02.616Z
+                at 2026-04-06T20:46:16.989Z
             </div>
         <script src="../prettify.js"></script>
         <script>
