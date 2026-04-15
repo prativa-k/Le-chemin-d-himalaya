@@ -26,7 +26,7 @@ const AdminMenusHomeContent = () => {
 
         <div className={styles.cardActions}>
           <Link to={`/admin/menu/form/${item.id}`} className={styles.modifyLink}>
-            Ajouter
+            Modifier
           </Link>
 
           <Link to={`/admin/menu/delete/${item.id}`} className={styles.deleteLink}>

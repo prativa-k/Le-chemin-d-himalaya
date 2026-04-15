@@ -29,7 +29,7 @@ header {
     right: -100%;
     height: 100vh;
     /* I made the background a bit more solid so the banner doesn't make text hard to read */
-    background-color: rgba(159, 148, 103, 0.95);
+    background-color: rgba(240, 227, 201, 0.5);
     backdrop-filter: blur(4px);
     transition: 0.3s ease;
     text-transform: uppercase;

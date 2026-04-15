@@ -167,7 +167,7 @@ AdminMenuFormContentProps) => {
 					type="number"
 					id={priceId}
 					{...register("price", {
-						required: "Price is required",
+						required: "Price est obligatore",
 
 						min: {
 							value: 2,
