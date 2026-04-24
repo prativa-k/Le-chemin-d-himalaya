@@ -307,6 +307,6 @@ GET          | /api/orderable-type/:id    | Détail d’un type de produit
 
 ## pdf (Le cahier des charges du projet)
 
-[Cahier des charges](docs/fiche-CI.pdf)
+[Cahier des charges](https://docs.google.com/document/d/1WOhSvDM0ijh7rfX0oDloYStSvrI6VXB0/edit)
 ## La présentation du projet 
-[Présenation canva](docs/fiche-CI.pdf)
+[Présenation](https://gamma.app/docs/Le-Chemin-de-lHimalaya-d4i8wqc9166svw2?mode=doc)

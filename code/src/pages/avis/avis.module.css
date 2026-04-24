@@ -36,7 +36,7 @@
 }
 
 .linkRegister {
-    background-color: var(--hover-color);
+    background-color: var(--primary-color);
     color: white;
     padding: 12px 25px;
     text-decoration: none;
